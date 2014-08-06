@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:id="@+id/takePhotoItem"
+        android:title="拍照">
+    </item>
+    <item
+        android:id="@+id/stopPhotoItem"
+        android:title="停止预览">
+    </item>
+    <item
+        android:id="@+id/queryPhotoItem"
+        android:title="浏览相片">
+    </item>
+</menu>
