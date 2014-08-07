@@ -3,8 +3,22 @@
 	<classpathentry kind="src" path="libs"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry kind="lib" path="/home/micall/workspace/EIM/libs/android-support-v4.jar"/>
-	<classpathentry kind="lib" path="/home/micall/workspace/EIM_origin/EIM/libs/asmack-jse-buddycloud-2010.12.11.jar"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="lib" path="/home/micall/tools/asmack-master/gradle_result/smack-bosh-4.1.0-alpha1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/micall/tools/asmack-master/gradle_result/smack-compression-jzlib-4.1.0-alpha1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/micall/tools/asmack-master/gradle_result/smack-core-4.1.0-alpha1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/micall/tools/asmack-master/gradle_result/smack-core-compression-4.1.0-alpha1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/micall/tools/asmack-master/gradle_result/smack-core-dns-4.1.0-alpha1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/micall/tools/asmack-master/gradle_result/smack-debug-4.1.0-alpha1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/micall/tools/asmack-master/gradle_result/smack-experimental-4.1.0-alpha1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/micall/tools/asmack-master/gradle_result/smack-extensions-4.1.0-alpha1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/micall/tools/asmack-master/gradle_result/smack-java7-4.1.0-alpha1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/micall/tools/asmack-master/gradle_result/smack-jingle-4.1.0-alpha1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/micall/tools/asmack-master/gradle_result/smack-legacy-4.1.0-alpha1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/micall/tools/asmack-master/gradle_result/smack-resolver-dnsjava-4.1.0-alpha1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/micall/tools/asmack-master/gradle_result/smack-resolver-javax-4.1.0-alpha1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/micall/tools/asmack-master/gradle_result/smack-resolver-minidns-4.1.0-alpha1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="/home/micall/tools/asmack-master/gradle_result/smack-tcp-4.1.0-alpha1-SNAPSHOT.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

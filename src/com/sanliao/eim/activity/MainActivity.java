@@ -10,6 +10,7 @@ import org.jivesoftware.smackx.packet.VCard;
 
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -262,6 +263,20 @@ public class MainActivity extends ActivitySupport {
 				case 3:// 个人通讯录
 					break;
 				case 4:// 我的邮件
+			
+					new Thread(new Runnable() {
+						
+						@Override
+						public void run() {
+							// TODO Auto-generated method stub
+							Intent eIntent=new Intent();
+							eIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+							ComponentName comp=new ComponentName("com.fsck.k9","com.fsck.k9.activity.Accounts");
+							eIntent.setComponent(comp);
+							eIntent.setAction("android.intent.action.VIEW");
+							startActivity(eIntent);
+						}
+					}).start();
 					break;
 				case 5:// 网络收藏夹
 					break;
