@@ -2,6 +2,7 @@ package com.sanliao.eim.task;
 
 import java.util.Collection;
 
+import org.jivesoftware.smack.AccountManager;
 import org.jivesoftware.smack.PacketCollector;
 import org.jivesoftware.smack.RosterEntry;
 import org.jivesoftware.smack.SmackConfiguration;
@@ -15,6 +16,7 @@ import org.jivesoftware.smack.packet.IQ;
 import org.jivesoftware.smack.packet.Presence;
 import org.jivesoftware.smack.packet.Registration;
 import org.jivesoftware.smack.packet.XMPPError;
+ 
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -62,6 +64,7 @@ public class LoginTask extends AsyncTask<String, Integer, Integer> {
 
 	@Override
 	protected Integer doInBackground(String... params) {
+		
 		boolean isRegister = loginConfig.isRegister();
 		if(isRegister==true)
 			return regiester();
@@ -132,6 +135,7 @@ public class LoginTask extends AsyncTask<String, Integer, Integer> {
 			XMPPConnection connection = XmppConnectionManager.getInstance().getConnection();
 			Log.d(LOG_TAG,"login c2");
 			connection.connect();
+	 
 			Log.d(LOG_TAG,"login c3");
 			connection.login(username, password); // 登录
 			Log.d(LOG_TAG, "login c4");
@@ -157,12 +161,16 @@ public class LoginTask extends AsyncTask<String, Integer, Integer> {
 			
 			return Constant.LOGIN_SECCESS;
 		} catch (Exception xee) {
+			Log.d(LOG_TAG,xee.toString() );
 			if (xee instanceof XMPPException) {
 				XMPPException xe = (XMPPException) xee;
+				Log.d(LOG_TAG,xe.toString() );
 				final XMPPError error = xe.getXMPPError();
+				//final XMPPError error=new XMPPError(null);
 				int errorCode = 0;
 				if (error != null) {
 					errorCode = error.getCode();
+	 
 				}
 				if (errorCode == 401) {
 					return Constant.LOGIN_ERROR_ACCOUNT_PASS;
@@ -184,7 +192,8 @@ public class LoginTask extends AsyncTask<String, Integer, Integer> {
 				XMPPConnection connection = XmppConnectionManager.getInstance()
 						.getConnection();
 				connection.connect();
-				connection.getAccountManager().createAccount(username, password);//注册
+			 
+				connection.getAccountManager().createAccount(username, password);//注 
 				/*网上的另一种代码，暂时没试过。因为我这么简单就解决了问题，干嘛还用你这么多的代码。
 				Registration registration = new Registration();
 				registration.setType(IQ.Type.SET);
@@ -238,7 +247,8 @@ public class LoginTask extends AsyncTask<String, Integer, Integer> {
 			} catch (Exception xee) {
 				if (xee instanceof XMPPException) {
 					XMPPException xe = (XMPPException) xee;
-					final XMPPError error = xe.getXMPPError();
+				//	final XMPPError error = xe.getXMPPError();
+					final XMPPError error=null;
 					int errorCode = 0;
 					if (error != null) {
 						errorCode = error.getCode();
