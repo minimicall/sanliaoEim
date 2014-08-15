@@ -20,6 +20,7 @@
 
 package org.jivesoftware.smack;
 
+import org.apache.log4j.Logger;
 import org.jivesoftware.smack.packet.StreamError;
 import org.jivesoftware.smack.packet.XMPPError;
 
@@ -41,7 +42,7 @@ import java.io.PrintWriter;
  * @author Matt Tucker
  */
 public class XMPPException extends Exception {
-
+	private final static Logger logger=Logger.getLogger(XMPPException.class);
     private StreamError streamError = null;
     private XMPPError error = null;
     private Throwable wrappedThrowable = null;
@@ -51,6 +52,7 @@ public class XMPPException extends Exception {
      */
     public XMPPException() {
         super();
+        logger.error("");
     }
 
     /**
@@ -60,6 +62,7 @@ public class XMPPException extends Exception {
      */
     public XMPPException(String message) {
         super(message);
+        logger.error("message:"+message);
     }
 
     /**
@@ -70,6 +73,7 @@ public class XMPPException extends Exception {
      */
     public XMPPException(Throwable wrappedThrowable) {
         super();
+        logger.error("wrappedThrowable:"+wrappedThrowable);
         this.wrappedThrowable = wrappedThrowable;
     }
 
@@ -82,6 +86,7 @@ public class XMPPException extends Exception {
      */
     public XMPPException(StreamError streamError) {
         super();
+        logger.error("streamerror:"+streamError);
         this.streamError = streamError;
     }
 
@@ -93,6 +98,7 @@ public class XMPPException extends Exception {
      */
     public XMPPException(XMPPError error) {
         super();
+        logger.error("error:"+error);
         this.error = error;
     }
 
@@ -106,6 +112,8 @@ public class XMPPException extends Exception {
     public XMPPException(String message, Throwable wrappedThrowable) {
         super(message);
         this.wrappedThrowable = wrappedThrowable;
+        logger.error("message:"+message+"wrappedThrowable:"+wrappedThrowable);
+
     }
 
     /**
@@ -118,6 +126,7 @@ public class XMPPException extends Exception {
      */
     public XMPPException(String message, XMPPError error, Throwable wrappedThrowable) {
         super(message);
+        logger.error("message:"+message+"error:"+error.toString()+"wrappedThrowable:"+wrappedThrowable);
         this.error = error;
         this.wrappedThrowable = wrappedThrowable;
     }
@@ -132,6 +141,7 @@ public class XMPPException extends Exception {
     public XMPPException(String message, XMPPError error) {
         super(message);
         this.error = error;
+        logger.error("message:"+message+"error:"+error.toString());
     }
 
     /**
@@ -141,6 +151,7 @@ public class XMPPException extends Exception {
      * @return the XMPPError asscociated with this exception.
      */
     public XMPPError getXMPPError() {
+    	logger.debug("error:"+error);
         return error;
     }
 
@@ -152,6 +163,7 @@ public class XMPPException extends Exception {
      * @return the StreamError asscociated with this exception.
      */
     public StreamError getStreamError() {
+    	logger.debug("streamError:"+streamError);
         return streamError;
     }
 
@@ -162,15 +174,18 @@ public class XMPPException extends Exception {
      * @return the Throwable asscociated with this exception.
      */
     public Throwable getWrappedThrowable() {
+    	logger.debug("wrappedThrowable:"+wrappedThrowable);
         return wrappedThrowable;
     }
 
     public void printStackTrace() {
+    	logger.error(System.err);
         printStackTrace(System.err);
     }
 
     public void printStackTrace(PrintStream out) {
         super.printStackTrace(out);
+        logger.error(out);
         if (wrappedThrowable != null) {
             out.println("Nested Exception: ");
             wrappedThrowable.printStackTrace(out);
@@ -179,6 +194,7 @@ public class XMPPException extends Exception {
 
     public void printStackTrace(PrintWriter out) {
         super.printStackTrace(out);
+        logger.error(out);
         if (wrappedThrowable != null) {
             out.println("Nested Exception: ");
             wrappedThrowable.printStackTrace(out);
@@ -187,6 +203,7 @@ public class XMPPException extends Exception {
 
     public String getMessage() {
         String msg = super.getMessage();
+        logger.debug(msg);
         // If the message was not set, but there is an XMPPError, return the
         // XMPPError as the message.
         if (msg == null && error != null) {
@@ -213,7 +230,7 @@ public class XMPPException extends Exception {
         if (wrappedThrowable != null) {
             buf.append("\n  -- caused by: ").append(wrappedThrowable);
         }
-
+        logger.debug(buf.toString());
         return buf.toString();
     }
 }

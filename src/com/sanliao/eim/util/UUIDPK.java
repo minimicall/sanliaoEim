@@ -7,7 +7,7 @@ import java.security.SecureRandom;
 
 /**
  * <p>
- * Title:UUIDÖ÷¼üÉú³ÉÆ÷
+ * Title:UUIDä¸»é”®ç”Ÿæˆå™¨
  * </p>
  * 
  * @author zhoushengyu
@@ -17,7 +17,7 @@ public class UUIDPK implements Serializable {
 	public String POID;
 
 	/**
-	 * Õâ¸öÎŞ²ÎµÄ¹¹Ôìº¯ÊıÊÇ±ØĞëÒªÓĞµÄ¡£
+	 * è¿™ä¸ªæ— å‚çš„æ„é€ å‡½æ•°æ˜¯å¿…é¡»è¦æœ‰çš„ã€‚
 	 */
 	public UUIDPK() {
 	}
@@ -26,7 +26,7 @@ public class UUIDPK implements Serializable {
 	 * @author zhoushengyu
 	 * @function:
 	 * @param id
-	 *            POIDµÄÖµ¡£
+	 *            POIDçš„å€¼ã€‚
 	 * @return
 	 * @throws
 	 */
@@ -57,13 +57,13 @@ public class UUIDPK implements Serializable {
 		return POID == null ? 0 : POID.hashCode();
 	}
 
-	// --------ÒÔÏÂÎªUUIDµÄÉú³Éº¯Êı---------
+	// --------ä»¥ä¸‹ä¸ºUUIDçš„ç”Ÿæˆå‡½æ•°---------
 
 	/**
 	 * @author zhoushengyu
-	 * @function: °´UUIDµÄ²úÉú»úÖÆ²úÉúÒ»¸ö32Î»³¤µÄHex×Ö·û´®¡£
+	 * @function: æŒ‰UUIDçš„äº§ç”Ÿæœºåˆ¶äº§ç”Ÿä¸€ä¸ª32ä½é•¿çš„Hexå­—ç¬¦ä¸²ã€‚
 	 * @param obj
-	 *            Éú³ÉUUIDµÄthirdPartÊ±ËùĞèÒªÊ¹ÓÃµÄ¶ÔÏóµÄÊµÀıÒıÓÃ¡£
+	 *            ç”ŸæˆUUIDçš„thirdPartæ—¶æ‰€éœ€è¦ä½¿ç”¨çš„å¯¹è±¡çš„å®ä¾‹å¼•ç”¨ã€‚
 	 * @return
 	 * @throws
 	 */
@@ -76,9 +76,9 @@ public class UUIDPK implements Serializable {
 
 	/**
 	 * @author zhoushengyu
-	 * @function: ·µ»Øµ±Ç°Ê±¼ä£¨ºÁÃë£©±íÊ¾µÄlongĞÍÊı×Ö£¨Hex¸ñÊ½£©µÄµÍ8Î»¡£
+	 * @function: è¿”å›å½“å‰æ—¶é—´ï¼ˆæ¯«ç§’ï¼‰è¡¨ç¤ºçš„longå‹æ•°å­—ï¼ˆHexæ ¼å¼ï¼‰çš„ä½8ä½ã€‚
 	 * @param
-	 * @return ·µ»Øµ±Ç°Ê±¼ä£¨ºÁÃë£©±íÊ¾µÄlongĞÍÊı×Ö£¨Hex¸ñÊ½£©µÄµÍ8Î»
+	 * @return è¿”å›å½“å‰æ—¶é—´ï¼ˆæ¯«ç§’ï¼‰è¡¨ç¤ºçš„longå‹æ•°å­—ï¼ˆHexæ ¼å¼ï¼‰çš„ä½8ä½
 	 * @throws
 	 */
 	private static String firstPart() {
@@ -91,9 +91,9 @@ public class UUIDPK implements Serializable {
 
 	/**
 	 * @author zhoushengyu
-	 * @function: µ×²ãIPµØÖ·±íÊ¾µÄ32Î»ÕûÊıµÄHex×Ö·û´®¡£
+	 * @function: åº•å±‚IPåœ°å€è¡¨ç¤ºçš„32ä½æ•´æ•°çš„Hexå­—ç¬¦ä¸²ã€‚
 	 * @param
-	 * @return µ×²ãIPµØÖ·±íÊ¾µÄ32Î»ÕûÊıµÄHex×Ö·û´®¡£
+	 * @return åº•å±‚IPåœ°å€è¡¨ç¤ºçš„32ä½æ•´æ•°çš„Hexå­—ç¬¦ä¸²ã€‚
 	 * @throws
 	 */
 	private static String secondPart() {
@@ -105,12 +105,12 @@ public class UUIDPK implements Serializable {
 			localIPAddr = InetAddress.getLocalHost();
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
-			// »ù±¾²»¿ÉÄÜ·¢Éú¡£
+			// åŸºæœ¬ä¸å¯èƒ½å‘ç”Ÿã€‚
 		}
 		byte[] ipParts = localIPAddr.getAddress();
 		// 0
 		tmp = ipParts[0];
-		/** IPµØÖ·µÄµÚ0¶Î£¬tmp×óÒÆ24Î» */
+		/** IPåœ°å€çš„ç¬¬0æ®µï¼Œtmpå·¦ç§»24ä½ */
 		tmpIp = tmp << 24;
 		// 1
 		tmp = ipParts[1];
@@ -129,10 +129,10 @@ public class UUIDPK implements Serializable {
 
 	/**
 	 * @author zhoushengyu
-	 * @function: µ÷ÓÃ¶ÔÏóµÄHashCodeÂëµÄHexĞÎÊ½µÄ×Ö·û´®¡£
+	 * @function: è°ƒç”¨å¯¹è±¡çš„HashCodeç çš„Hexå½¢å¼çš„å­—ç¬¦ä¸²ã€‚
 	 * @param obj
-	 *            Ê¹ÓÃ¸ÃÀàÉú³ÉhashCode¡£
-	 * @return µ÷ÓÃ¶ÔÏóµÄHashCodeÂëµÄHexĞÎÊ½µÄ×Ö·û´®¡£
+	 *            ä½¿ç”¨è¯¥ç±»ç”ŸæˆhashCodeã€‚
+	 * @return è°ƒç”¨å¯¹è±¡çš„HashCodeç çš„Hexå½¢å¼çš„å­—ç¬¦ä¸²ã€‚
 	 * @throws
 	 */
 	private static String thirdPart(Object obj) {
@@ -143,9 +143,9 @@ public class UUIDPK implements Serializable {
 
 	/**
 	 * @author zhoushengyu
-	 * @function: SecureRandomÀàËù²úÉúµÄÔÚÒ»ºÁÃëÄÚ¶ÔÍ¬Ò»¸ö·½·¨µÄ¶à¸öµ÷ÓÃµÄÎ¨Ò»Öµ¡£
+	 * @function: SecureRandomç±»æ‰€äº§ç”Ÿçš„åœ¨ä¸€æ¯«ç§’å†…å¯¹åŒä¸€ä¸ªæ–¹æ³•çš„å¤šä¸ªè°ƒç”¨çš„å”¯ä¸€å€¼ã€‚
 	 * @param
-	 * @return ÔÚÒ»ºÁÃëÄÚ¶ÔÍ¬Ò»¸ö·½·¨µÄ¶à¸öµ÷ÓÃµÄÎ¨Ò»Öµ¡£
+	 * @return åœ¨ä¸€æ¯«ç§’å†…å¯¹åŒä¸€ä¸ªæ–¹æ³•çš„å¤šä¸ªè°ƒç”¨çš„å”¯ä¸€å€¼ã€‚
 	 * @throws
 	 */
 	private static String fourthPart() {
@@ -157,10 +157,10 @@ public class UUIDPK implements Serializable {
 
 	/**
 	 * @author zhoushengyu
-	 * @function: °Ñ´«µİ¹ıÀ´µÄ×Ö·û´®¼Ó¹¤³É8Î»³¤¡£
+	 * @function: æŠŠä¼ é€’è¿‡æ¥çš„å­—ç¬¦ä¸²åŠ å·¥æˆ8ä½é•¿ã€‚
 	 * @param part
-	 *            Òª´¦ÀíµÄ×Ö·û´®¡£
-	 * @return Èç¹û×Ö·û´®²»×ã8Î»£¬·µ»Ø8Î»³¤µÄ×Ö·û´®£¨Ç°¼¸Î»²¹0£©£»·ñÔò·µ»ØÔ­×Ö·û´®¡£
+	 *            è¦å¤„ç†çš„å­—ç¬¦ä¸²ã€‚
+	 * @return å¦‚æœå­—ç¬¦ä¸²ä¸è¶³8ä½ï¼Œè¿”å›8ä½é•¿çš„å­—ç¬¦ä¸²ï¼ˆå‰å‡ ä½è¡¥0ï¼‰ï¼›å¦åˆ™è¿”å›åŸå­—ç¬¦ä¸²ã€‚
 	 * @throws
 	 */
 	private static String getEightHex(String part) {

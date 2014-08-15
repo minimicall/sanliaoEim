@@ -128,7 +128,7 @@ public class ContacterMainActivity extends AContacterActivity implements
 				finish();
 			}
 		});
-		// ÁªÏµÈË
+		// è”ç³»äºº
 		expandAdapter = new ContacterExpandAdapter(context, rGroups);
 		contacterList.setAdapter(expandAdapter);
 		contacterList
@@ -142,7 +142,7 @@ public class ContacterMainActivity extends AContacterActivity implements
 				return false;
 			}
 		});
-		// Î´¶ÁĞÅÏ¢
+		// æœªè¯»ä¿¡æ¯
 		inviteList = (ListView) findViewById(R.id.main_invite_list);
 		inviteNotices = MessageManager.getInstance(context)
 				.getRecentContactsWithLastMsg();
@@ -153,7 +153,7 @@ public class ContacterMainActivity extends AContacterActivity implements
 	}
 
 	/**
-	 * ÓĞĞÂÏûÏ¢½øÀ´
+	 * æœ‰æ–°æ¶ˆæ¯è¿›æ¥
 	 */
 	@Override
 	protected void msgReceive(Notice notice) {
@@ -191,7 +191,7 @@ public class ContacterMainActivity extends AContacterActivity implements
 	}
 
 	/**
-	 * Í¨Öªµã»÷
+	 * é€šçŸ¥ç‚¹å‡»
 	 */
 	private OnClickListener contacterOnClickJ = new OnClickListener() {
 
@@ -203,7 +203,7 @@ public class ContacterMainActivity extends AContacterActivity implements
 	};
 
 	/**
-	 * ÉèÖÃêÇ³Æ
+	 * è®¾ç½®æ˜µç§°
 	 * 
 	 * @param user
 	 */
@@ -211,9 +211,9 @@ public class ContacterMainActivity extends AContacterActivity implements
 		final EditText name_input = new EditText(context);
 		name_input.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT,
 				LayoutParams.WRAP_CONTENT));
-		name_input.setHint("ÊäÈëêÇ³Æ");
-		new AlertDialog.Builder(context).setTitle("ĞŞ¸ÄêÇ³Æ").setView(name_input)
-				.setPositiveButton("È·¶¨", new DialogInterface.OnClickListener() {
+		name_input.setHint("è¾“å…¥æ˜µç§°");
+		new AlertDialog.Builder(context).setTitle("ä¿®æ”¹æ˜µç§°").setView(name_input)
+				.setPositiveButton("ç¡®å®š", new DialogInterface.OnClickListener() {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
@@ -221,11 +221,11 @@ public class ContacterMainActivity extends AContacterActivity implements
 						if (!"".equals(name))
 							setNickname(user, name);
 					}
-				}).setNegativeButton("È¡Ïû", null).show();
+				}).setNegativeButton("å–æ¶ˆ", null).show();
 	}
 
 	/**
-	 * Ìí¼ÓºÃÓÑ
+	 * æ·»åŠ å¥½å‹
 	 */
 	private void addSubscriber() {
 		final EditText name_input = new EditText(context);
@@ -242,8 +242,8 @@ public class ContacterMainActivity extends AContacterActivity implements
 				LayoutParams.WRAP_CONTENT));
 		layout.addView(name_input);
 		layout.addView(nickname);
-		new AlertDialog.Builder(context).setTitle("Ìí¼ÓºÃÓÑ").setView(layout)
-				.setPositiveButton("È·¶¨", new DialogInterface.OnClickListener() {
+		new AlertDialog.Builder(context).setTitle("æ·»åŠ å¥½å‹").setView(layout)
+				.setPositiveButton("ç¡®å®š", new DialogInterface.OnClickListener() {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
@@ -271,11 +271,11 @@ public class ContacterMainActivity extends AContacterActivity implements
 						} catch (XMPPException e) {
 						}
 					}
-				}).setNegativeButton("È¡Ïû", null).show();
+				}).setNegativeButton("å–æ¶ˆ", null).show();
 	}
 
 	/**
-	 * ¼ÓÈë×é
+	 * åŠ å…¥ç»„
 	 * 
 	 * @param user
 	 */
@@ -287,9 +287,9 @@ public class ContacterMainActivity extends AContacterActivity implements
 				android.R.layout.simple_spinner_dropdown_item, groupNames);
 		spinner.setAdapter(ada);
 
-		new AlertDialog.Builder(context).setTitle("ÒÆ¶¯" + "ÖÁ·Ö×é")
+		new AlertDialog.Builder(context).setTitle("ç§»åŠ¨" + "è‡³åˆ†ç»„")
 				.setView(dialogView)
-				.setPositiveButton("È·¶¨", new DialogInterface.OnClickListener() {
+				.setPositiveButton("ç¡®å®š", new DialogInterface.OnClickListener() {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
@@ -301,18 +301,18 @@ public class ContacterMainActivity extends AContacterActivity implements
 							if (newNames.contains(groupName)) {
 								newNames.remove(groupName);
 							}
-							// UI¼¶°ÑÓÃ»§ÒÆµ½Ä³×é
+							// UIçº§æŠŠç”¨æˆ·ç§»åˆ°æŸç»„
 							addUserGroupUI(user, groupName);
 
-							// apiÒÆÈë×é
+							// apiç§»å…¥ç»„
 							addUserToGroup(user, groupName);
 						}
 					}
-				}).setNegativeButton("È¡Ïû", null).show();
+				}).setNegativeButton("å–æ¶ˆ", null).show();
 	}
 
 	/**
-	 * ĞŞ¸Ä×éÃû
+	 * ä¿®æ”¹ç»„å
 	 * 
 	 * @param user
 	 */
@@ -320,24 +320,24 @@ public class ContacterMainActivity extends AContacterActivity implements
 		final EditText name_input = new EditText(context);
 		name_input.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT,
 				LayoutParams.WRAP_CONTENT));
-		name_input.setHint("ÊäÈë×éÃû");
-		new AlertDialog.Builder(context).setTitle("ĞŞ¸Ä×éÃû").setView(name_input)
-				.setPositiveButton("È·¶¨", new DialogInterface.OnClickListener() {
+		name_input.setHint("è¾“å…¥ç»„å");
+		new AlertDialog.Builder(context).setTitle("ä¿®æ”¹ç»„å").setView(name_input)
+				.setPositiveButton("ç¡®å®š", new DialogInterface.OnClickListener() {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						String gNewName = name_input.getText().toString();
 						if (newNames.contains(gNewName)
 								|| groupNames.contains(gNewName)) {
-							showToast("×éÃûÒÑ´æÔÚ");
+							showToast("ç»„åå·²å­˜åœ¨");
 							return;
 						}
-						// UI¼¶ĞŞ¸Ä²Ù×÷
+						// UIçº§ä¿®æ”¹æ“ä½œ
 						updateGroupNameUI(groupName, gNewName);
 						// UIAPI
 						updateGroupName(groupName, gNewName);
 					}
-				}).setNegativeButton("È¡Ïû", null).show();
+				}).setNegativeButton("å–æ¶ˆ", null).show();
 	}
 
 	private OnItemClickListener inviteListClick = new OnItemClickListener() {
@@ -354,15 +354,15 @@ public class ContacterMainActivity extends AContacterActivity implements
 			} else {
 				final String subFrom = notice.getFrom();
 				new AlertDialog.Builder(context)
-						.setMessage(subFrom + "ÇëÇóÌí¼ÓÄúÎªºÃÓÑ")
-						.setTitle("ÌáÊ¾")
-						.setPositiveButton("Ìí¼Ó",
+						.setMessage(subFrom + "è¯·æ±‚æ·»åŠ æ‚¨ä¸ºå¥½å‹")
+						.setTitle("æç¤º")
+						.setPositiveButton("æ·»åŠ ",
 								new DialogInterface.OnClickListener() {
 
 									@Override
 									public void onClick(DialogInterface dialog,
 											int which) {
-										// ½ÓÊÜÇëÇó
+										// æ¥å—è¯·æ±‚
 										sendSubscribe(Presence.Type.subscribed,
 												subFrom);
 										sendSubscribe(Presence.Type.subscribe,
@@ -371,7 +371,7 @@ public class ContacterMainActivity extends AContacterActivity implements
 
 									}
 								})
-						.setNegativeButton("¾Ü¾ø",
+						.setNegativeButton("æ‹’ç»",
 								new DialogInterface.OnClickListener() {
 
 									@Override
@@ -388,7 +388,7 @@ public class ContacterMainActivity extends AContacterActivity implements
 	};
 
 	/**
-	 * Ë¢ĞÂµ±Ç°µÄÁĞ±í
+	 * åˆ·æ–°å½“å‰çš„åˆ—è¡¨
 	 */
 	private void refreshList() {
 		rGroups = ContacterManager.getGroups(XmppConnectionManager
@@ -401,13 +401,13 @@ public class ContacterMainActivity extends AContacterActivity implements
 		expandAdapter.setContacter(rGroups);
 		expandAdapter.notifyDataSetChanged();
 
-		// Ë¢ĞÂnoticeĞÅÏ¢
+		// åˆ·æ–°noticeä¿¡æ¯
 		inviteNotices = MessageManager.getInstance(context)
 				.getRecentContactsWithLastMsg();
 		noticeAdapter.setNoticeList(inviteNotices);
 		noticeAdapter.notifyDataSetChanged();
 		/**
-		 * ÓĞĞÂÏûÏ¢½øÀ´µÄÆøÅİÉèÖÃ
+		 * æœ‰æ–°æ¶ˆæ¯è¿›æ¥çš„æ°”æ³¡è®¾ç½®
 		 */
 		setPaoPao();
 
@@ -425,7 +425,7 @@ public class ContacterMainActivity extends AContacterActivity implements
 		Toast.makeText(
 				context,
 				(user.getName() == null) ? user.getJID() : user.getName()
-						+ "±»É¾³ıÁË", Toast.LENGTH_SHORT).show();
+						+ "è¢«åˆ é™¤äº†", Toast.LENGTH_SHORT).show();
 		refreshList();
 	}
 
@@ -435,20 +435,20 @@ public class ContacterMainActivity extends AContacterActivity implements
 			return;
 		if (ContacterManager.contacters.get(user.getJID()) == null)
 			return;
-		// ÏÂÏß
+		// ä¸‹çº¿
 		if (!user.isAvailable())
 			if (ContacterManager.contacters.get(user.getJID()).isAvailable())
 				Toast.makeText(
 						context,
 						(user.getName() == null) ? user.getJID() : user
-								.getName() + "ÉÏÏßÁË", Toast.LENGTH_SHORT).show();
-		// ÉÏÏß
+								.getName() + "ä¸Šçº¿äº†", Toast.LENGTH_SHORT).show();
+		// ä¸Šçº¿
 		if (user.isAvailable())
 			if (!ContacterManager.contacters.get(user.getJID()).isAvailable())
 				Toast.makeText(
 						context,
 						(user.getName() == null) ? user.getJID() : user
-								.getName() + "ÏÂÏßÁË", Toast.LENGTH_SHORT).show();
+								.getName() + "ä¸‹çº¿äº†", Toast.LENGTH_SHORT).show();
 		refreshList();
 	}
 
@@ -472,10 +472,10 @@ public class ContacterMainActivity extends AContacterActivity implements
 	}
 
 	/**
-	 * ĞŞ¸Ä×´Ì¬
+	 * ä¿®æ”¹çŠ¶æ€
 	 */
 	private void modifyState() {
-		String[] states = new String[] { "ÔÚÏß", "ÒşÉí", "³Ô·¹", "Ë¯¾õ" };
+		String[] states = new String[] { "åœ¨çº¿", "éšèº«", "åƒé¥­", "ç¡è§‰" };
 		new AlertDialog.Builder(this)
 				.setItems(states, new DialogInterface.OnClickListener() {
 
@@ -490,16 +490,16 @@ public class ContacterMainActivity extends AContacterActivity implements
 							presence.setType(Presence.Type.unavailable);
 							break;
 						case 2:
-							presence.setStatus("³Ô·¹");
+							presence.setStatus("åƒé¥­");
 							break;
 						case 3:
-							presence.setStatus("Ë¯¾õ");
+							presence.setStatus("ç¡è§‰");
 							break;
 						}
 						XmppConnectionManager.getInstance().getConnection()
 								.sendPacket(presence);
 					}
-				}).setPositiveButton("È¡Ïû", null).setTitle("ĞŞ¸Ä×´Ì¬").show();
+				}).setPositiveButton("å–æ¶ˆ", null).setTitle("ä¿®æ”¹çŠ¶æ€").show();
 	}
 
 	@Override
@@ -543,12 +543,12 @@ public class ContacterMainActivity extends AContacterActivity implements
 				break;
 			case 1:
 				if (lastIndex < 1) {
-					// ×óµ½ÖĞ
+					// å·¦åˆ°ä¸­
 					layout = (LinearLayout) tab1.getParent();
 					animation = new TranslateAnimation(-layout.getWidth(), 0,
 							0, 0);
 				} else if (lastIndex > 1) {
-					// ÓÒµ½ÖĞ
+					// å³åˆ°ä¸­
 					layout = (LinearLayout) tab2.getParent();
 					animation = new TranslateAnimation(layout.getLeft(), 0, 0,
 							0);
@@ -589,7 +589,7 @@ public class ContacterMainActivity extends AContacterActivity implements
 	}
 
 	/**
-	 * ÉÏÃæ¹ö¶¯ÌõÉÏµÄÆøÅİÉèÖÃ ÓĞĞÂÏûÏ¢À´µÄÍ¨ÖªÆøÅİ£¬ÊıÁ¿ÉèÖÃ,
+	 * ä¸Šé¢æ»šåŠ¨æ¡ä¸Šçš„æ°”æ³¡è®¾ç½® æœ‰æ–°æ¶ˆæ¯æ¥çš„é€šçŸ¥æ°”æ³¡ï¼Œæ•°é‡è®¾ç½®,
 	 */
 	private void setPaoPao() {
 		if (null != inviteNotices && inviteNotices.size() > 0) {
@@ -610,7 +610,7 @@ public class ContacterMainActivity extends AContacterActivity implements
 	}
 
 	/**
-	 * ¼ÓÈë×é
+	 * åŠ å…¥ç»„
 	 * 
 	 * @param user
 	 */
@@ -618,26 +618,26 @@ public class ContacterMainActivity extends AContacterActivity implements
 		final EditText name_input = new EditText(context);
 		name_input.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT,
 				LayoutParams.WRAP_CONTENT));
-		name_input.setHint("ÊäÈë×éÃû");
-		new AlertDialog.Builder(context).setTitle("¼ÓÈë×é").setView(name_input)
-				.setPositiveButton("È·¶¨", new DialogInterface.OnClickListener() {
+		name_input.setHint("è¾“å…¥ç»„å");
+		new AlertDialog.Builder(context).setTitle("åŠ å…¥ç»„").setView(name_input)
+				.setPositiveButton("ç¡®å®š", new DialogInterface.OnClickListener() {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						String groupName = name_input.getText().toString();
 						if (StringUtil.empty(groupName)) {
-							// showToast("×éÃû²»ÄÜÎª¿Õ");
+							// showToast("ç»„åä¸èƒ½ä¸ºç©º");
 							return;
 						}
-						// uiÉÏÔö¼ÓÊı¾İ
+						// uiä¸Šå¢åŠ æ•°æ®
 						if (groupNames.contains(groupName)) {
-							// showToast("×éÃûÒÑ¾­´æÔÚ");
+							// showToast("ç»„åå·²ç»å­˜åœ¨");
 							return;
 						}
 						addGroupNamesUi(groupName);
 
 					}
-				}).setNegativeButton("È¡Ïû", null).show();
+				}).setNegativeButton("å–æ¶ˆ", null).show();
 	}
 
 	OnCreateContextMenuListener onCreateContextMenuListener = new OnCreateContextMenuListener() {
@@ -647,7 +647,7 @@ public class ContacterMainActivity extends AContacterActivity implements
 
 			ExpandableListView.ExpandableListContextMenuInfo info = (ExpandableListView.ExpandableListContextMenuInfo) menuInfo;
 
-			// ÀàĞÍ£¬0´ú±íÊÇgroupÀà£¬1´ú±íÊÇchildÀà
+			// ç±»å‹ï¼Œ0ä»£è¡¨æ˜¯groupç±»ï¼Œ1ä»£è¡¨æ˜¯childç±»
 			int type = ExpandableListView
 					.getPackedPositionType(info.packedPosition);
 
@@ -659,9 +659,9 @@ public class ContacterMainActivity extends AContacterActivity implements
 				if (StringUtil.notEmpty(groupName)
 						&& !Constant.ALL_FRIEND.equals(groupName)
 						&& !Constant.NO_GROUP_FRIEND.equals(groupName)) {
-					longClickItems = new String[] { "Ìí¼Ó·Ö×é", "¸ü¸Ä×éÃû", };
+					longClickItems = new String[] { "æ·»åŠ åˆ†ç»„", "æ›´æ”¹ç»„å", };
 				} else {
-					longClickItems = new String[] { "Ìí¼Ó·Ö×é" };
+					longClickItems = new String[] { "æ·»åŠ åˆ†ç»„" };
 
 				}
 				new AlertDialog.Builder(context)
@@ -671,16 +671,16 @@ public class ContacterMainActivity extends AContacterActivity implements
 									public void onClick(DialogInterface dialog,
 											int which) {
 										switch (which) {
-										case 0:// Ìí¼Ó·Ö×é
+										case 0:// æ·»åŠ åˆ†ç»„
 											addNewGroup();
 											break;
 
-										case 1:// ¸ü¸Ä×éÃû
+										case 1:// æ›´æ”¹ç»„å
 											updateGroupNameA(groupName);
 											break;
 										}
 									}
-								}).setTitle("Ñ¡Ïî").show();
+								}).setTitle("é€‰é¡¹").show();
 			} else if (type == ExpandableListView.PACKED_POSITION_TYPE_CHILD) {
 
 				String[] longClickItems = null;
@@ -694,11 +694,11 @@ public class ContacterMainActivity extends AContacterActivity implements
 								.equals(clickUser.getGroupName())
 						&& !Constant.NO_GROUP_FRIEND.equals(clickUser
 								.getGroupName())) {
-					longClickItems = new String[] { "ÉèÖÃêÇ³Æ", "Ìí¼ÓºÃÓÑ", "É¾³ıºÃÓÑ",
-							"ÒÆ¶¯µ½·Ö×é", "ÍË³ö¸Ã×é" };
+					longClickItems = new String[] { "è®¾ç½®æ˜µç§°", "æ·»åŠ å¥½å‹", "åˆ é™¤å¥½å‹",
+							"ç§»åŠ¨åˆ°åˆ†ç»„", "é€€å‡ºè¯¥ç»„" };
 				} else {
-					longClickItems = new String[] { "ÉèÖÃêÇ³Æ", "Ìí¼ÓºÃÓÑ", "É¾³ıºÃÓÑ",
-							"ÒÆ¶¯µ½·Ö×é" };
+					longClickItems = new String[] { "è®¾ç½®æ˜µç§°", "æ·»åŠ å¥½å‹", "åˆ é™¤å¥½å‹",
+							"ç§»åŠ¨åˆ°åˆ†ç»„" };
 				}
 				new AlertDialog.Builder(context)
 						.setItems(longClickItems,
@@ -707,20 +707,20 @@ public class ContacterMainActivity extends AContacterActivity implements
 									public void onClick(DialogInterface dialog,
 											int which) {
 										switch (which) {
-										case 0:// ÉèÖÃêÇ³Æ
+										case 0:// è®¾ç½®æ˜µç§°
 											setNickname(clickUser);
 											break;
-										case 1:// Ìí¼ÓºÃÓÑ
+										case 1:// æ·»åŠ å¥½å‹
 											addSubscriber();
 											break;
-										case 2:// É¾³ıºÃÓÑ
+										case 2:// åˆ é™¤å¥½å‹
 
 											showDeleteDialog(clickUser);
 
 											break;
-										case 3:// ÒÆ¶¯µ½·Ö×é £¨1.ÏÈÒÆ³ı±¾×é£¬2ÒÆÈëÄ³×é£©
+										case 3:// ç§»åŠ¨åˆ°åˆ†ç»„ ï¼ˆ1.å…ˆç§»é™¤æœ¬ç»„ï¼Œ2ç§»å…¥æŸç»„ï¼‰
 											/**
-											 * uiÒÆ³ıold×é
+											 * uiç§»é™¤oldç»„
 											 */
 											removeUserFromGroupUI(clickUser);
 
@@ -730,13 +730,13 @@ public class ContacterMainActivity extends AContacterActivity implements
 
 											break;
 
-										case 4:// ÒÆ³ö×é
+										case 4:// ç§»å‡ºç»„
 											/**
-											 * uiÒÆ³ıold×é
+											 * uiç§»é™¤oldç»„
 											 */
 											removeUserFromGroupUI(clickUser);
 											/**
-											 * api¼¶³öÄ³×é
+											 * apiçº§å‡ºæŸç»„
 											 */
 											removeUserFromGroup(clickUser,
 													clickUser.getGroupName());
@@ -744,7 +744,7 @@ public class ContacterMainActivity extends AContacterActivity implements
 										}
 									}
 
-								}).setTitle("Ñ¡Ïî").show();
+								}).setTitle("é€‰é¡¹").show();
 			}
 		}
 
@@ -769,23 +769,23 @@ public class ContacterMainActivity extends AContacterActivity implements
 	}
 
 	/**
-	 * UI¼¶Ìí¼Ó·Ö×é ÕâÀïÓÃÒ»¾ä»°ÃèÊöÕâ¸ö·½·¨µÄ×÷ÓÃ.
+	 * UIçº§æ·»åŠ åˆ†ç»„ è¿™é‡Œç”¨ä¸€å¥è¯æè¿°è¿™ä¸ªæ–¹æ³•çš„ä½œç”¨.
 	 * 
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-7-2 ÏÂÎç1:04:09
+	 * @update 2012-7-2 ä¸‹åˆ1:04:09
 	 */
 	public void addGroupNamesUi(String newGroupName) {
 		groupNames.add(newGroupName);
 		newNames.add(newGroupName);
 		MRosterGroup mg = new MRosterGroup(newGroupName, new ArrayList<User>());
 		rGroups.add(rGroups.size() - 1, mg);
-		// Ë¢ĞÂÓÃ»§ĞÅÏ¢
+		// åˆ·æ–°ç”¨æˆ·ä¿¡æ¯
 		expandAdapter.setContacter(rGroups);
 		expandAdapter.notifyDataSetChanged();
 	}
 
 	/**
-	 * UI¼¶É¾³ıÓÃ»§
+	 * UIçº§åˆ é™¤ç”¨æˆ·
 	 */
 	private void deleteUserUI(User user) {
 		for (MRosterGroup g : rGroups) {
@@ -803,7 +803,7 @@ public class ContacterMainActivity extends AContacterActivity implements
 	}
 
 	/**
-	 * UI¼¶ÒÆ¶¯ÓÃ»§£¬°ÑÓÃ»§ÒÆ³ıÄ³×é
+	 * UIçº§ç§»åŠ¨ç”¨æˆ·ï¼ŒæŠŠç”¨æˆ·ç§»é™¤æŸç»„
 	 */
 
 	private void removeUserFromGroupUI(User user) {
@@ -824,7 +824,7 @@ public class ContacterMainActivity extends AContacterActivity implements
 	}
 
 	/**
-	 * UI¼¶ÒÆ¶¯ÓÃ»§£¬°ÑÓÃ»§¼ÓÈëÄ³×é
+	 * UIçº§ç§»åŠ¨ç”¨æˆ·ï¼ŒæŠŠç”¨æˆ·åŠ å…¥æŸç»„
 	 */
 
 	private void addUserGroupUI(User user, String groupName) {
@@ -841,7 +841,7 @@ public class ContacterMainActivity extends AContacterActivity implements
 	}
 
 	/**
-	 * UI¸ü¸Ä×éÃû
+	 * UIæ›´æ”¹ç»„å
 	 */
 
 	private void updateGroupNameUI(String old, String newGroupName) {
@@ -850,20 +850,20 @@ public class ContacterMainActivity extends AContacterActivity implements
 				|| Constant.NO_GROUP_FRIEND.equals(old)) {
 			return;
 		}
-		// ËäÈ»Ã»±ØÒª£¬µ«ÊÇÈç¹ûÊäÈëÍü¼ÇÏŞÖÆ
+		// è™½ç„¶æ²¡å¿…è¦ï¼Œä½†æ˜¯å¦‚æœè¾“å…¥å¿˜è®°é™åˆ¶
 		if (StringUtil.empty(newGroupName)
 				|| Constant.ALL_FRIEND.equals(newGroupName)
 				|| Constant.NO_GROUP_FRIEND.equals(newGroupName)) {
 			return;
 		}
 
-		// ÒªĞŞ¸ÄµÄ×éÃûÊÇĞÂÌí¼ÓµÄµ«ÊÇÃ»ÓĞÌí¼Óµ½·şÎñÆ÷¶ËµÄ£¬Ö»ÊÇui¼¶Ìí¼ÓµÄ£¬ÈçÏÂ²Ù×÷
+		// è¦ä¿®æ”¹çš„ç»„åæ˜¯æ–°æ·»åŠ çš„ä½†æ˜¯æ²¡æœ‰æ·»åŠ åˆ°æœåŠ¡å™¨ç«¯çš„ï¼Œåªæ˜¯uiçº§æ·»åŠ çš„ï¼Œå¦‚ä¸‹æ“ä½œ
 		if (newNames.contains(old)) {
 			newNames.remove(old);
 			newNames.add(newGroupName);
 			return;
 		}
-		// ÁĞ±íĞŞ¸Ä;
+		// åˆ—è¡¨ä¿®æ”¹;
 		for (MRosterGroup g : rGroups) {
 			if (g.getName().equals(old)) {
 				g.setName(newGroupName);
@@ -874,7 +874,7 @@ public class ContacterMainActivity extends AContacterActivity implements
 	}
 
 	/**
-	 * É¾³ıÓÃ»§
+	 * åˆ é™¤ç”¨æˆ·
 	 * 
 	 * @param clickUser
 	 */
@@ -887,15 +887,15 @@ public class ContacterMainActivity extends AContacterActivity implements
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int id) {
 
-								// uiÉ¾³ı
+								// uiåˆ é™¤
 								deleteUserUI(clickUser);
-								// apiÉ¾³ı
+								// apiåˆ é™¤
 								try {
 									removeSubscriber(clickUser.getJID());
 								} catch (XMPPException e) {
 									Log.e(TAG, "", e);
 								}
-								// É¾³ıÊı¾İ¿â
+								// åˆ é™¤æ•°æ®åº“
 								NoticeManager.getInstance(context)
 										.delNoticeHisWithSb(clickUser.getJID());
 								MessageManager.getInstance(context)
@@ -915,12 +915,12 @@ public class ContacterMainActivity extends AContacterActivity implements
 
 	@Override
 	protected void handReConnect(boolean isSuccess) {
-		// ³É¹¦ÁËÁ¬½Ó
+		// æˆåŠŸäº†è¿æ¥
 		if (Constant.RECONNECT_STATE_SUCCESS == isSuccess) {
 			iv_status.setImageDrawable(getResources().getDrawable(
 					R.drawable.status_online));
 
-		} else if (Constant.RECONNECT_STATE_FAIL == isSuccess) {// Ê§°Ü
+		} else if (Constant.RECONNECT_STATE_FAIL == isSuccess) {// å¤±è´¥
 			iv_status.setImageDrawable(getResources().getDrawable(
 					R.drawable.status_offline));
 		}

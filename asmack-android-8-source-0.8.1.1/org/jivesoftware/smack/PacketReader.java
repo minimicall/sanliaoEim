@@ -20,6 +20,7 @@
 
 package org.jivesoftware.smack;
 
+import org.apache.log4j.Logger;
 import org.jivesoftware.smack.Connection.ListenerWrapper;
 import org.jivesoftware.smack.packet.*;
 import org.jivesoftware.smack.sasl.SASLMechanism.Challenge;
@@ -42,7 +43,7 @@ import java.util.concurrent.*;
  * @author Matt Tucker
  */
 class PacketReader {
-
+	private static final Logger logger=Logger.getLogger(PacketReader.class);
     private Thread readerThread;
     private ExecutorService listenerExecutor;
 
@@ -64,7 +65,7 @@ class PacketReader {
     protected void init() {
         done = false;
         connectionID = null;
-
+        logger.debug("");
         readerThread = new Thread() {
             public void run() {
                 parsePackets(this);
@@ -112,7 +113,9 @@ class PacketReader {
             // Ignore.
         }
         if (connectionID == null) {
+        	logger.warn("Connection failed. No response from server");
             throw new XMPPException("Connection failed. No response from server.");
+            
         }
         else {
             connection.connectionID = connectionID;
@@ -124,6 +127,7 @@ class PacketReader {
      */
     public void shutdown() {
         // Notify connection listeners of the connection closing if done hasn't already been set.
+    	logger.debug("");
         if (!done) {
             for (ConnectionListener listener : connection.getConnectionListeners()) {
                 try {
@@ -157,6 +161,7 @@ class PacketReader {
      * @param e the exception that causes the connection close event.
      */
     void notifyConnectionError(Exception e) {
+    	logger.error(e);
         done = true;
         // Closes the connection temporary. A reconnection is possible
         connection.shutdown(new Presence(Presence.Type.unavailable));
@@ -215,6 +220,7 @@ class PacketReader {
      */
     private void parsePackets(Thread thread) {
         try {
+        	 
             int eventType = parser.getEventType();
             do {
                 if (eventType == XmlPullParser.START_TAG) {

@@ -1,9 +1,9 @@
 /**   
- * ÓÃÒ»¾ä»°ÃèÊö¸ÃÎÄ¼ş×öÊ²Ã´.
+ * ç”¨ä¸€å¥è¯æè¿°è¯¥æ–‡ä»¶åšä»€ä¹ˆ.
  * @title DateUtil.java
  * @package com.sinsoft.android.util
  * @author xunlei.zengjinlong 470910357@qq.com  
- * @update 2012-6-26 ÉÏÎç9:57:56  
+ * @update 2012-6-26 ä¸Šåˆ9:57:56  
  */
 package com.sanliao.eim.util;
 
@@ -12,7 +12,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * ÈÕÆÚ²Ù×÷¹¤¾ßÀà.
+ * æ—¥æœŸæ“ä½œå·¥å…·ç±».
  * 
  * @author xunlei.zengjinlong 470910357@qq.com
  */
@@ -99,7 +99,7 @@ public class DateUtil {
 	}
 
 	/**
-	 * »ñµÃµ±Ç°ÈÕÆÚµÄ×Ö·û´®¸ñÊ½
+	 * è·å¾—å½“å‰æ—¥æœŸçš„å­—ç¬¦ä¸²æ ¼å¼
 	 * 
 	 * @param format
 	 * @return
@@ -109,21 +109,21 @@ public class DateUtil {
 		return date2Str(c, format);
 	}
 
-	// ¸ñÊ½µ½Ãë
+	// æ ¼å¼åˆ°ç§’
 	public static String getMillon(long time) {
 
 		return new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss").format(time);
 
 	}
 
-	// ¸ñÊ½µ½Ìì
+	// æ ¼å¼åˆ°å¤©
 	public static String getDay(long time) {
 
 		return new SimpleDateFormat("yyyy-MM-dd").format(time);
 
 	}
 
-	// ¸ñÊ½µ½ºÁÃë
+	// æ ¼å¼åˆ°æ¯«ç§’
 	public static String getSMillon(long time) {
 
 		return new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SSS").format(time);

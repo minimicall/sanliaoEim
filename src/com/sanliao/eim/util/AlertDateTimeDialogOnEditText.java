@@ -14,7 +14,7 @@ import android.widget.TimePicker;
 import com.sanliao.eim.R;
 
 /**
- * ÔÚeditTextÉÏµã»÷»ñÈ¡ÈÕÆÚºÍÊ±¼ä×Ö·û´®
+ * åœ¨editTextä¸Šç‚¹å‡»è·å–æ—¥æœŸå’Œæ—¶é—´å­—ç¬¦ä¸²
  * 
  * @author Administrator
  * 

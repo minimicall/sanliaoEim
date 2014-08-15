@@ -17,7 +17,7 @@ import android.util.Log;
 
 /**
  * 
- * ÎÄ¼ş¹¤¾ßÀà
+ * æ–‡ä»¶å·¥å…·ç±»
  * 
  * @author xunlei.zengjinlong 470910357@qq.com
  */
@@ -25,7 +25,7 @@ public class FileUtil {
 	private static final String TAG = "FileUtil";
 
 	/**
-	 * ¿½±´ÎÄ¼ş
+	 * æ‹·è´æ–‡ä»¶
 	 * 
 	 * @param fromFile
 	 * @param toFile
@@ -61,7 +61,7 @@ public class FileUtil {
 	}
 
 	/**
-	 * ´´½¨ÎÄ¼ş
+	 * åˆ›å»ºæ–‡ä»¶
 	 * 
 	 * @param file
 	 * @return
@@ -89,7 +89,7 @@ public class FileUtil {
 	}
 
 	/**
-	 * ´´½¨ÎÄ¼ş
+	 * åˆ›å»ºæ–‡ä»¶
 	 * 
 	 * @param path
 	 */
@@ -99,7 +99,7 @@ public class FileUtil {
 	}// end method createText()
 
 	/**
-	 * É¾³ıÎÄ¼ş
+	 * åˆ é™¤æ–‡ä»¶
 	 * 
 	 * @param path
 	 */
@@ -109,7 +109,7 @@ public class FileUtil {
 	}
 
 	/**
-	 * É¾³ıÎÄ¼ş
+	 * åˆ é™¤æ–‡ä»¶
 	 * 
 	 * @param file
 	 */
@@ -129,7 +129,7 @@ public class FileUtil {
 	}
 
 	/**
-	 * ÏòTextÎÄ¼şÖĞĞ´ÈëÄÚÈİ
+	 * å‘Textæ–‡ä»¶ä¸­å†™å…¥å†…å®¹
 	 * 
 	 * @param file
 	 * @param content
@@ -174,7 +174,7 @@ public class FileUtil {
 	}
 
 	/**
-	 * »ñµÃÎÄ¼şÃû
+	 * è·å¾—æ–‡ä»¶å
 	 * 
 	 * @param path
 	 * @return
@@ -190,12 +190,12 @@ public class FileUtil {
 	}
 
 	/**
-	 * ¶ÁÈ¡ÎÄ¼şÄÚÈİ£¬´ÓµÚstartLineĞĞ¿ªÊ¼£¬¶ÁÈ¡lineCountĞĞ
+	 * è¯»å–æ–‡ä»¶å†…å®¹ï¼Œä»ç¬¬startLineè¡Œå¼€å§‹ï¼Œè¯»å–lineCountè¡Œ
 	 * 
 	 * @param file
 	 * @param startLine
 	 * @param lineCount
-	 * @return ¶Áµ½ÎÄ×ÖµÄlist,Èç¹ûlist.size<lineCountÔòËµÃ÷¶Áµ½ÎÄ¼şÄ©Î²ÁË
+	 * @return è¯»åˆ°æ–‡å­—çš„list,å¦‚æœlist.size<lineCountåˆ™è¯´æ˜è¯»åˆ°æ–‡ä»¶æœ«å°¾äº†
 	 */
 	public static List<String> readFile(File file, int startLine, int lineCount) {
 		if (file == null || startLine < 1 || lineCount < 1) {
@@ -242,7 +242,7 @@ public class FileUtil {
 	}
 
 	/**
-	 * ´´½¨ÎÄ¼ş¼Ğ
+	 * åˆ›å»ºæ–‡ä»¶å¤¹
 	 * 
 	 * @param dir
 	 * @return
@@ -260,7 +260,7 @@ public class FileUtil {
 	}
 
 	/**
-	 * ÔÚSD¿¨ÉÏ´´½¨Ä¿Â¼
+	 * åœ¨SDå¡ä¸Šåˆ›å»ºç›®å½•
 	 * 
 	 * @param dirName
 	 */
@@ -271,7 +271,7 @@ public class FileUtil {
 	}
 
 	/**
-	 * ÅĞ¶ÏSD¿¨ÉÏµÄÎÄ¼şÊÇ·ñ´æÔÚ
+	 * åˆ¤æ–­SDå¡ä¸Šçš„æ–‡ä»¶æ˜¯å¦å­˜åœ¨
 	 */
 	public static boolean isFileExist(String fileName) {
 		File file = new File(fileName);
@@ -279,7 +279,7 @@ public class FileUtil {
 	}
 
 	/**
-	 * ½«Ò»¸öInputStreamÀïÃæµÄÊı¾İĞ´Èëµ½SD¿¨ÖĞ
+	 * å°†ä¸€ä¸ªInputStreamé‡Œé¢çš„æ•°æ®å†™å…¥åˆ°SDå¡ä¸­
 	 */
 	public static File write2SDFromInput(String path, String fileName,
 			InputStream input) {
@@ -307,7 +307,7 @@ public class FileUtil {
 		return file;
 	}
 
-	// ´ÓÎÄ¼şÖĞÒ»ĞĞÒ»ĞĞµÄ¶ÁÈ¡ÎÄ¼ş
+	// ä»æ–‡ä»¶ä¸­ä¸€è¡Œä¸€è¡Œçš„è¯»å–æ–‡ä»¶
 	public static String readFile(File file) {
 		Reader read = null;
 		String content = "";

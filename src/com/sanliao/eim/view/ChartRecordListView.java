@@ -31,7 +31,7 @@ public class ChartRecordListView extends ListView implements OnScrollListener {
 	private final static int DONE = 3;
 	private final static int LOADING = 4;
 
-	// Êµ¼ÊµÄpaddingµÄ¾àÀëÓë½çÃæÉÏÆ«ÒÆ¾àÀëµÄ±ÈÀı
+	// å®é™…çš„paddingçš„è·ç¦»ä¸ç•Œé¢ä¸Šåç§»è·ç¦»çš„æ¯”ä¾‹
 	private final static int RATIO = 3;
 
 	private LayoutInflater inflater;
@@ -46,7 +46,7 @@ public class ChartRecordListView extends ListView implements OnScrollListener {
 	private RotateAnimation animation;
 	private RotateAnimation reverseAnimation;
 
-	// ÓÃÓÚ±£Ö¤startYµÄÖµÔÚÒ»¸öÍêÕûµÄtouchÊÂ¼şÖĞÖ»±»¼ÇÂ¼Ò»´Î
+	// ç”¨äºä¿è¯startYçš„å€¼åœ¨ä¸€ä¸ªå®Œæ•´çš„touchäº‹ä»¶ä¸­åªè¢«è®°å½•ä¸€æ¬¡
 	private boolean isRecored;
 
 	private int headContentWidth;
@@ -136,7 +136,7 @@ public class ChartRecordListView extends ListView implements OnScrollListener {
 				if (firstItemIndex == 0 && !isRecored) {
 					isRecored = true;
 					startY = (int) event.getY();
-					Log.v(TAG, "ÔÚdownÊ±ºò¼ÇÂ¼µ±Ç°Î»ÖÃ¡®");
+					Log.v(TAG, "åœ¨downæ—¶å€™è®°å½•å½“å‰ä½ç½®â€˜");
 				}
 				break;
 
@@ -144,20 +144,20 @@ public class ChartRecordListView extends ListView implements OnScrollListener {
 
 				if (state != REFRESHING && state != LOADING) {
 					if (state == DONE) {
-						// Ê²Ã´¶¼²»×ö
+						// ä»€ä¹ˆéƒ½ä¸åš
 					}
 					if (state == PULL_To_REFRESH) {
 						state = DONE;
 						changeHeaderViewByState();
 
-						Log.v(TAG, "ÓÉÏÂÀ­Ë¢ĞÂ×´Ì¬£¬µ½done×´Ì¬");
+						Log.v(TAG, "ç”±ä¸‹æ‹‰åˆ·æ–°çŠ¶æ€ï¼Œåˆ°doneçŠ¶æ€");
 					}
 					if (state == RELEASE_To_REFRESH) {
 						state = REFRESHING;
 						changeHeaderViewByState();
 						onRefresh();
 
-						Log.v(TAG, "ÓÉËÉ¿ªË¢ĞÂ×´Ì¬£¬µ½done×´Ì¬");
+						Log.v(TAG, "ç”±æ¾å¼€åˆ·æ–°çŠ¶æ€ï¼Œåˆ°doneçŠ¶æ€");
 					}
 				}
 
@@ -170,63 +170,63 @@ public class ChartRecordListView extends ListView implements OnScrollListener {
 				int tempY = (int) event.getY();
 
 				if (!isRecored && firstItemIndex == 0) {
-					Log.v(TAG, "ÔÚmoveÊ±ºò¼ÇÂ¼ÏÂÎ»ÖÃ");
+					Log.v(TAG, "åœ¨moveæ—¶å€™è®°å½•ä¸‹ä½ç½®");
 					isRecored = true;
 					startY = tempY;
 				}
 
 				if (state != REFRESHING && isRecored && state != LOADING) {
 
-					// ±£Ö¤ÔÚÉèÖÃpaddingµÄ¹ı³ÌÖĞ£¬µ±Ç°µÄÎ»ÖÃÒ»Ö±ÊÇÔÚhead£¬·ñÔòÈç¹ûµ±ÁĞ±í³¬³öÆÁÄ»µÄ»°£¬µ±ÔÚÉÏÍÆµÄÊ±ºò£¬ÁĞ±í»áÍ¬Ê±½øĞĞ¹ö¶¯
+					// ä¿è¯åœ¨è®¾ç½®paddingçš„è¿‡ç¨‹ä¸­ï¼Œå½“å‰çš„ä½ç½®ä¸€ç›´æ˜¯åœ¨headï¼Œå¦åˆ™å¦‚æœå½“åˆ—è¡¨è¶…å‡ºå±å¹•çš„è¯ï¼Œå½“åœ¨ä¸Šæ¨çš„æ—¶å€™ï¼Œåˆ—è¡¨ä¼šåŒæ—¶è¿›è¡Œæ»šåŠ¨
 
-					// ¿ÉÒÔËÉÊÖÈ¥Ë¢ĞÂÁË
+					// å¯ä»¥æ¾æ‰‹å»åˆ·æ–°äº†
 					if (state == RELEASE_To_REFRESH) {
 
 						setSelection(0);
 
-						// ÍùÉÏÍÆÁË£¬ÍÆµ½ÁËÆÁÄ»×ã¹»ÑÚ¸ÇheadµÄ³Ì¶È£¬µ«ÊÇ»¹Ã»ÓĞÍÆµ½È«²¿ÑÚ¸ÇµÄµØ²½
+						// å¾€ä¸Šæ¨äº†ï¼Œæ¨åˆ°äº†å±å¹•è¶³å¤Ÿæ©ç›–headçš„ç¨‹åº¦ï¼Œä½†æ˜¯è¿˜æ²¡æœ‰æ¨åˆ°å…¨éƒ¨æ©ç›–çš„åœ°æ­¥
 						if (((tempY - startY) / RATIO < headContentHeight)
 								&& (tempY - startY) > 0) {
 							state = PULL_To_REFRESH;
 							changeHeaderViewByState();
 
-							Log.v(TAG, "ÓÉËÉ¿ªË¢ĞÂ×´Ì¬×ª±äµ½ÏÂÀ­Ë¢ĞÂ×´Ì¬");
+							Log.v(TAG, "ç”±æ¾å¼€åˆ·æ–°çŠ¶æ€è½¬å˜åˆ°ä¸‹æ‹‰åˆ·æ–°çŠ¶æ€");
 						}
-						// Ò»ÏÂ×ÓÍÆµ½¶¥ÁË
+						// ä¸€ä¸‹å­æ¨åˆ°é¡¶äº†
 						else if (tempY - startY <= 0) {
 							state = DONE;
 							changeHeaderViewByState();
 
-							Log.v(TAG, "ÓÉËÉ¿ªË¢ĞÂ×´Ì¬×ª±äµ½done×´Ì¬");
+							Log.v(TAG, "ç”±æ¾å¼€åˆ·æ–°çŠ¶æ€è½¬å˜åˆ°doneçŠ¶æ€");
 						}
-						// ÍùÏÂÀ­ÁË£¬»òÕß»¹Ã»ÓĞÉÏÍÆµ½ÆÁÄ»¶¥²¿ÑÚ¸ÇheadµÄµØ²½
+						// å¾€ä¸‹æ‹‰äº†ï¼Œæˆ–è€…è¿˜æ²¡æœ‰ä¸Šæ¨åˆ°å±å¹•é¡¶éƒ¨æ©ç›–headçš„åœ°æ­¥
 						else {
-							// ²»ÓÃ½øĞĞÌØ±ğµÄ²Ù×÷£¬Ö»ÓÃ¸üĞÂpaddingTopµÄÖµ¾ÍĞĞÁË
+							// ä¸ç”¨è¿›è¡Œç‰¹åˆ«çš„æ“ä½œï¼Œåªç”¨æ›´æ–°paddingTopçš„å€¼å°±è¡Œäº†
 						}
 					}
-					// »¹Ã»ÓĞµ½´ïÏÔÊ¾ËÉ¿ªË¢ĞÂµÄÊ±ºò,DONE»òÕßÊÇPULL_To_REFRESH×´Ì¬
+					// è¿˜æ²¡æœ‰åˆ°è¾¾æ˜¾ç¤ºæ¾å¼€åˆ·æ–°çš„æ—¶å€™,DONEæˆ–è€…æ˜¯PULL_To_REFRESHçŠ¶æ€
 					if (state == PULL_To_REFRESH) {
 
 						setSelection(0);
 
-						// ÏÂÀ­µ½¿ÉÒÔ½øÈëRELEASE_TO_REFRESHµÄ×´Ì¬
+						// ä¸‹æ‹‰åˆ°å¯ä»¥è¿›å…¥RELEASE_TO_REFRESHçš„çŠ¶æ€
 						if ((tempY - startY) / RATIO >= headContentHeight) {
 							state = RELEASE_To_REFRESH;
 							isBack = true;
 							changeHeaderViewByState();
 
-							Log.v(TAG, "ÓÉdone»òÕßÏÂÀ­Ë¢ĞÂ×´Ì¬×ª±äµ½ËÉ¿ªË¢ĞÂ");
+							Log.v(TAG, "ç”±doneæˆ–è€…ä¸‹æ‹‰åˆ·æ–°çŠ¶æ€è½¬å˜åˆ°æ¾å¼€åˆ·æ–°");
 						}
-						// ÉÏÍÆµ½¶¥ÁË
+						// ä¸Šæ¨åˆ°é¡¶äº†
 						else if (tempY - startY <= 0) {
 							state = DONE;
 							changeHeaderViewByState();
 
-							Log.v(TAG, "ÓÉDOne»òÕßÏÂÀ­Ë¢ĞÂ×´Ì¬×ª±äµ½done×´Ì¬");
+							Log.v(TAG, "ç”±DOneæˆ–è€…ä¸‹æ‹‰åˆ·æ–°çŠ¶æ€è½¬å˜åˆ°doneçŠ¶æ€");
 						}
 					}
 
-					// done×´Ì¬ÏÂ
+					// doneçŠ¶æ€ä¸‹
 					if (state == DONE) {
 						if (tempY - startY > 0) {
 							state = PULL_To_REFRESH;
@@ -234,14 +234,14 @@ public class ChartRecordListView extends ListView implements OnScrollListener {
 						}
 					}
 
-					// ¸üĞÂheadViewµÄsize
+					// æ›´æ–°headViewçš„size
 					if (state == PULL_To_REFRESH) {
 						headView.setPadding(0, -1 * headContentHeight
 								+ (tempY - startY) / RATIO, 0, 0);
 
 					}
 
-					// ¸üĞÂheadViewµÄpaddingTop
+					// æ›´æ–°headViewçš„paddingTop
 					if (state == RELEASE_To_REFRESH) {
 						headView.setPadding(0, (tempY - startY) / RATIO
 								- headContentHeight, 0, 0);
@@ -256,7 +256,7 @@ public class ChartRecordListView extends ListView implements OnScrollListener {
 		return super.onTouchEvent(event);
 	}
 
-	// µ±×´Ì¬¸Ä±äÊ±ºò£¬µ÷ÓÃ¸Ã·½·¨£¬ÒÔ¸üĞÂ½çÃæ
+	// å½“çŠ¶æ€æ”¹å˜æ—¶å€™ï¼Œè°ƒç”¨è¯¥æ–¹æ³•ï¼Œä»¥æ›´æ–°ç•Œé¢
 	private void changeHeaderViewByState() {
 		switch (state) {
 		case RELEASE_To_REFRESH:
@@ -268,9 +268,9 @@ public class ChartRecordListView extends ListView implements OnScrollListener {
 			arrowImageView.clearAnimation();
 			arrowImageView.startAnimation(animation);
 
-			tipsTextview.setText("ËÉ¿ªË¢ĞÂ");
+			tipsTextview.setText("æ¾å¼€åˆ·æ–°");
 
-			Log.v(TAG, "µ±Ç°×´Ì¬£¬ËÉ¿ªË¢ĞÂ");
+			Log.v(TAG, "å½“å‰çŠ¶æ€ï¼Œæ¾å¼€åˆ·æ–°");
 			break;
 		case PULL_To_REFRESH:
 			progressBar.setVisibility(View.GONE);
@@ -278,17 +278,17 @@ public class ChartRecordListView extends ListView implements OnScrollListener {
 			lastUpdatedTextView.setVisibility(View.VISIBLE);
 			arrowImageView.clearAnimation();
 			arrowImageView.setVisibility(View.VISIBLE);
-			// ÊÇÓÉRELEASE_To_REFRESH×´Ì¬×ª±äÀ´µÄ
+			// æ˜¯ç”±RELEASE_To_REFRESHçŠ¶æ€è½¬å˜æ¥çš„
 			if (isBack) {
 				isBack = false;
 				arrowImageView.clearAnimation();
 				arrowImageView.startAnimation(reverseAnimation);
 
-				tipsTextview.setText("ÏÂÀ­Ë¢ĞÂ");
+				tipsTextview.setText("ä¸‹æ‹‰åˆ·æ–°");
 			} else {
-				tipsTextview.setText("ÏÂÀ­Ë¢ĞÂ");
+				tipsTextview.setText("ä¸‹æ‹‰åˆ·æ–°");
 			}
-			Log.v(TAG, "µ±Ç°×´Ì¬£¬ÏÂÀ­Ë¢ĞÂ");
+			Log.v(TAG, "å½“å‰çŠ¶æ€ï¼Œä¸‹æ‹‰åˆ·æ–°");
 			break;
 
 		case REFRESHING:
@@ -298,10 +298,10 @@ public class ChartRecordListView extends ListView implements OnScrollListener {
 			progressBar.setVisibility(View.VISIBLE);
 			arrowImageView.clearAnimation();
 			arrowImageView.setVisibility(View.GONE);
-			tipsTextview.setText("ÕıÔÚË¢ĞÂ...");
+			tipsTextview.setText("æ­£åœ¨åˆ·æ–°...");
 			lastUpdatedTextView.setVisibility(View.VISIBLE);
 
-			Log.v(TAG, "µ±Ç°×´Ì¬,ÕıÔÚË¢ĞÂ...");
+			Log.v(TAG, "å½“å‰çŠ¶æ€,æ­£åœ¨åˆ·æ–°...");
 			break;
 		case DONE:
 			headView.setPadding(0, -1 * headContentHeight, 0, 0);
@@ -309,10 +309,10 @@ public class ChartRecordListView extends ListView implements OnScrollListener {
 			progressBar.setVisibility(View.GONE);
 			arrowImageView.clearAnimation();
 			arrowImageView.setImageResource(R.drawable.arrow);
-			tipsTextview.setText("ÏÂÀ­Ë¢ĞÂ");
+			tipsTextview.setText("ä¸‹æ‹‰åˆ·æ–°");
 			lastUpdatedTextView.setVisibility(View.VISIBLE);
 
-			Log.v(TAG, "µ±Ç°×´Ì¬£¬done");
+			Log.v(TAG, "å½“å‰çŠ¶æ€ï¼Œdone");
 			break;
 		}
 	}
@@ -328,7 +328,7 @@ public class ChartRecordListView extends ListView implements OnScrollListener {
 
 	public void onRefreshComplete() {
 		state = DONE;
-		lastUpdatedTextView.setText("×î½ü¸üĞÂ:" + new Date().toLocaleString());
+		lastUpdatedTextView.setText("æœ€è¿‘æ›´æ–°:" + new Date().toLocaleString());
 		changeHeaderViewByState();
 	}
 
@@ -338,7 +338,7 @@ public class ChartRecordListView extends ListView implements OnScrollListener {
 		}
 	}
 
-	// ´Ë·½·¨Ö±½ÓÕÕ°á×ÔÍøÂçÉÏµÄÒ»¸öÏÂÀ­Ë¢ĞÂµÄdemo£¬´Ë´¦ÊÇ¡°¹À¼Æ¡±headViewµÄwidthÒÔ¼°height
+	// æ­¤æ–¹æ³•ç›´æ¥ç…§æ¬è‡ªç½‘ç»œä¸Šçš„ä¸€ä¸ªä¸‹æ‹‰åˆ·æ–°çš„demoï¼Œæ­¤å¤„æ˜¯â€œä¼°è®¡â€headViewçš„widthä»¥åŠheight
 	private void measureView(View child) {
 		ViewGroup.LayoutParams p = child.getLayoutParams();
 		if (p == null) {
@@ -359,7 +359,7 @@ public class ChartRecordListView extends ListView implements OnScrollListener {
 	}
 
 	public void setAdapter(BaseAdapter adapter) {
-		lastUpdatedTextView.setText("×î½ü¸üĞÂ:" + new Date().toLocaleString());
+		lastUpdatedTextView.setText("æœ€è¿‘æ›´æ–°:" + new Date().toLocaleString());
 		super.setAdapter(adapter);
 	}
 

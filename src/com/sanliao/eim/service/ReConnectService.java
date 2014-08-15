@@ -20,7 +20,7 @@ import com.sanliao.eim.manager.XmppConnectionManager;
 
 /**
  * 
- * ÖØÁ¬½Ó·şÎñ.
+ * é‡è¿æ¥æœåŠ¡.
  * 
  * @author xunlei.zengjinlong 470910357@qq.com
  */
@@ -60,7 +60,7 @@ public class ReConnectService extends Service {
 		public void onReceive(Context context, Intent intent) {
 			String action = intent.getAction();
 			if (action.equals(ConnectivityManager.CONNECTIVITY_ACTION)) {
-				Log.d("mark", "ÍøÂç×´Ì¬ÒÑ¾­¸Ä±ä");
+				Log.d("mark", "ç½‘ç»œçŠ¶æ€å·²ç»æ”¹å˜");
 				connectivityManager = (ConnectivityManager) context
 						.getSystemService(Context.CONNECTIVITY_SERVICE);
 				XMPPConnection connection = XmppConnectionManager.getInstance()
@@ -71,12 +71,12 @@ public class ReConnectService extends Service {
 						reConnect(connection);
 					} else {
 						sendInentAndPre(Constant.RECONNECT_STATE_SUCCESS);
-						Toast.makeText(context, "ÓÃ»§ÒÑÉÏÏß!", Toast.LENGTH_LONG)
+						Toast.makeText(context, "ç”¨æˆ·å·²ä¸Šçº¿!", Toast.LENGTH_LONG)
 								.show();
 					}
 				} else {
 					sendInentAndPre(Constant.RECONNECT_STATE_FAIL);
-					Toast.makeText(context, "ÍøÂç¶Ï¿ª,ÓÃ»§ÒÑÀëÏß!", Toast.LENGTH_LONG)
+					Toast.makeText(context, "ç½‘ç»œæ–­å¼€,ç”¨æˆ·å·²ç¦»çº¿!", Toast.LENGTH_LONG)
 							.show();
 				}
 			}
@@ -87,10 +87,10 @@ public class ReConnectService extends Service {
 
 	/**
 	 * 
-	 * µİ¹éÖØÁ¬£¬Ö±Á¬ÉÏÎªÖ¹.
+	 * é€’å½’é‡è¿ï¼Œç›´è¿ä¸Šä¸ºæ­¢.
 	 * 
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-7-10 ÏÂÎç2:12:25
+	 * @update 2012-7-10 ä¸‹åˆ2:12:25
 	 */
 	public void reConnect(XMPPConnection connection) {
 		try {
@@ -98,10 +98,10 @@ public class ReConnectService extends Service {
 			if (connection.isConnected()) {
 				Presence presence = new Presence(Presence.Type.available);
 				connection.sendPacket(presence);
-				Toast.makeText(context, "ÓÃ»§ÒÑÉÏÏß!", Toast.LENGTH_LONG).show();
+				Toast.makeText(context, "ç”¨æˆ·å·²ä¸Šçº¿!", Toast.LENGTH_LONG).show();
 			}
 		} catch (XMPPException e) {
-			Log.e("ERROR", "XMPPÁ¬½ÓÊ§°Ü!", e);
+			Log.e("ERROR", "XMPPè¿æ¥å¤±è´¥!", e);
 			reConnect(connection);
 		}
 	}
@@ -110,7 +110,7 @@ public class ReConnectService extends Service {
 		Intent intent = new Intent();
 		SharedPreferences preference = getSharedPreferences(Constant.LOGIN_SET,
 				0);
-		// ±£´æÔÚÏßÁ¬½ÓĞÅÏ¢
+		// ä¿å­˜åœ¨çº¿è¿æ¥ä¿¡æ¯
 		preference.edit().putBoolean(Constant.IS_ONLINE, isSuccess).commit();
 		intent.setAction(Constant.ACTION_RECONNECT_STATE);
 		intent.putExtra(Constant.RECONNECT_STATE, isSuccess);

@@ -1,7 +1,7 @@
 package com.sanliao.eim.util;
 
 /**
- * spinnerÊµÏÖÈ¡VALUEÖµºÍTEXTÖµ£¬ÖØĞ´toString¼òµ¥ÊµÏÖ
+ * spinnerå®ç°å–VALUEå€¼å’ŒTEXTå€¼ï¼Œé‡å†™toStringç®€å•å®ç°
  * 
  */
 public class SpinnerItem {
@@ -20,7 +20,7 @@ public class SpinnerItem {
 	}
 
 	@Override
-	public String toString() { // ÎªÊ²Ã´ÒªÖØĞ´toString()ÄØ£¿ÒòÎªÊÊÅäÆ÷ÔÚÏÔÊ¾Êı¾İµÄÊ±ºò£¬Èç¹û´«ÈëÊÊÅäÆ÷µÄ¶ÔÏó²»ÊÇ×Ö·û´®µÄÇé¿öÏÂ£¬Ö±½Ó¾ÍÊ¹ÓÃ¶ÔÏó.toString()
+	public String toString() { // ä¸ºä»€ä¹ˆè¦é‡å†™toString()å‘¢ï¼Ÿå› ä¸ºé€‚é…å™¨åœ¨æ˜¾ç¤ºæ•°æ®çš„æ—¶å€™ï¼Œå¦‚æœä¼ å…¥é€‚é…å™¨çš„å¯¹è±¡ä¸æ˜¯å­—ç¬¦ä¸²çš„æƒ…å†µä¸‹ï¼Œç›´æ¥å°±ä½¿ç”¨å¯¹è±¡.toString()
 		// TODO Auto-generated method stub
 		return Value;
 	}

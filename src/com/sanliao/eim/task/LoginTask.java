@@ -2,6 +2,7 @@ package com.sanliao.eim.task;
 
 import java.util.Collection;
 
+import org.apache.log4j.Logger;
 import org.jivesoftware.smack.AccountManager;
 import org.jivesoftware.smack.PacketCollector;
 import org.jivesoftware.smack.RosterEntry;
@@ -27,6 +28,7 @@ import android.widget.Toast;
 import com.sanliao.eim.R;
 import com.sanliao.eim.activity.GuideViewActivity;
 import com.sanliao.eim.activity.IActivitySupport;
+import com.sanliao.eim.activity.LoginActivity;
 import com.sanliao.eim.activity.MainActivity;
 import com.sanliao.eim.comm.Constant;
 import com.sanliao.eim.manager.XmppConnectionManager;
@@ -34,7 +36,7 @@ import com.sanliao.eim.model.LoginConfig;
 
 /**
  * 
- * µÇÂ¼Òì²½ÈÎÎñ.
+ * ç™»å½•å¼‚æ­¥ä»»åŠ¡.
  * 
  * @author xunlei.zengjinlong 470910357@qq.com
  */
@@ -44,6 +46,7 @@ public class LoginTask extends AsyncTask<String, Integer, Integer> {
 	private Context context;
 	private IActivitySupport activitySupport;
 	private LoginConfig loginConfig;
+	private final static Logger logger =Logger.getLogger(LoginTask.class);//æ—¥å¿—ï¼Œå†™å…¥åˆ°æ–‡ä»¶ä¸­çš„
 
 	public LoginTask(IActivitySupport activitySupport, LoginConfig loginConfig) {
 		this.activitySupport = activitySupport;
@@ -54,11 +57,11 @@ public class LoginTask extends AsyncTask<String, Integer, Integer> {
 
 	@Override
 	protected void onPreExecute() {
-		pd.setTitle("ÇëÉÔµÈ");
-		pd.setMessage("ÕıÔÚµÇÂ¼...");
+		pd.setTitle("è¯·ç¨ç­‰");
+		pd.setMessage("æ­£åœ¨ç™»å½•...");
 		pd.show();
 		Log.d(LOG_TAG,"onPreExecute");
-		
+		logger.debug("");
 		super.onPreExecute();
 	}
 
@@ -75,7 +78,7 @@ public class LoginTask extends AsyncTask<String, Integer, Integer> {
 
 	@Override
 	protected void onProgressUpdate(Integer... values) {
-		pd.setMessage("ÕıÔÚµÇÈë"+values+"%");
+		pd.setMessage("æ­£åœ¨ç™»å…¥"+values+"%");
 	}
 
 	@Override
@@ -83,50 +86,50 @@ public class LoginTask extends AsyncTask<String, Integer, Integer> {
 		
 	    pd.dismiss();
 		switch (result) {
-		case Constant.LOGIN_SECCESS: // µÇÂ¼³É¹¦
-			Toast.makeText(context, "µÇÂ½³É¹¦", Toast.LENGTH_SHORT).show();
+		case Constant.LOGIN_SECCESS: // ç™»å½•æˆåŠŸ
+			Toast.makeText(context, "ç™»é™†æˆåŠŸ", Toast.LENGTH_SHORT).show();
 			Intent intent = new Intent();
-			if (loginConfig.isFirstStart()) {// Èç¹ûÊÇÊ×´ÎÆô¶¯
+			if (loginConfig.isFirstStart()) {// å¦‚æœæ˜¯é¦–æ¬¡å¯åŠ¨
 				intent.setClass(context, GuideViewActivity.class);
 				loginConfig.setFirstStart(false);
 			} else {
 				intent.setClass(context, MainActivity.class);
 			}
-			activitySupport.saveLoginConfig(loginConfig);// ±£´æÓÃ»§ÅäÖÃĞÅÏ¢
-			activitySupport.startService(); // ³õÊ¼»¯¸÷Ïî·şÎñ
+			activitySupport.saveLoginConfig(loginConfig);// ä¿å­˜ç”¨æˆ·é…ç½®ä¿¡æ¯
+			activitySupport.startService(); // åˆå§‹åŒ–å„é¡¹æœåŠ¡
 			 
 			context.startActivity(intent);
-			//activitySupport.startService(); // ³õÊ¼»¯¸÷Ïî·şÎñ
+			//activitySupport.startService(); // åˆå§‹åŒ–å„é¡¹æœåŠ¡
 			break;
-		case Constant.LOGIN_ERROR_ACCOUNT_PASS:// ÕË»§»òÕßÃÜÂë´íÎó
+		case Constant.LOGIN_ERROR_ACCOUNT_PASS:// è´¦æˆ·æˆ–è€…å¯†ç é”™è¯¯
 			Toast.makeText(
 					context,
 					context.getResources().getString(
 							R.string.message_invalid_username_password),
 					Toast.LENGTH_SHORT).show();
 			break;
-		case Constant.SERVER_UNAVAILABLE:// ·şÎñÆ÷Á¬½ÓÊ§°Ü
+		case Constant.SERVER_UNAVAILABLE:// æœåŠ¡å™¨è¿æ¥å¤±è´¥
 			Toast.makeText(
 					context,
 					context.getResources().getString(
 							R.string.message_server_unavailable),
 					Toast.LENGTH_SHORT).show();
 			break;
-		case Constant.LOGIN_ERROR:// Î´ÖªÒì³£
+		case Constant.LOGIN_ERROR:// æœªçŸ¥å¼‚å¸¸
 			Toast.makeText(
 					context,
 					context.getResources().getString(
 							R.string.unrecoverable_error), Toast.LENGTH_SHORT)
 					.show();
 			break;
-		case Constant.LOGIN_ERROR_ALREADY_REGISTERED://ÖØ¸´×¢²á
+		case Constant.LOGIN_ERROR_ALREADY_REGISTERED://é‡å¤æ³¨å†Œ
 			Toast.makeText(context, context.getResources().getString(R.string.alreadregistered_error), Toast.LENGTH_SHORT).show();
 			break;
 		}
 		super.onPostExecute(result);
 	}
 
-	// µÇÂ¼
+	// ç™»å½•
 	private Integer login() {
 		String username = loginConfig.getUsername();
 		String password = loginConfig.getPassword();
@@ -134,15 +137,18 @@ public class LoginTask extends AsyncTask<String, Integer, Integer> {
 		try {
 			XMPPConnection connection = XmppConnectionManager.getInstance().getConnection();
 			Log.d(LOG_TAG,"login c2");
+			logger.debug("XMPPConnection create ");
 			connection.connect();
-	 
+			logger.debug("XMPPConnection connected ");
 			Log.d(LOG_TAG,"login c3");
-			connection.login(username, password); // µÇÂ¼
+			logger.debug("username:"+username+",passwd:"+password);
+			connection.login(username, password); // ç™»å½•
+			logger.debug("XMPPConnection logined ");
 			Log.d(LOG_TAG, "login c4");
-			// OfflineMsgManager.getInstance(activitySupport).dealOfflineMsg(connection);//´¦ÀíÀëÏßÏûÏ¢
+			// OfflineMsgManager.getInstance(activitySupport).dealOfflineMsg(connection);//å¤„ç†ç¦»çº¿æ¶ˆæ¯
 			connection.sendPacket(new Presence(Presence.Type.available));
 			Log.d(LOG_TAG, "login c5");
-			if (loginConfig.isNovisible()) {// ÒşÉíµÇÂ¼
+			if (loginConfig.isNovisible()) {// éšèº«ç™»å½•
 				Presence presence = new Presence(Presence.Type.unavailable);
 				Collection<RosterEntry> rosters = connection.getRoster()
 						.getEntries();
@@ -152,7 +158,7 @@ public class LoginTask extends AsyncTask<String, Integer, Integer> {
 				}
 			}
 			loginConfig.setUsername(username);
-			if (loginConfig.isRemember()) {// ±£´æÃÜÂë
+			if (loginConfig.isRemember()) {// ä¿å­˜å¯†ç 
 				loginConfig.setPassword(password);
 			} else {
 				loginConfig.setPassword("");
@@ -166,7 +172,7 @@ public class LoginTask extends AsyncTask<String, Integer, Integer> {
 				XMPPException xe = (XMPPException) xee;
 				Log.d(LOG_TAG,xe.toString() );
 				final XMPPError error = xe.getXMPPError();
-				//final XMPPError error=new XMPPError(null);
+			 
 				int errorCode = 0;
 				if (error != null) {
 					errorCode = error.getCode();
@@ -184,7 +190,7 @@ public class LoginTask extends AsyncTask<String, Integer, Integer> {
 			}
 		}
 	}
-	//×¢²á
+	//æ³¨å†Œ
 		private Integer regiester() {
 			String username = loginConfig.getUsername();
 			String password = loginConfig.getPassword();
@@ -193,41 +199,12 @@ public class LoginTask extends AsyncTask<String, Integer, Integer> {
 						.getConnection();
 				connection.connect();
 			 
-				connection.getAccountManager().createAccount(username, password);//×¢ 
-				/*ÍøÉÏµÄÁíÒ»ÖÖ´úÂë£¬ÔİÊ±Ã»ÊÔ¹ı¡£ÒòÎªÎÒÕâÃ´¼òµ¥¾Í½â¾öÁËÎÊÌâ£¬¸ÉÂï»¹ÓÃÄãÕâÃ´¶àµÄ´úÂë¡£
-				Registration registration = new Registration();
-				registration.setType(IQ.Type.SET);
-				registration.setTo(connection.getServiceName());
-				registration.setUsername(username);
-				registration.setPassword(password);
-				registration.addAttribute("android", "create_user_by_android");
-				PacketFilter filter = new AndFilter(new PacketIDFilter(registration.getPacketID()),new PacketTypeFilter(IQ.class));
-				PacketCollector collector = connection.createPacketCollector(filter);  
-				connection.sendPacket(registration);  
-				IQ result = (IQ)collector.nextResult(SmackConfiguration.getPacketReplyTimeout()); 
-				collector.cancel();
-				if (result == null) {  
-					//Log.e(¡°xmppMainRegiter¡±, ¡°No response from server.¡±);  
-					//Toast.makeText(xmppMain.this, ¡°·şÎñÆ÷Ã»ÓĞ·µ»Ø½á¹û¡±, Toast.LENGTH_SHORT).show();  
-					}  
-				else if (result.getType() == IQ.Type.ERROR)
-				{  
-						if(result.getError().toString().equalsIgnoreCase("conflict(409)")){  
-					//	Log.e(¡°xmppMainRegiter¡±, ¡°IQ.Type.ERROR: ¡°+result.getError().toString());  
-						//Toast.makeText(xmppMain.this, ¡°Õâ¸öÕËºÅÒÑ¾­´æÔÚ¡±, Toast.LENGTH_SHORT).show();  
-						}else{  
-						//Log.e(¡°xmppMainRegiter¡±, ¡°IQ.Type.ERROR: ¡°+result.getError().toString());  
-						//Toast.makeText(xmppMain.this, ¡°×¢²áÊ§°Ü¡±, Toast.LENGTH_SHORT).show();  
-						}  
-					}
-				else {
-					//regeister success.
-				}
-				*/
-				connection.login(username, password); // µÇÂ¼
-				// OfflineMsgManager.getInstance(activitySupport).dealOfflineMsg(connection);//´¦ÀíÀëÏßÏûÏ¢
+				connection.getAccountManager().createAccount(username, password);//æ³¨ 
+		
+				connection.login(username, password); // ç™»å½•
+				// OfflineMsgManager.getInstance(activitySupport).dealOfflineMsg(connection);//å¤„ç†ç¦»çº¿æ¶ˆæ¯
 				connection.sendPacket(new Presence(Presence.Type.available));
-				if (loginConfig.isNovisible()) {// ÒşÉíµÇÂ¼
+				if (loginConfig.isNovisible()) {// éšèº«ç™»å½•
 					Presence presence = new Presence(Presence.Type.unavailable);
 					Collection<RosterEntry> rosters = connection.getRoster()
 							.getEntries();
@@ -237,7 +214,7 @@ public class LoginTask extends AsyncTask<String, Integer, Integer> {
 					}
 				}
 				loginConfig.setUsername(username);
-				if (loginConfig.isRemember()) {// ±£´æÃÜÂë
+				if (loginConfig.isRemember()) {// ä¿å­˜å¯†ç 
 					loginConfig.setPassword(password);
 				} else {
 					loginConfig.setPassword("");
@@ -247,7 +224,7 @@ public class LoginTask extends AsyncTask<String, Integer, Integer> {
 			} catch (Exception xee) {
 				if (xee instanceof XMPPException) {
 					XMPPException xe = (XMPPException) xee;
-				//	final XMPPError error = xe.getXMPPError();
+			 
 					final XMPPError error=null;
 					int errorCode = 0;
 					if (error != null) {

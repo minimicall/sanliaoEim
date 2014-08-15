@@ -1,5 +1,7 @@
 package com.sanliao.eim.activity;
 
+import org.apache.log4j.Logger;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Notification;
@@ -26,9 +28,9 @@ import com.sanliao.eim.service.IMChatService;
 import com.sanliao.eim.service.IMContactService;
 import com.sanliao.eim.service.IMSystemMsgService;
 import com.sanliao.eim.service.ReConnectService;
-
+ 
 /**
- * Actity ¹¤¾ßÖ§³ÖÀà
+ * Actity å·¥å…·æ”¯æŒç±»
  * 
  * @author xunlei.zengjinlong 470910357@qq.com
  * 
@@ -40,6 +42,7 @@ public class ActivitySupport extends Activity implements IActivitySupport {
 	protected EimApplication eimApplication;
 	protected ProgressDialog pg = null;
 	protected NotificationManager notificationManager;
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -84,16 +87,16 @@ public class ActivitySupport extends Activity implements IActivitySupport {
 
 	@Override
 	public void startService() {
-		// ºÃÓÑÁªÏµÈË·şÎñ
+		// å¥½å‹è”ç³»äººæœåŠ¡
 		Intent server = new Intent(context, IMContactService.class);
 		context.startService(server);
-		// ÁÄÌì·şÎñ
+		// èŠå¤©æœåŠ¡
 		Intent chatServer = new Intent(context, IMChatService.class);
 		context.startService(chatServer);
-		// ×Ô¶¯»Ö¸´Á¬½Ó·şÎñ
+		// è‡ªåŠ¨æ¢å¤è¿æ¥æœåŠ¡
 		Intent reConnectService = new Intent(context, ReConnectService.class);
 		context.startService(reConnectService);
-		// ÏµÍ³ÏûÏ¢Á¬½Ó·şÎñ
+		// ç³»ç»Ÿæ¶ˆæ¯è¿æ¥æœåŠ¡
 		Intent imSystemMsgService = new Intent(context,
 				IMSystemMsgService.class);
 		context.startService(imSystemMsgService);
@@ -101,25 +104,25 @@ public class ActivitySupport extends Activity implements IActivitySupport {
 
 	/**
 	 * 
-	 * Ïú»Ù·şÎñ.
+	 * é”€æ¯æœåŠ¡.
 	 * 
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-5-16 ÏÂÎç12:16:08
+	 * @update 2012-5-16 ä¸‹åˆ12:16:08
 	 */
 	@Override
 	public void stopService() {
-		// ºÃÓÑÁªÏµÈË·şÎñ
+		// å¥½å‹è”ç³»äººæœåŠ¡
 		Intent server = new Intent(context, IMContactService.class);
 		context.stopService(server);
-		// ÁÄÌì·şÎñ
+		// èŠå¤©æœåŠ¡
 		Intent chatServer = new Intent(context, IMChatService.class);
 		context.stopService(chatServer);
 
-		// ×Ô¶¯»Ö¸´Á¬½Ó·şÎñ
+		// è‡ªåŠ¨æ¢å¤è¿æ¥æœåŠ¡
 		Intent reConnectService = new Intent(context, ReConnectService.class);
 		context.stopService(reConnectService);
 
-		// ÏµÍ³ÏûÏ¢Á¬½Ó·şÎñ
+		// ç³»ç»Ÿæ¶ˆæ¯è¿æ¥æœåŠ¡
 		Intent imSystemMsgService = new Intent(context,
 				IMSystemMsgService.class);
 		context.stopService(imSystemMsgService);
@@ -127,15 +130,15 @@ public class ActivitySupport extends Activity implements IActivitySupport {
 
 	@Override
 	public void isExit() {
-		new AlertDialog.Builder(context).setTitle("È·¶¨ÍË³öÂğ?")
-				.setNeutralButton("È·¶¨", new DialogInterface.OnClickListener() {
+		new AlertDialog.Builder(context).setTitle("ç¡®å®šé€€å‡ºå—?")
+				.setNeutralButton("ç¡®å®š", new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						stopService();
 						eimApplication.exit();
 					}
 				})
-				.setNegativeButton("È¡Ïû", new DialogInterface.OnClickListener() {
+				.setNegativeButton("å–æ¶ˆ", new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						dialog.cancel();
@@ -207,7 +210,7 @@ public class ActivitySupport extends Activity implements IActivitySupport {
 				.getExternalStorageState())) {
 			new AlertDialog.Builder(context)
 					.setTitle(R.string.prompt)
-					.setMessage("Çë¼ì²éÄÚ´æ¿¨")
+					.setMessage("è¯·æ£€æŸ¥å†…å­˜å¡")
 					.setPositiveButton(R.string.menu_settings,
 							new DialogInterface.OnClickListener() {
 								@Override
@@ -219,7 +222,7 @@ public class ActivitySupport extends Activity implements IActivitySupport {
 									context.startActivity(intent);
 								}
 							})
-					.setNegativeButton("ÍË³ö",
+					.setNegativeButton("é€€å‡º",
 							new DialogInterface.OnClickListener() {
 								@Override
 								public void onClick(DialogInterface dialog,
@@ -260,12 +263,12 @@ public class ActivitySupport extends Activity implements IActivitySupport {
 
 	/**
 	 * 
-	 * ÏÔÊ¾toast
+	 * æ˜¾ç¤ºtoast
 	 * 
 	 * @param text
 	 * @param longint
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-6-28 ÏÂÎç3:46:18
+	 * @update 2012-6-28 ä¸‹åˆ3:46:18
 	 */
 	public void showToast(String text, int longint) {
 		Toast.makeText(context, text, longint).show();
@@ -278,10 +281,10 @@ public class ActivitySupport extends Activity implements IActivitySupport {
 
 	/**
 	 * 
-	 * ¹Ø±Õ¼üÅÌÊÂ¼ş
+	 * å…³é—­é”®ç›˜äº‹ä»¶
 	 * 
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-7-4 ÏÂÎç2:34:34
+	 * @update 2012-7-4 ä¸‹åˆ2:34:34
 	 */
 	public void closeInput() {
 		InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -293,44 +296,44 @@ public class ActivitySupport extends Activity implements IActivitySupport {
 
 	/**
 	 * 
-	 * ·¢³öNotificationµÄmethod.
+	 * å‘å‡ºNotificationçš„method.
 	 * 
 	 * @param iconId
-	 *            Í¼±ê
+	 *            å›¾æ ‡
 	 * @param contentTitle
-	 *            ±êÌâ
+	 *            æ ‡é¢˜
 	 * @param contentText
-	 *            ÄãÄÚÈİ
+	 *            ä½ å†…å®¹
 	 * @param activity
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-5-14 ÏÂÎç12:01:55
+	 * @update 2012-5-14 ä¸‹åˆ12:01:55
 	 */
 	public void setNotiType(int iconId, String contentTitle,
 			String contentText, Class activity, String from) {
 		/*
-		 * ´´½¨ĞÂµÄIntent£¬×÷Îªµã»÷NotificationÁôÑÔÌõÊ±£¬ »áÔËĞĞµÄActivity
+		 * åˆ›å»ºæ–°çš„Intentï¼Œä½œä¸ºç‚¹å‡»Notificationç•™è¨€æ¡æ—¶ï¼Œ ä¼šè¿è¡Œçš„Activity
 		 */
 		Intent notifyIntent = new Intent(this, activity);
 		notifyIntent.putExtra("to", from);
 		// notifyIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-		/* ´´½¨PendingIntent×÷ÎªÉèÖÃµİÑÓÔËĞĞµÄActivity */
+		/* åˆ›å»ºPendingIntentä½œä¸ºè®¾ç½®é€’å»¶è¿è¡Œçš„Activity */
 		PendingIntent appIntent = PendingIntent.getActivity(this, 0,
 				notifyIntent, 0);
 
-		/* ´´½¨Notication£¬²¢ÉèÖÃÏà¹Ø²ÎÊı */
+		/* åˆ›å»ºNoticationï¼Œå¹¶è®¾ç½®ç›¸å…³å‚æ•° */
 		Notification myNoti = new Notification();
-		// µã»÷×Ô¶¯ÏûÊ§
+		// ç‚¹å‡»è‡ªåŠ¨æ¶ˆå¤±
 		myNoti.flags = Notification.FLAG_AUTO_CANCEL;
-		/* ÉèÖÃstatusbarÏÔÊ¾µÄicon */
+		/* è®¾ç½®statusbaræ˜¾ç¤ºçš„icon */
 		myNoti.icon = iconId;
-		/* ÉèÖÃstatusbarÏÔÊ¾µÄÎÄ×ÖĞÅÏ¢ */
+		/* è®¾ç½®statusbaræ˜¾ç¤ºçš„æ–‡å­—ä¿¡æ¯ */
 		myNoti.tickerText = contentTitle;
-		/* ÉèÖÃnotification·¢ÉúÊ±Í¬Ê±·¢³öÄ¬ÈÏÉùÒô */
+		/* è®¾ç½®notificationå‘ç”Ÿæ—¶åŒæ—¶å‘å‡ºé»˜è®¤å£°éŸ³ */
 		myNoti.defaults = Notification.DEFAULT_SOUND;
-		/* ÉèÖÃNotificationÁôÑÔÌõµÄ²ÎÊı */
+		/* è®¾ç½®Notificationç•™è¨€æ¡çš„å‚æ•° */
 		myNoti.setLatestEventInfo(this, contentTitle, contentText, appIntent);
-		/* ËÍ³öNotification */
+		/* é€å‡ºNotification */
 		notificationManager.notify(0, myNoti);
 	}
 

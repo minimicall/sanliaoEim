@@ -1,9 +1,13 @@
 package com.sanliao.eim.activity;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -22,9 +26,11 @@ import com.sanliao.eim.task.LoginTask;
 import com.sanliao.eim.util.StringUtil;
 import com.sanliao.eim.util.ValidateUtil;
 
+import de.mindpipe.android.logging.log4j.LogConfigurator;
+
 /**
  * 
- * µÇÂ¼.
+ * ç™»å½•.
  * 
  * @author xunlei.zengjinlong 470910357@qq.com
  */
@@ -35,36 +41,41 @@ public class LoginActivity extends ActivitySupport {
 	private Button btn_login = null;
 	private Button btn_register = null;
 	private LoginConfig loginConfig;
+	
+	private final static Logger logger =Logger.getLogger(LoginActivity.class);//æ—¥å¿—ï¼Œå†™å…¥åˆ°æ–‡ä»¶ä¸­çš„
+ 
+
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
 		setContentView(R.layout.login);
-		init();
-		
+		init();		
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
-		// Ğ£ÑéSD¿¨
+		// æ ¡éªŒSDå¡
 		checkMemoryCard();
-		// ¼ì²âÍøÂçºÍ°æ±¾
+		// æ£€æµ‹ç½‘ç»œå’Œç‰ˆæœ¬
 		validateInternet();
-		// ³õÊ¼»¯xmppÅäÖÃ
+		// åˆå§‹åŒ–xmppé…ç½®
 		XmppConnectionManager.getInstance().init(loginConfig);
 	}
 
 	/**
 	 * 
-	 * ³õÊ¼»¯.
+	 * åˆå§‹åŒ–.
 	 * 
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-5-16 ÉÏÎç9:13:01
+	 * @update 2012-5-16 ä¸Šåˆ9:13:01
 	 */
 	protected void init() {
 		loginConfig = getLoginConfig();
-		// Èç¹ûÎª×Ô¶¯µÇÂ¼
+		// å¦‚æœä¸ºè‡ªåŠ¨ç™»å½•
 		if (loginConfig.isAutoLogin()) {
 			LoginTask loginTask = new LoginTask(LoginActivity.this, loginConfig);
 			loginTask.execute();
@@ -77,7 +88,7 @@ public class LoginActivity extends ActivitySupport {
 		btn_login = (Button) findViewById(R.id.ui_login_btn);
 		btn_register=(Button)findViewById(R.id.ui_register_btn);
 
-		// ³õÊ¼»¯¸÷×é¼şµÄÄ¬ÈÏ×´Ì¬
+		// åˆå§‹åŒ–å„ç»„ä»¶çš„é»˜è®¤çŠ¶æ€
 		edt_username.setText(loginConfig.getUsername());
 		edt_pwd.setText(loginConfig.getPassword());
 		rememberCb.setChecked(loginConfig.isRemember());
@@ -99,14 +110,14 @@ public class LoginActivity extends ActivitySupport {
 					String username = edt_username.getText().toString();
 					String password = edt_pwd.getText().toString();
 
-					// ÏÈ¼ÇÂ¼ÏÂ¸÷×é¼şµÄÄ¿Ç°×´Ì¬,µÇÂ¼³É¹¦ºó²Å±£´æ
+					// å…ˆè®°å½•ä¸‹å„ç»„ä»¶çš„ç›®å‰çŠ¶æ€,ç™»å½•æˆåŠŸåæ‰ä¿å­˜
 					loginConfig.setPassword(password);
 					loginConfig.setUsername(username);
 					loginConfig.setRemember(rememberCb.isChecked());
 					loginConfig.setAutoLogin(autologinCb.isChecked());
 					loginConfig.setNovisible(novisibleCb.isChecked());
-					loginConfig.setIsRegister(false);//±¾´Î²Ù×÷ÊÇ·ñÎª×¢²á
-
+					loginConfig.setIsRegister(false);//æœ¬æ¬¡æ“ä½œæ˜¯å¦ä¸ºæ³¨å†Œ
+					logger.debug("execute LoginTask now.");
 					LoginTask loginTask = new LoginTask(LoginActivity.this,
 							loginConfig);
 					loginTask.execute();
@@ -121,7 +132,7 @@ public class LoginActivity extends ActivitySupport {
 					String username = edt_username.getText().toString();
 					String password = edt_pwd.getText().toString();
 
-					// ÏÈ¼ÇÂ¼ÏÂ¸÷×é¼şµÄÄ¿Ç°×´Ì¬,µÇÂ¼³É¹¦ºó²Å±£´æ
+					// å…ˆè®°å½•ä¸‹å„ç»„ä»¶çš„ç›®å‰çŠ¶æ€,ç™»å½•æˆåŠŸåæ‰ä¿å­˜
 					loginConfig.setPassword(password);
 					loginConfig.setUsername(username);
 					loginConfig.setRemember(rememberCb.isChecked());
@@ -138,16 +149,16 @@ public class LoginActivity extends ActivitySupport {
 
 	/**
 	 * 
-	 * µÇÂ¼Ğ£Ñé.
+	 * ç™»å½•æ ¡éªŒ.
 	 * 
 	 * @return
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-5-16 ÉÏÎç9:12:37
+	 * @update 2012-5-16 ä¸Šåˆ9:12:37
 	 */
 	private boolean checkData() {
 		boolean checked = false;
-		checked = (!ValidateUtil.isEmpty(edt_username, "µÇÂ¼Ãû") && !ValidateUtil
-				.isEmpty(edt_pwd, "ÃÜÂë"));
+		checked = (!ValidateUtil.isEmpty(edt_username, "ç™»å½•å") && !ValidateUtil
+				.isEmpty(edt_pwd, "å¯†ç "));
 		return checked;
 	}
 
@@ -171,11 +182,11 @@ public class LoginActivity extends ActivitySupport {
 		switch (item.getItemId()) {
 		case R.id.menu_login_set:
 			AlertDialog.Builder dialog = new AlertDialog.Builder(context);
-			dialog.setTitle("·şÎñÆ÷ÉèÖÃ")
+			dialog.setTitle("æœåŠ¡å™¨è®¾ç½®")
 					.setIcon(android.R.drawable.ic_dialog_info)
-						.setMessage("ÇëÉèÖÃ·şÎñÆ÷IPµØÖ·")
+						.setMessage("è¯·è®¾ç½®æœåŠ¡å™¨IPåœ°å€")
 					.setView(view)
-					.setPositiveButton("È·¶¨",
+					.setPositiveButton("ç¡®å®š",
 							new DialogInterface.OnClickListener() {
 								@Override
 								public void onClick(DialogInterface dialog,
@@ -197,11 +208,11 @@ public class LoginActivity extends ActivitySupport {
 											.saveLoginConfig(loginConfig);
 								}
 							})
-					.setNegativeButton("È¡Ïû",
+					.setNegativeButton("å–æ¶ˆ",
 							new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog,
 										int which) {
-									dialog.cancel();// È¡Ïûµ¯³ö¿ò
+									dialog.cancel();// å–æ¶ˆå¼¹å‡ºæ¡†
 								}
 							}).create().show();
 
@@ -218,10 +229,10 @@ public class LoginActivity extends ActivitySupport {
 		case R.id.menu_contactus:
 			
 			AlertDialog.Builder dialog2 = new AlertDialog.Builder(context);
-			dialog2.setTitle("·şÎñÆ÷ÉèÖÃ")
+			dialog2.setTitle("æœåŠ¡å™¨è®¾ç½®")
 					.setIcon(android.R.drawable.ic_dialog_info)
-						.setMessage("×÷Õß£ºÑ¸À×.Ôø½ğÁú\n email:470910357@qq.com")
-					.setPositiveButton("È·¶¨",
+						.setMessage("ä½œè€…ï¼šè¿…é›·.æ›¾é‡‘é¾™\n email:470910357@qq.com")
+					.setPositiveButton("ç¡®å®š",
 							new DialogInterface.OnClickListener() {
 								@Override
 								public void onClick(DialogInterface dialog,
@@ -229,11 +240,11 @@ public class LoginActivity extends ActivitySupport {
 								 
 								}
 							})
-					.setNegativeButton("È¡Ïû",
+					.setNegativeButton("å–æ¶ˆ",
 							new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog,
 										int which) {
-									dialog.cancel();// È¡Ïûµ¯³ö¿ò
+									dialog.cancel();// å–æ¶ˆå¼¹å‡ºæ¡†
 								}
 							}).create().show();
 		}

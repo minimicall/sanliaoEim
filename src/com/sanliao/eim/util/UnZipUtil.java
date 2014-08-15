@@ -58,7 +58,7 @@ public class UnZipUtil {
 		}
 	}
 
-	// unZipfileNameĞèÒª½âÑ¹µÄzipÎÄ¼şÈ«Â·¾­
+	// unZipfileNameéœ€è¦è§£å‹çš„zipæ–‡ä»¶å…¨è·¯ç»
 	public static void unZip(String unZipfileName, String mDestPath) {
 		FileOutputStream fileOut;
 		ZipInputStream zipIn;
@@ -74,7 +74,7 @@ public class UnZipUtil {
 				if (zipEntry.isDirectory()) {
 					file.mkdirs();
 				} else {
-					// Èç¹ûÖ¸¶¨ÎÄ¼şµÄÄ¿Â¼²»´æÔÚ,Ôò´´½¨Ö®.
+					// å¦‚æœæŒ‡å®šæ–‡ä»¶çš„ç›®å½•ä¸å­˜åœ¨,åˆ™åˆ›å»ºä¹‹.
 					File parent = file.getParentFile();
 					if (!parent.exists()) {
 						parent.mkdirs();

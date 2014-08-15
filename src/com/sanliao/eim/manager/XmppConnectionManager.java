@@ -31,7 +31,7 @@ import com.sanliao.eim.model.LoginConfig;
 
 /**
  * 
- * XMPP·şÎñÆ÷Á¬½Ó¹¤¾ßÀà.
+ * XMPPæœåŠ¡å™¨è¿æ¥å·¥å…·ç±».
  * 
  * @author xunlei.zengjinlong 470910357@qq.com
  */
@@ -53,21 +53,21 @@ public class XmppConnectionManager {
 
 	// init
 	public XMPPConnection init(LoginConfig loginConfig) {
-		Connection.DEBUG_ENABLED = false;
+		Connection.DEBUG_ENABLED = true;//false
 		ProviderManager pm = ProviderManager.getInstance();
 		configure(pm);
 
 		connectionConfig = new ConnectionConfiguration(
 				loginConfig.getXmppHost(), loginConfig.getXmppPort(),
 				loginConfig.getXmppServiceName());
-		connectionConfig.setSASLAuthenticationEnabled(false);// ²»Ê¹ÓÃSASLÑéÖ¤£¬ÉèÖÃÎªfalse
+		connectionConfig.setSASLAuthenticationEnabled(false);// ä¸ä½¿ç”¨SASLéªŒè¯ï¼Œè®¾ç½®ä¸ºfalse
 		connectionConfig
 				.setSecurityMode(ConnectionConfiguration.SecurityMode.enabled);
-		// ÔÊĞí×Ô¶¯Á¬½Ó
+		// å…è®¸è‡ªåŠ¨è¿æ¥
 		connectionConfig.setReconnectionAllowed(false);
-		// ÔÊĞíµÇÂ½³É¹¦ºó¸üĞÂÔÚÏß×´Ì¬
+		// å…è®¸ç™»é™†æˆåŠŸåæ›´æ–°åœ¨çº¿çŠ¶æ€
 		connectionConfig.setSendPresence(true);
-		// ÊÕµ½ºÃÓÑÑûÇëºómanual±íÊ¾ĞèÒª¾­¹ıÍ¬Òâ,accept_all±íÊ¾²»¾­Í¬Òâ×Ô¶¯ÎªºÃÓÑ
+		// æ”¶åˆ°å¥½å‹é‚€è¯·åmanualè¡¨ç¤ºéœ€è¦ç»è¿‡åŒæ„,accept_allè¡¨ç¤ºä¸ç»åŒæ„è‡ªåŠ¨ä¸ºå¥½å‹
 		Roster.setDefaultSubscriptionMode(Roster.SubscriptionMode.manual);
 		connection = new XMPPConnection(connectionConfig);
 		return connection;
@@ -75,25 +75,25 @@ public class XmppConnectionManager {
 
 	/**
 	 * 
-	 * ·µ»ØÒ»¸öÓĞĞ§µÄxmppÁ¬½Ó,Èç¹ûÎŞĞ§Ôò·µ»Ø¿Õ.
+	 * è¿”å›ä¸€ä¸ªæœ‰æ•ˆçš„xmppè¿æ¥,å¦‚æœæ— æ•ˆåˆ™è¿”å›ç©º.
 	 * 
 	 * @return
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-7-4 ÏÂÎç6:54:31
+	 * @update 2012-7-4 ä¸‹åˆ6:54:31
 	 */
 	public XMPPConnection getConnection() {
 		if (connection == null) {
-			throw new RuntimeException("ÇëÏÈ³õÊ¼»¯XMPPConnectionÁ¬½Ó");
+			throw new RuntimeException("è¯·å…ˆåˆå§‹åŒ–XMPPConnectionè¿æ¥");
 		}
 		return connection;
 	}
 
 	/**
 	 * 
-	 * Ïú»ÙxmppÁ¬½Ó.
+	 * é”€æ¯xmppè¿æ¥.
 	 * 
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-7-4 ÏÂÎç6:55:03
+	 * @update 2012-7-4 ä¸‹åˆ6:55:03
 	 */
 	public void disconnect() {
 		if (connection != null) {

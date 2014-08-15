@@ -8,9 +8,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 /**
- * SQLiteÊı¾İ¿âÄ£°å¹¤¾ßÀà
+ * SQLiteæ•°æ®åº“æ¨¡æ¿å·¥å…·ç±»
  * 
- * ¸ÃÀàÌá¹©ÁËÊı¾İ¿â²Ù×÷³£ÓÃµÄÔöÉ¾¸Ä²é,ÒÔ¼°¸÷ÖÖ¸´ÔÓÌõ¼şÆ¥Åä,·ÖÒ³,ÅÅĞòµÈ²Ù×÷
+ * è¯¥ç±»æä¾›äº†æ•°æ®åº“æ“ä½œå¸¸ç”¨çš„å¢åˆ æ”¹æŸ¥,ä»¥åŠå„ç§å¤æ‚æ¡ä»¶åŒ¹é…,åˆ†é¡µ,æ’åºç­‰æ“ä½œ
  * 
  * @see SQLiteDatabase
  */
@@ -25,11 +25,11 @@ public class SQLiteTemplate {
 	 */
 	private DBManager dBManager;
 	/**
-	 * ÊÇ·ñÎªÒ»¸öÊÂÎñ
+	 * æ˜¯å¦ä¸ºä¸€ä¸ªäº‹åŠ¡
 	 */
 	private boolean isTransaction = false;
 	/**
-	 * Êı¾İ¿âÁ¬½Ó
+	 * æ•°æ®åº“è¿æ¥
 	 */
 	private SQLiteDatabase dataBase = null;
 
@@ -42,8 +42,8 @@ public class SQLiteTemplate {
 	}
 
 	/**
-	 * isTransaction ÊÇ·ñÊôÓÚÒ»¸öÊÂÎñ ×¢:Ò»µ©isTransactionÉèÎªtrue
-	 * ËùÓĞµÄSQLiteTemplate·½·¨¶¼²»»á×Ô¶¯¹Ø±Õ×ÊÔ´,ĞèÔÚÊÂÎñ³É¹¦ºóÊÖ¶¯¹Ø±Õ
+	 * isTransaction æ˜¯å¦å±äºä¸€ä¸ªäº‹åŠ¡ æ³¨:ä¸€æ—¦isTransactionè®¾ä¸ºtrue
+	 * æ‰€æœ‰çš„SQLiteTemplateæ–¹æ³•éƒ½ä¸ä¼šè‡ªåŠ¨å…³é—­èµ„æº,éœ€åœ¨äº‹åŠ¡æˆåŠŸåæ‰‹åŠ¨å…³é—­
 	 * 
 	 * @return
 	 */
@@ -53,7 +53,7 @@ public class SQLiteTemplate {
 	}
 
 	/**
-	 * Ö´ĞĞÒ»ÌõsqlÓï¾ä
+	 * æ‰§è¡Œä¸€æ¡sqlè¯­å¥
 	 * 
 	 * @param name
 	 * @param tel
@@ -72,7 +72,7 @@ public class SQLiteTemplate {
 	}
 
 	/**
-	 * Ö´ĞĞÒ»ÌõsqlÓï¾ä
+	 * æ‰§è¡Œä¸€æ¡sqlè¯­å¥
 	 * 
 	 * @param name
 	 * @param tel
@@ -91,17 +91,17 @@ public class SQLiteTemplate {
 	}
 
 	/**
-	 * ÏòÊı¾İ¿â±íÖĞ²åÈëÒ»ÌõÊı¾İ
+	 * å‘æ•°æ®åº“è¡¨ä¸­æ’å…¥ä¸€æ¡æ•°æ®
 	 * 
 	 * @param table
-	 *            ±íÃû
+	 *            è¡¨å
 	 * @param content
-	 *            ×Ö¶ÎÖµ
+	 *            å­—æ®µå€¼
 	 */
 	public long insert(String table, ContentValues content) {
 		try {
 			dataBase = dBManager.openDatabase();
-			// insert·½·¨µÚÒ»²ÎÊı£ºÊı¾İ¿â±íÃû£¬µÚ¶ş¸ö²ÎÊıÈç¹ûCONTENTÎª¿ÕÊ±ÔòÏò±íÖĞ²åÈëÒ»¸öNULL,µÚÈı¸ö²ÎÊıÎª²åÈëµÄÄÚÈİ
+			// insertæ–¹æ³•ç¬¬ä¸€å‚æ•°ï¼šæ•°æ®åº“è¡¨åï¼Œç¬¬äºŒä¸ªå‚æ•°å¦‚æœCONTENTä¸ºç©ºæ—¶åˆ™å‘è¡¨ä¸­æ’å…¥ä¸€ä¸ªNULL,ç¬¬ä¸‰ä¸ªå‚æ•°ä¸ºæ’å…¥çš„å†…å®¹
 			return dataBase.insert(table, null, content);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -114,7 +114,7 @@ public class SQLiteTemplate {
 	}
 
 	/**
-	 * ÅúÁ¿É¾³ıÖ¸¶¨Ö÷¼üÊı¾İ
+	 * æ‰¹é‡åˆ é™¤æŒ‡å®šä¸»é”®æ•°æ®
 	 * 
 	 * @param ids
 	 */
@@ -142,12 +142,12 @@ public class SQLiteTemplate {
 	}
 
 	/**
-	 * ¸ù¾İÄ³Ò»¸ö×Ö¶ÎºÍÖµÉ¾³ıÒ»ĞĞÊı¾İ, Èç name="jack"
+	 * æ ¹æ®æŸä¸€ä¸ªå­—æ®µå’Œå€¼åˆ é™¤ä¸€è¡Œæ•°æ®, å¦‚ name="jack"
 	 * 
 	 * @param table
 	 * @param field
 	 * @param value
-	 * @return ·µ»ØÖµ´óÓÚ0±íÊ¾É¾³ı³É¹¦
+	 * @return è¿”å›å€¼å¤§äº0è¡¨ç¤ºåˆ é™¤æˆåŠŸ
 	 */
 	public int deleteByField(String table, String field, String value) {
 		try {
@@ -164,15 +164,15 @@ public class SQLiteTemplate {
 	}
 
 	/**
-	 * ¸ù¾İÌõ¼şÉ¾³ıÊı¾İ
+	 * æ ¹æ®æ¡ä»¶åˆ é™¤æ•°æ®
 	 * 
 	 * @param table
-	 *            ±íÃû
+	 *            è¡¨å
 	 * @param whereClause
-	 *            ²éÑ¯Óï¾ä ²ÎÊı²ÉÓÃ?
+	 *            æŸ¥è¯¢è¯­å¥ å‚æ•°é‡‡ç”¨?
 	 * @param whereArgs
-	 *            ²ÎÊıÖµ
-	 * @return ·µ»ØÖµ´óÓÚ0±íÊ¾É¾³ı³É¹¦
+	 *            å‚æ•°å€¼
+	 * @return è¿”å›å€¼å¤§äº0è¡¨ç¤ºåˆ é™¤æˆåŠŸ
 	 */
 	public int deleteByCondition(String table, String whereClause,
 			String[] whereArgs) {
@@ -190,11 +190,11 @@ public class SQLiteTemplate {
 	}
 
 	/**
-	 * ¸ù¾İÖ÷¼üÉ¾³ıÒ»ĞĞÊı¾İ
+	 * æ ¹æ®ä¸»é”®åˆ é™¤ä¸€è¡Œæ•°æ®
 	 * 
 	 * @param table
 	 * @param id
-	 * @return ·µ»ØÖµ´óÓÚ0±íÊ¾É¾³ı³É¹¦
+	 * @return è¿”å›å€¼å¤§äº0è¡¨ç¤ºåˆ é™¤æˆåŠŸ
 	 */
 	public int deleteById(String table, String id) {
 		try {
@@ -211,12 +211,12 @@ public class SQLiteTemplate {
 	}
 
 	/**
-	 * ¸ù¾İÖ÷¼ü¸üĞÂÒ»ĞĞÊı¾İ
+	 * æ ¹æ®ä¸»é”®æ›´æ–°ä¸€è¡Œæ•°æ®
 	 * 
 	 * @param table
 	 * @param id
 	 * @param values
-	 * @return ·µ»ØÖµ´óÓÚ0±íÊ¾¸üĞÂ³É¹¦
+	 * @return è¿”å›å€¼å¤§äº0è¡¨ç¤ºæ›´æ–°æˆåŠŸ
 	 */
 	public int updateById(String table, String id, ContentValues values) {
 		try {
@@ -234,13 +234,13 @@ public class SQLiteTemplate {
 	}
 
 	/**
-	 * ¸üĞÂÊı¾İ
+	 * æ›´æ–°æ•°æ®
 	 * 
 	 * @param table
 	 * @param values
 	 * @param whereClause
 	 * @param whereArgs
-	 * @return ·µ»ØÖµ´óÓÚ0±íÊ¾¸üĞÂ³É¹¦
+	 * @return è¿”å›å€¼å¤§äº0è¡¨ç¤ºæ›´æ–°æˆåŠŸ
 	 */
 	public int update(String table, ContentValues values, String whereClause,
 			String[] whereArgs) {
@@ -258,7 +258,7 @@ public class SQLiteTemplate {
 	}
 
 	/**
-	 * ¸ù¾İÖ÷¼ü²é¿´Ä³ÌõÊı¾İÊÇ·ñ´æÔÚ
+	 * æ ¹æ®ä¸»é”®æŸ¥çœ‹æŸæ¡æ•°æ®æ˜¯å¦å­˜åœ¨
 	 * 
 	 * @param table
 	 * @param id
@@ -279,7 +279,7 @@ public class SQLiteTemplate {
 	}
 
 	/**
-	 * ¸ù¾İÄ³×Ö¶Î/Öµ²é¿´Ä³ÌõÊı¾İÊÇ·ñ´æÔÚ
+	 * æ ¹æ®æŸå­—æ®µ/å€¼æŸ¥çœ‹æŸæ¡æ•°æ®æ˜¯å¦å­˜åœ¨
 	 * 
 	 * @param status
 	 * @return
@@ -302,7 +302,7 @@ public class SQLiteTemplate {
 	}
 
 	/**
-	 * Ê¹ÓÃSQLÓï¾ä²é¿´Ä³ÌõÊı¾İÊÇ·ñ´æÔÚ
+	 * ä½¿ç”¨SQLè¯­å¥æŸ¥çœ‹æŸæ¡æ•°æ®æ˜¯å¦å­˜åœ¨
 	 * 
 	 * @param sql
 	 * @param selectionArgs
@@ -329,7 +329,7 @@ public class SQLiteTemplate {
 	}
 
 	/**
-	 * ²éÑ¯Ò»ÌõÊı¾İ
+	 * æŸ¥è¯¢ä¸€æ¡æ•°æ®
 	 * 
 	 * @param rowMapper
 	 * @param sql
@@ -356,14 +356,14 @@ public class SQLiteTemplate {
 	}
 
 	/**
-	 * ²éÑ¯
+	 * æŸ¥è¯¢
 	 * 
 	 * @param rowMapper
 	 * @param sql
 	 * @param startResult
-	 *            ¿ªÊ¼Ë÷Òı ×¢:µÚÒ»Ìõ¼ÇÂ¼Ë÷ÒıÎª0
+	 *            å¼€å§‹ç´¢å¼• æ³¨:ç¬¬ä¸€æ¡è®°å½•ç´¢å¼•ä¸º0
 	 * @param maxResult
-	 *            ²½³¤
+	 *            æ­¥é•¿
 	 * @return
 	 */
 	public <T> List<T> queryForList(RowMapper<T> rowMapper, String sql,
@@ -386,14 +386,14 @@ public class SQLiteTemplate {
 	}
 
 	/**
-	 * ·ÖÒ³²éÑ¯
+	 * åˆ†é¡µæŸ¥è¯¢
 	 * 
 	 * @param rowMapper
 	 * @param sql
 	 * @param startResult
-	 *            ¿ªÊ¼Ë÷Òı ×¢:µÚÒ»Ìõ¼ÇÂ¼Ë÷ÒıÎª0
+	 *            å¼€å§‹ç´¢å¼• æ³¨:ç¬¬ä¸€æ¡è®°å½•ç´¢å¼•ä¸º0
 	 * @param maxResult
-	 *            ²½³¤
+	 *            æ­¥é•¿
 	 * @return
 	 */
 	public <T> List<T> queryForList(RowMapper<T> rowMapper, String sql,
@@ -417,7 +417,7 @@ public class SQLiteTemplate {
 	}
 
 	/**
-	 * »ñÈ¡¼ÇÂ¼Êı
+	 * è·å–è®°å½•æ•°
 	 * 
 	 * @return
 	 */
@@ -441,25 +441,25 @@ public class SQLiteTemplate {
 	}
 
 	/**
-	 * ·ÖÒ³²éÑ¯
+	 * åˆ†é¡µæŸ¥è¯¢
 	 * 
 	 * @param rowMapper
 	 * @param table
-	 *            ¼ìË÷µÄ±í
+	 *            æ£€ç´¢çš„è¡¨
 	 * @param columns
-	 *            ÓÉĞèÒª·µ»ØÁĞµÄÁĞÃûËù×é³ÉµÄ×Ö·û´®Êı×é£¬´«Èënull»á·µ»ØËùÓĞµÄÁĞ¡£
+	 *            ç”±éœ€è¦è¿”å›åˆ—çš„åˆ—åæ‰€ç»„æˆçš„å­—ç¬¦ä¸²æ•°ç»„ï¼Œä¼ å…¥nullä¼šè¿”å›æ‰€æœ‰çš„åˆ—ã€‚
 	 * @param selection
-	 *            ²éÑ¯Ìõ¼ş×Ó¾ä£¬Ïàµ±ÓÚselectÓï¾äwhere¹Ø¼ü×ÖºóÃæµÄ²¿·Ö£¬ÔÚÌõ¼ş×Ó¾äÔÊĞíÊ¹ÓÃÕ¼Î»·û"?"
+	 *            æŸ¥è¯¢æ¡ä»¶å­å¥ï¼Œç›¸å½“äºselectè¯­å¥whereå…³é”®å­—åé¢çš„éƒ¨åˆ†ï¼Œåœ¨æ¡ä»¶å­å¥å…è®¸ä½¿ç”¨å ä½ç¬¦"?"
 	 * @param selectionArgs
-	 *            ¶ÔÓ¦ÓÚselectionÓï¾äÖĞÕ¼Î»·ûµÄÖµ£¬ÖµÔÚÊı×éÖĞµÄÎ»ÖÃÓëÕ¼Î»·ûÔÚÓï¾äÖĞµÄÎ»ÖÃ±ØĞëÒ»ÖÂ£¬·ñÔò¾Í»áÓĞÒì³£
+	 *            å¯¹åº”äºselectionè¯­å¥ä¸­å ä½ç¬¦çš„å€¼ï¼Œå€¼åœ¨æ•°ç»„ä¸­çš„ä½ç½®ä¸å ä½ç¬¦åœ¨è¯­å¥ä¸­çš„ä½ç½®å¿…é¡»ä¸€è‡´ï¼Œå¦åˆ™å°±ä¼šæœ‰å¼‚å¸¸
 	 * @param groupBy
-	 *            ¶Ô½á¹û¼¯½øĞĞ·Ö×éµÄgroup byÓï¾ä£¨²»°üÀ¨GROUP BY¹Ø¼ü×Ö£©¡£´«Èënull½«²»¶Ô½á¹û¼¯½øĞĞ·Ö×é
+	 *            å¯¹ç»“æœé›†è¿›è¡Œåˆ†ç»„çš„group byè¯­å¥ï¼ˆä¸åŒ…æ‹¬GROUP BYå…³é”®å­—ï¼‰ã€‚ä¼ å…¥nullå°†ä¸å¯¹ç»“æœé›†è¿›è¡Œåˆ†ç»„
 	 * @param having
-	 *            ¶Ô²éÑ¯ºóµÄ½á¹û¼¯½øĞĞ¹ıÂË,´«ÈënullÔò²»¹ıÂË
+	 *            å¯¹æŸ¥è¯¢åçš„ç»“æœé›†è¿›è¡Œè¿‡æ»¤,ä¼ å…¥nullåˆ™ä¸è¿‡æ»¤
 	 * @param orderBy
-	 *            ¶Ô½á¹û¼¯½øĞĞÅÅĞòµÄorder byÓï¾ä£¨²»°üÀ¨ORDER BY¹Ø¼ü×Ö£©¡£´«Èënull½«¶Ô½á¹û¼¯Ê¹ÓÃÄ¬ÈÏµÄÅÅĞò
+	 *            å¯¹ç»“æœé›†è¿›è¡Œæ’åºçš„order byè¯­å¥ï¼ˆä¸åŒ…æ‹¬ORDER BYå…³é”®å­—ï¼‰ã€‚ä¼ å…¥nullå°†å¯¹ç»“æœé›†ä½¿ç”¨é»˜è®¤çš„æ’åº
 	 * @param limit
-	 *            Ö¸¶¨Æ«ÒÆÁ¿ºÍ»ñÈ¡µÄ¼ÇÂ¼Êı£¬Ïàµ±ÓÚselectÓï¾älimit¹Ø¼ü×ÖºóÃæµÄ²¿·Ö,Èç¹ûÎªnullÔò·µ»ØËùÓĞĞĞ
+	 *            æŒ‡å®šåç§»é‡å’Œè·å–çš„è®°å½•æ•°ï¼Œç›¸å½“äºselectè¯­å¥limitå…³é”®å­—åé¢çš„éƒ¨åˆ†,å¦‚æœä¸ºnullåˆ™è¿”å›æ‰€æœ‰è¡Œ
 	 * @return
 	 */
 	public <T> List<T> queryForList(RowMapper<T> rowMapper, String table,
@@ -511,16 +511,16 @@ public class SQLiteTemplate {
 		/**
 		 * 
 		 * @param cursor
-		 *            ÓÎ±ê
+		 *            æ¸¸æ ‡
 		 * @param index
-		 *            ÏÂ±êË÷Òı
+		 *            ä¸‹æ ‡ç´¢å¼•
 		 * @return
 		 */
 		public T mapRow(Cursor cursor, int index);
 	}
 
 	/**
-	 * ¹Ø±ÕÊı¾İ¿â
+	 * å…³é—­æ•°æ®åº“
 	 */
 	public void closeDatabase(Cursor cursor) {
 		if (null != dataBase) {

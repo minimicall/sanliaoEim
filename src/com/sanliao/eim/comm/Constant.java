@@ -2,36 +2,36 @@ package com.sanliao.eim.comm;
 
 public class Constant {
 	/**
-	 * ËùÓĞµÄactionµÄ¼àÌıµÄ±ØĞëÒªÒÔ"ACTION_"¿ªÍ·
+	 * æ‰€æœ‰çš„actionçš„ç›‘å¬çš„å¿…é¡»è¦ä»¥"ACTION_"å¼€å¤´
 	 * 
 	 */
 
 	/**
-	 * »¨Ãû²áÓĞÉ¾³ıµÄACTIONºÍKEY
+	 * èŠ±åå†Œæœ‰åˆ é™¤çš„ACTIONå’ŒKEY
 	 */
 	public static final String ROSTER_DELETED = "roster.deleted";
 	public static final String ROSTER_DELETED_KEY = "roster.deleted.key";
 
 	/**
-	 * »¨Ãû²áÓĞ¸üĞÂµÄACTIONºÍKEY
+	 * èŠ±åå†Œæœ‰æ›´æ–°çš„ACTIONå’ŒKEY
 	 */
 	public static final String ROSTER_UPDATED = "roster.updated";
 	public static final String ROSTER_UPDATED_KEY = "roster.updated.key";
 
 	/**
-	 * »¨Ãû²áÓĞÔö¼ÓµÄACTIONºÍKEY
+	 * èŠ±åå†Œæœ‰å¢åŠ çš„ACTIONå’ŒKEY
 	 */
 	public static final String ROSTER_ADDED = "roster.added";
 	public static final String ROSTER_ADDED_KEY = "roster.added.key";
 
 	/**
-	 * »¨Ãû²áÖĞ³ÉÔ±×´Ì¬ÓĞ¸Ä±äµÄACTIONºÍKEY
+	 * èŠ±åå†Œä¸­æˆå‘˜çŠ¶æ€æœ‰æ”¹å˜çš„ACTIONå’ŒKEY
 	 */
 	public static final String ROSTER_PRESENCE_CHANGED = "roster.presence.changed";
 	public static final String ROSTER_PRESENCE_CHANGED_KEY = "roster.presence.changed.key";
 
 	/**
-	 * ÊÕµ½ºÃÓÑÑûÇëÇëÇó
+	 * æ”¶åˆ°å¥½å‹é‚€è¯·è¯·æ±‚
 	 */
 	public static final String ROSTER_SUBSCRIPTION = "roster.subscribe";
 	public static final String ROSTER_SUB_FROM = "roster.subscribe.from";
@@ -40,100 +40,100 @@ public class Constant {
 	public static final String NEW_MESSAGE_ACTION = "roster.newmessage";
 
 	/**
-	 * ÎÒµÄÏûÏ¢
+	 * æˆ‘çš„æ¶ˆæ¯
 	 */
 	public static final String MY_NEWS = "my.news";
 	public static final String MY_NEWS_DATE = "my.news.date";
 
 	/**
-	 * ·şÎñÆ÷µÄÅäÖÃ
+	 * æœåŠ¡å™¨çš„é…ç½®
 	 */
-	public static final String LOGIN_SET = "eim_login_set";// µÇÂ¼ÉèÖÃ
-	public static final String USERNAME = "username";// ÕË»§
-	public static final String PASSWORD = "password";// ÃÜÂë
-	public static final String XMPP_HOST = "xmpp_host";// µØÖ·
-	public static final String XMPP_PORT = "xmpp_port";// ¶Ë¿Ú
-	public static final String XMPP_SEIVICE_NAME = "xmpp_service_name";// ·şÎñÃû
-	public static final String IS_AUTOLOGIN = "isAutoLogin";// ÊÇ·ñ×Ô¶¯µÇÂ¼
-	public static final String IS_NOVISIBLE = "isNovisible";// ÊÇ·ñÒşÉí
-	public static final String IS_REMEMBER = "isRemember";// ÊÇ·ñ¼Ç×¡ÕË»§ÃÜÂë
-	public static final String IS_FIRSTSTART = "isFirstStart";// ÊÇ·ñÊ×´ÎÆô¶¯
+	public static final String LOGIN_SET = "eim_login_set";// ç™»å½•è®¾ç½®
+	public static final String USERNAME = "username";// è´¦æˆ·
+	public static final String PASSWORD = "password";// å¯†ç 
+	public static final String XMPP_HOST = "xmpp_host";// åœ°å€
+	public static final String XMPP_PORT = "xmpp_port";// ç«¯å£
+	public static final String XMPP_SEIVICE_NAME = "xmpp_service_name";// æœåŠ¡å
+	public static final String IS_AUTOLOGIN = "isAutoLogin";// æ˜¯å¦è‡ªåŠ¨ç™»å½•
+	public static final String IS_NOVISIBLE = "isNovisible";// æ˜¯å¦éšèº«
+	public static final String IS_REMEMBER = "isRemember";// æ˜¯å¦è®°ä½è´¦æˆ·å¯†ç 
+	public static final String IS_FIRSTSTART = "isFirstStart";// æ˜¯å¦é¦–æ¬¡å¯åŠ¨
 	/**
-	 * µÇÂ¼ÌáÊ¾
+	 * ç™»å½•æç¤º
 	 */
-	public static final int LOGIN_SECCESS = 0;// ³É¹¦
-	public static final int HAS_NEW_VERSION = 1;// ·¢ÏÖĞÂ°æ±¾
-	public static final int IS_NEW_VERSION = 2;// µ±Ç°°æ±¾Îª×îĞÂ
-	public static final int LOGIN_ERROR_ACCOUNT_PASS = 3;// ÕËºÅ»òÕßÃÜÂë´íÎó
-	public static final int SERVER_UNAVAILABLE = 4;// ÎŞ·¨Á¬½Óµ½·şÎñÆ÷
-	public static final int LOGIN_ERROR = 5;// Á¬½ÓÊ§°Ü
-	public static final int LOGIN_ERROR_ALREADY_REGISTERED=6;//ÖØ¸´×¢²á
-	public static final String XMPP_CONNECTION_CLOSED = "xmpp_connection_closed";// Á¬½ÓÖĞ¶Ï
+	public static final int LOGIN_SECCESS = 0;// æˆåŠŸ
+	public static final int HAS_NEW_VERSION = 1;// å‘ç°æ–°ç‰ˆæœ¬
+	public static final int IS_NEW_VERSION = 2;// å½“å‰ç‰ˆæœ¬ä¸ºæœ€æ–°
+	public static final int LOGIN_ERROR_ACCOUNT_PASS = 3;// è´¦å·æˆ–è€…å¯†ç é”™è¯¯
+	public static final int SERVER_UNAVAILABLE = 4;// æ— æ³•è¿æ¥åˆ°æœåŠ¡å™¨
+	public static final int LOGIN_ERROR = 5;// è¿æ¥å¤±è´¥
+	public static final int LOGIN_ERROR_ALREADY_REGISTERED=6;//é‡å¤æ³¨å†Œ
+	public static final String XMPP_CONNECTION_CLOSED = "xmpp_connection_closed";// è¿æ¥ä¸­æ–­
 
-	public static final String LOGIN = "login"; // µÇÂ¼
-	public static final String RELOGIN = "relogin"; // ÖØĞÂµÇÂ¼
+	public static final String LOGIN = "login"; // ç™»å½•
+	public static final String RELOGIN = "relogin"; // é‡æ–°ç™»å½•
 
 	/**
-	 * ºÃÓÑÁĞ±í ×éÃû
+	 * å¥½å‹åˆ—è¡¨ ç»„å
 	 */
-	public static final String ALL_FRIEND = "ËùÓĞºÃÓÑ";// ËùÓĞºÃÓÑ
-	public static final String NO_GROUP_FRIEND = "Î´·Ö×éºÃÓÑ";// ËùÓĞºÃÓÑ
+	public static final String ALL_FRIEND = "æ‰€æœ‰å¥½å‹";// æ‰€æœ‰å¥½å‹
+	public static final String NO_GROUP_FRIEND = "æœªåˆ†ç»„å¥½å‹";// æ‰€æœ‰å¥½å‹
 	/**
-	 * ÏµÍ³ÏûÏ¢
+	 * ç³»ç»Ÿæ¶ˆæ¯
 	 */
-	public static final String ACTION_SYS_MSG = "action_sys_msg";// ÏûÏ¢ÀàĞÍ¹Ø¼ü×Ö
-	public static final String MSG_TYPE = "broadcast";// ÏûÏ¢ÀàĞÍ¹Ø¼ü×Ö
-	public static final String SYS_MSG = "sysMsg";// ÏµÍ³ÏûÏ¢¹Ø¼ü×Ö
-	public static final String SYS_MSG_DIS = "ÏµÍ³ÏûÏ¢";// ÏµÍ³ÏûÏ¢
-	public static final String ADD_FRIEND_QEQUEST = "ºÃÓÑÇëÇó";// ÏµÍ³ÏûÏ¢¹Ø¼ü×Ö
+	public static final String ACTION_SYS_MSG = "action_sys_msg";// æ¶ˆæ¯ç±»å‹å…³é”®å­—
+	public static final String MSG_TYPE = "broadcast";// æ¶ˆæ¯ç±»å‹å…³é”®å­—
+	public static final String SYS_MSG = "sysMsg";// ç³»ç»Ÿæ¶ˆæ¯å…³é”®å­—
+	public static final String SYS_MSG_DIS = "ç³»ç»Ÿæ¶ˆæ¯";// ç³»ç»Ÿæ¶ˆæ¯
+	public static final String ADD_FRIEND_QEQUEST = "å¥½å‹è¯·æ±‚";// ç³»ç»Ÿæ¶ˆæ¯å…³é”®å­—
 	/**
-	 * ÇëÇóÄ³¸ö²Ù×÷·µ»ØµÄ×´Ì¬Öµ
+	 * è¯·æ±‚æŸä¸ªæ“ä½œè¿”å›çš„çŠ¶æ€å€¼
 	 */
-	public static final int SUCCESS = 0;// ´æÔÚ
-	public static final int FAIL = 1;// ²»´æÔÚ
-	public static final int UNKNOWERROR = 2;// ³öÏÖÄªÃûµÄ´íÎó.
-	public static final int NETWORKERROR = 3;// ÍøÂç´íÎó
+	public static final int SUCCESS = 0;// å­˜åœ¨
+	public static final int FAIL = 1;// ä¸å­˜åœ¨
+	public static final int UNKNOWERROR = 2;// å‡ºç°è«åçš„é”™è¯¯.
+	public static final int NETWORKERROR = 3;// ç½‘ç»œé”™è¯¯
 	/***
-	 * ÆóÒµÍ¨Ñ¶Â¼¸ù¾İÓÃ»§£é£äºÍÓÃ»§ÃûÈ¥²éÕÒÈËÔ±ÖĞµÄÇëÇó£ø£í£ìÊÇ·ñ°üº¬×Ô×éÖ¯
+	 * ä¼ä¸šé€šè®¯å½•æ ¹æ®ç”¨æˆ·ï½‰ï½„å’Œç”¨æˆ·åå»æŸ¥æ‰¾äººå‘˜ä¸­çš„è¯·æ±‚ï½˜ï½ï½Œæ˜¯å¦åŒ…å«è‡ªç»„ç»‡
 	 */
 	public static final int containsZz = 0;
 	/***
-	 * ´´½¨ÇëÇó·Ö×éÁªÏµÈËÁĞ±íxml·ÖÒ³²ÎÊı
+	 * åˆ›å»ºè¯·æ±‚åˆ†ç»„è”ç³»äººåˆ—è¡¨xmlåˆ†é¡µå‚æ•°
 	 */
-	public static final String currentpage = "1";// µ±Ç°µÚ¼¸Ò³
-	public static final String pagesize = "1000";// µ±Ç°Ò³µÄÌõÊı
+	public static final String currentpage = "1";// å½“å‰ç¬¬å‡ é¡µ
+	public static final String pagesize = "1000";// å½“å‰é¡µçš„æ¡æ•°
 
 	/***
-	 * ´´½¨ÇëÇóxml²Ù×÷ÀàĞÍ
+	 * åˆ›å»ºè¯·æ±‚xmlæ“ä½œç±»å‹
 	 */
-	public static final String add = "00";// Ôö¼Ó
-	public static final String rename = "01";// Ôö¼Ó
-	public static final String remove = "02";// Ôö¼Ó
+	public static final String add = "00";// å¢åŠ 
+	public static final String rename = "01";// å¢åŠ 
+	public static final String remove = "02";// å¢åŠ 
 
 	/**
-	 * ÖØÁ¬½Ó
+	 * é‡è¿æ¥
 	 */
 	/**
-	 * ÖØÁ¬½Ó×´Ì¬acttion
+	 * é‡è¿æ¥çŠ¶æ€acttion
 	 * 
 	 */
 	public static final String ACTION_RECONNECT_STATE = "action_reconnect_state";
 	/**
-	 * ÃèÊö³åÁ¬½Ó×´Ì¬µÄ¹Ø»ú×Ó£¬¼Ä·ÅµÄintentµÄ¹Ø¼ü×Ö
+	 * æè¿°å†²è¿æ¥çŠ¶æ€çš„å…³æœºå­ï¼Œå¯„æ”¾çš„intentçš„å…³é”®å­—
 	 */
 	public static final String RECONNECT_STATE = "reconnect_state";
 	/**
-	 * ÃèÊö³åÁ¬½Ó£¬
+	 * æè¿°å†²è¿æ¥ï¼Œ
 	 */
 	public static final boolean RECONNECT_STATE_SUCCESS = true;
 	public static final boolean RECONNECT_STATE_FAIL = false;
 	/**
-	 * ÊÇ·ñÔÚÏßµÄSharedPreferencesÃû³Æ
+	 * æ˜¯å¦åœ¨çº¿çš„SharedPreferencesåç§°
 	 */
 	public static final String PREFENCE_USER_STATE = "prefence_user_state";
 	public static final String IS_ONLINE = "is_online";
 	/**
-	 * ¾«È·µ½ºÁÃë
+	 * ç²¾ç¡®åˆ°æ¯«ç§’
 	 */
 	public static final String MS_FORMART = "yyyy-MM-dd HH:mm:ss SSS";
 

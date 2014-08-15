@@ -30,23 +30,23 @@ public class NoteList extends ListActivity{
 	private List<NoteInfo> list = new ArrayList<NoteInfo>();
 	private NoteAdapter adapter;
 	
-	private final int NSort = Menu.FIRST;//·ÖÀà
-	private final int NSearch = Menu.FIRST+1;//²éÕÒ
-	private final int NEdit = Menu.FIRST+2;//±à¼­
-	private final int NNew = Menu.FIRST+3;//ĞÂ½¨
-	private final int NDelete = Menu.FIRST+4;//É¾³ı
-	private final int NAll = Menu.FIRST+5;//È«Ñ¡?
-	private final int NColse = Menu.FIRST+6;//¹Ø±Õ
-	private final int NDeleteAll = Menu.FIRST+7;//É¾³ıËùÓĞ
-	private final int NChange = Menu.FIRST+8;//¸ü¸Ä
+	private final int NSort = Menu.FIRST;//åˆ†ç±»
+	private final int NSearch = Menu.FIRST+1;//æŸ¥æ‰¾
+	private final int NEdit = Menu.FIRST+2;//ç¼–è¾‘
+	private final int NNew = Menu.FIRST+3;//æ–°å»º
+	private final int NDelete = Menu.FIRST+4;//åˆ é™¤
+	private final int NAll = Menu.FIRST+5;//å…¨é€‰?
+	private final int NColse = Menu.FIRST+6;//å…³é—­
+	private final int NDeleteAll = Menu.FIRST+7;//åˆ é™¤æ‰€æœ‰
+	private final int NChange = Menu.FIRST+8;//æ›´æ”¹
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate");
         setContentView(R.layout.notepad_note_list);
-        list = getDiaryList(NoteSQL.selectNormal(this));//Í¨¹ı¾²Ì¬º¯ÊıÀ´»ñÈ¡ÈÕÖ¾ÁĞ±í
-        adapter = new NoteAdapter(this, list);//ĞÂ½¨ÈÕÖ¾ÊÊÅäÆ÷
+        list = getDiaryList(NoteSQL.selectNormal(this));//é€šè¿‡é™æ€å‡½æ•°æ¥è·å–æ—¥å¿—åˆ—è¡¨
+        adapter = new NoteAdapter(this, list);//æ–°å»ºæ—¥å¿—é€‚é…å™¨
         setListAdapter(adapter);   
 	}
 	
@@ -89,7 +89,7 @@ public class NoteList extends ListActivity{
 	}
 	
 	private List<NoteInfo> getDiaryList(Cursor cursor){
-		List<NoteInfo> dl = new ArrayList<NoteInfo>();//Éú³ÉÒ»¸öÊı×éÁĞ±í
+		List<NoteInfo> dl = new ArrayList<NoteInfo>();//ç”Ÿæˆä¸€ä¸ªæ•°ç»„åˆ—è¡¨
 		cursor.moveToFirst();   
         while (!cursor.isAfterLast()) {
         	
@@ -109,21 +109,21 @@ public class NoteList extends ListActivity{
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
         setIconEnable(menu, true);  
-		menu.add(0, NNew, Menu.NONE, "  ĞÂ½¨").setIcon(R.drawable.notepad_nnew);
-		menu.add(0, NEdit, Menu.NONE, "  ĞŞ¸Ä").setIcon(R.drawable.notepad_edit);
-		menu.add(0, NSort, Menu.NONE, "  ²é¿´·ÖÀà").setIcon(R.drawable.notepad_sort);
-		//menu.add(0, NChange, Menu.NONE, "Ğı×ªÆÁÄ»").setIcon(R.drawable.refresh);
-		menu.add(0, NSearch, Menu.NONE, "  ²éÕÒ¼ÇÊÂ").setIcon(R.drawable.notepad_book_search);
-		menu.add(0, NDelete, Menu.NONE, "  É¾³ı").setIcon(R.drawable.notepad_delete);
-		menu.add(0, NAll, Menu.NONE, "  ²é¿´È«²¿").setIcon(R.drawable.notepad_find);
-		menu.add(0, NColse, Menu.NONE, "  ¹Ø±Õ").setIcon(R.drawable.notepad_close);
-		menu.add(0, NDeleteAll, Menu.NONE, "  Çå¿Õ¼ÇÊÂ").setIcon(R.drawable.notepad_clear);
+		menu.add(0, NNew, Menu.NONE, "  æ–°å»º").setIcon(R.drawable.notepad_nnew);
+		menu.add(0, NEdit, Menu.NONE, "  ä¿®æ”¹").setIcon(R.drawable.notepad_edit);
+		menu.add(0, NSort, Menu.NONE, "  æŸ¥çœ‹åˆ†ç±»").setIcon(R.drawable.notepad_sort);
+		//menu.add(0, NChange, Menu.NONE, "æ—‹è½¬å±å¹•").setIcon(R.drawable.refresh);
+		menu.add(0, NSearch, Menu.NONE, "  æŸ¥æ‰¾è®°äº‹").setIcon(R.drawable.notepad_book_search);
+		menu.add(0, NDelete, Menu.NONE, "  åˆ é™¤").setIcon(R.drawable.notepad_delete);
+		menu.add(0, NAll, Menu.NONE, "  æŸ¥çœ‹å…¨éƒ¨").setIcon(R.drawable.notepad_find);
+		menu.add(0, NColse, Menu.NONE, "  å…³é—­").setIcon(R.drawable.notepad_close);
+		menu.add(0, NDeleteAll, Menu.NONE, "  æ¸…ç©ºè®°äº‹").setIcon(R.drawable.notepad_clear);
 		return true;
 	} 
 	
-	///ÏÂÃæÕâ¸ö·½·¨ÊÇÎªÁËÊ¹µÃ²Ëµ¥ÄÜ¹»¼ÓÔØÍ¼±ê£¬²»ÕâÃ´×ö¼ÓÔØ²»ÁËÍ¼±ê¡£²»¹ı£¬µ½ÏÖÔÚÎ»ÖÃ£¬»¹ÊÇÃ»ÄÜÊµÏÖ
-	//²Ëµ¥ºáÅÅÁĞ
-	 //enableÎªtrueÊ±£¬²Ëµ¥Ìí¼ÓÍ¼±êÓĞĞ§£¬enableÎªfalseÊ±ÎŞĞ§¡£4.0ÏµÍ³Ä¬ÈÏÎŞĞ§  
+	///ä¸‹é¢è¿™ä¸ªæ–¹æ³•æ˜¯ä¸ºäº†ä½¿å¾—èœå•èƒ½å¤ŸåŠ è½½å›¾æ ‡ï¼Œä¸è¿™ä¹ˆåšåŠ è½½ä¸äº†å›¾æ ‡ã€‚ä¸è¿‡ï¼Œåˆ°ç°åœ¨ä½ç½®ï¼Œè¿˜æ˜¯æ²¡èƒ½å®ç°
+	//èœå•æ¨ªæ’åˆ—
+	 //enableä¸ºtrueæ—¶ï¼Œèœå•æ·»åŠ å›¾æ ‡æœ‰æ•ˆï¼Œenableä¸ºfalseæ—¶æ— æ•ˆã€‚4.0ç³»ç»Ÿé»˜è®¤æ— æ•ˆ  
     private void setIconEnable(Menu menu, boolean enable)  
     {  
         try   
@@ -132,7 +132,7 @@ public class NoteList extends ListActivity{
             Method m = clazz.getDeclaredMethod("setOptionalIconsVisible", boolean.class);  
             m.setAccessible(true);  
               
-            //MenuBuilderÊµÏÖMenu½Ó¿Ú£¬´´½¨²Ëµ¥Ê±£¬´«½øÀ´µÄmenuÆäÊµ¾ÍÊÇMenuBuilder¶ÔÏó(javaµÄ¶àÌ¬ÌØÕ÷)  
+            //MenuBuilderå®ç°Menuæ¥å£ï¼Œåˆ›å»ºèœå•æ—¶ï¼Œä¼ è¿›æ¥çš„menuå…¶å®å°±æ˜¯MenuBuilderå¯¹è±¡(javaçš„å¤šæ€ç‰¹å¾)  
             m.invoke(menu, enable);  
               
         } catch (Exception e)   
@@ -163,7 +163,7 @@ public class NoteList extends ListActivity{
 	  			edit.putExtra("dedit", list.get(getSelectedItemPosition()).mid);
 	  			startActivity(edit);
 	  		}else
-	  			Toast.makeText(NoteList.this, "ÄúÃ»ÓĞÑ¡ÔñÒªĞŞ¸ÄµÄ¼ÇÊÂ£¡", 
+	  			Toast.makeText(NoteList.this, "æ‚¨æ²¡æœ‰é€‰æ‹©è¦ä¿®æ”¹çš„è®°äº‹ï¼", 
 	  					Toast.LENGTH_LONG).show();
 	  		return true;
 	  	case NNew:
@@ -175,7 +175,7 @@ public class NoteList extends ListActivity{
 	  		if(getSelectedItemPosition() >=0)
 	  			deleteOneDialog();
 	  		else
-	  			Toast.makeText(NoteList.this, "ÄúÃ»ÓĞÑ¡ÔñÒªĞŞ¸ÄµÄ¼ÇÊÂ£¡", 
+	  			Toast.makeText(NoteList.this, "æ‚¨æ²¡æœ‰é€‰æ‹©è¦ä¿®æ”¹çš„è®°äº‹ï¼", 
 	  					Toast.LENGTH_LONG).show();
 	  		return true;
 	  	case NAll:
@@ -193,11 +193,11 @@ public class NoteList extends ListActivity{
 	
 	private void deleteOneDialog(){
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);  
-        builder.setTitle("ÎÂÜ°ÌáÊ¾");  
-        builder.setMessage("ÄãÈ·¶¨ÒªÉ¾³ıÕâÆª¼ÇÊÂ:"+
-        		list.get(getSelectedItemPosition()).mtitle+"Âğ£¿");
+        builder.setTitle("æ¸©é¦¨æç¤º");  
+        builder.setMessage("ä½ ç¡®å®šè¦åˆ é™¤è¿™ç¯‡è®°äº‹:"+
+        		list.get(getSelectedItemPosition()).mtitle+"å—ï¼Ÿ");
         builder.setIcon(android.R.drawable.ic_dialog_alert);
-        builder.setPositiveButton("È·¶¨", new OnClickListener() {
+        builder.setPositiveButton("ç¡®å®š", new OnClickListener() {
         	@Override
         	public void onClick(DialogInterface dialog, int which) {
         			int id = list.get(getSelectedItemPosition()).mid;
@@ -206,7 +206,7 @@ public class NoteList extends ListActivity{
         			adapter.notifyDataSetChanged();
         	}
         });
-        builder.setNegativeButton("È¡Ïû", new OnClickListener() {
+        builder.setNegativeButton("å–æ¶ˆ", new OnClickListener() {
 			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
@@ -218,10 +218,10 @@ public class NoteList extends ListActivity{
 	
 	private void deleteAllDialog(){
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);  
-        builder.setTitle("ÎÂÜ°ÌáÊ¾");  
-        builder.setMessage("ÄãÈ·¶¨ÒªÉ¾³ıËùÓĞ¼ÇÊÂÂğ£¿");
+        builder.setTitle("æ¸©é¦¨æç¤º");  
+        builder.setMessage("ä½ ç¡®å®šè¦åˆ é™¤æ‰€æœ‰è®°äº‹å—ï¼Ÿ");
         builder.setIcon(android.R.drawable.ic_dialog_alert);
-        builder.setPositiveButton("È·¶¨", new OnClickListener() {
+        builder.setPositiveButton("ç¡®å®š", new OnClickListener() {
         	@Override
         	public void onClick(DialogInterface dialog, int which) {
         		NoteSQL.deleteAll(NoteList.this);
@@ -229,7 +229,7 @@ public class NoteList extends ListActivity{
           		adapter.notifyDataSetChanged();
         	}
         });
-        builder.setNegativeButton("È¡Ïû", new OnClickListener() {
+        builder.setNegativeButton("å–æ¶ˆ", new OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				dialog.dismiss();
@@ -240,16 +240,16 @@ public class NoteList extends ListActivity{
 	
 	private void addDialog(){
 		AlertDialog.Builder alert = new AlertDialog.Builder(this);
-  		alert.setTitle("¹Ø¼ü×ÖËÑË÷");
+  		alert.setTitle("å…³é”®å­—æœç´¢");
   		alert.setIcon(R.drawable.notepad_book_search);
   		LinearLayout l = new LinearLayout(this);
   		l.setPadding(5, 4, 5, 4);
   		final EditText input = new EditText(this);
-  		input.setHint("ÇëÊäÈë¹Ø¼ü×Ö");
+  		input.setHint("è¯·è¾“å…¥å…³é”®å­—");
   		l.addView(input, new LinearLayout.LayoutParams(
   				LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
   		alert.setView(l);
-  		alert.setPositiveButton("È·¶¨", new OnClickListener() {			
+  		alert.setPositiveButton("ç¡®å®š", new OnClickListener() {			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				String searchStr = input.getText().toString().trim();
@@ -267,12 +267,12 @@ public class NoteList extends ListActivity{
 					adapter.notifyDataSetChanged();
 					db.close();
 				}else
-					Toast.makeText(NoteList.this, "·ÖÀà²»ÄÜÎª¿Õ£¡", 
+					Toast.makeText(NoteList.this, "åˆ†ç±»ä¸èƒ½ä¸ºç©ºï¼", 
 							Toast.LENGTH_LONG).show();
 				dialog.dismiss();
 			}
 		});
-  		alert.setNegativeButton("È¡Ïû", new OnClickListener() {			
+  		alert.setNegativeButton("å–æ¶ˆ", new OnClickListener() {			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				dialog.dismiss();

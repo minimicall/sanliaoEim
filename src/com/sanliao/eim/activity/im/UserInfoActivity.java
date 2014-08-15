@@ -40,7 +40,7 @@ import com.sanliao.eim.util.StringUtil;
 
 /**
  * 
- * ÓÃ»§×ÊÁÏ²é¿´.
+ * ç”¨æˆ·èµ„æ–™æŸ¥çœ‹.
  * 
  * @author xunlei.zengjinlong 470910357@qq.com
  */
@@ -146,14 +146,14 @@ public class UserInfoActivity extends ActivitySupport {
 					user_info_detail.setVisibility(View.VISIBLE);
 					discView.setVisibility(View.VISIBLE);
 					discEdit.setVisibility(View.GONE);
-					showToast("ÓÃ»§ĞÅÏ¢ÒÑ±£´æ!");
+					showToast("ç”¨æˆ·ä¿¡æ¯å·²ä¿å­˜!");
 				} else {
-					showToast("¸üĞÂÓÃ»§ĞÅÏ¢Ê§°Ü!");
+					showToast("æ›´æ–°ç”¨æˆ·ä¿¡æ¯å¤±è´¥!");
 				}
 			}
 		});
 		
-		//´¦ÀíÉãÏñÍ·Í¼Ïñ±»µã»÷µÄÊÂ¼ş£¬À­ÆğÉãÏñÍ·£¬ÕÕÍ¼Æ¬£¬È»ºóÉèÖÃÎªÍ·Ïñ
+		//å¤„ç†æ‘„åƒå¤´å›¾åƒè¢«ç‚¹å‡»çš„äº‹ä»¶ï¼Œæ‹‰èµ·æ‘„åƒå¤´ï¼Œç…§å›¾ç‰‡ï¼Œç„¶åè®¾ç½®ä¸ºå¤´åƒ
 		cameraImageView.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
@@ -176,10 +176,10 @@ public class UserInfoActivity extends ActivitySupport {
 			//boolean is_photo_taked = bundle.getBoolean("is_photo");
 			//if(is_photo_taked==false)
 			//{
-			//	Toast.makeText(context, "ÕÕÏàÊ§°Ü...", Toast.LENGTH_SHORT).show();
+			//	Toast.makeText(context, "ç…§ç›¸å¤±è´¥...", Toast.LENGTH_SHORT).show();
 			//	return ;
 			//}
-			Toast.makeText(context, "ÉÏ´«Í·ÏñÖĞ...", Toast.LENGTH_SHORT).show();
+			Toast.makeText(context, "ä¸Šä¼ å¤´åƒä¸­...", Toast.LENGTH_SHORT).show();
 			 changeImage();
 			/*
 			ByteArrayOutputStream bos = new ByteArrayOutputStream();
@@ -254,7 +254,7 @@ public class UserInfoActivity extends ActivitySupport {
 	}	
 	private  void pullUserInfo()
 		{
-			//´´½¨Ò»¸öĞÂÏß³Ì£¬ÓÃÓÚ´ÓÍøÂçÉÏ»ñÈ¡ÓÃ»§ĞÅÏ¢
+			//åˆ›å»ºä¸€ä¸ªæ–°çº¿ç¨‹ï¼Œç”¨äºä»ç½‘ç»œä¸Šè·å–ç”¨æˆ·ä¿¡æ¯
 		 new Thread(new Runnable() {
 			 public void run() {
 				 Log.d(LOG_TAG,"new thread ,get user infomation");
@@ -278,7 +278,7 @@ public class UserInfoActivity extends ActivitySupport {
 				message.what=1;
 				handler.sendMessage(message);
 				 }			 
-			 }).start();	//¿ªÆôÏß³Ì	
+			 }).start();	//å¼€å¯çº¿ç¨‹	
 			
 		}
 	Handler handler=new Handler(){

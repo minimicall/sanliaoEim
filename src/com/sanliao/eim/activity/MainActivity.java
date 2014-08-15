@@ -45,7 +45,7 @@ import com.sanliao.eim.view.MainPageAdapter;
 
 /**
  * 
- * Ö÷Ò³Ãæ.
+ * ä¸»é¡µé¢.
  * 
  * @author xunlei.zengjinlong 470910357@qq.com
  */
@@ -70,16 +70,16 @@ public class MainActivity extends ActivitySupport {
 
 	@Override
 	protected void onPause() {
-		// Ğ¶ÔØ¹ã²¥½ÓÊÕÆ÷
+		// å¸è½½å¹¿æ’­æ¥æ”¶å™¨
 		unregisterReceiver(receiver);
 		super.onPause();
 	}
 
 	@Override
 	protected void onResume() {
-		// ×¢²á¹ã²¥½ÓÊÕÆ÷
+		// æ³¨å†Œå¹¿æ’­æ¥æ”¶å™¨
 		IntentFilter filter = new IntentFilter();
-		// ºÃÓÑÇëÇó
+		// å¥½å‹è¯·æ±‚
 		filter.addAction(Constant.ROSTER_SUBSCRIPTION);
 		filter.addAction(Constant.NEW_MESSAGE_ACTION);
 		filter.addAction(Constant.ACTION_SYS_MSG);
@@ -99,7 +99,7 @@ public class MainActivity extends ActivitySupport {
 	}
 
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		switch (resultCode) { // resultCodeÎª»Ø´«µÄ±ê¼Ç
+		switch (resultCode) { // resultCodeä¸ºå›ä¼ çš„æ ‡è®°
 		case 1:
 			setUserView();
 			break;
@@ -111,7 +111,7 @@ public class MainActivity extends ActivitySupport {
  private Bitmap bm ;
  private  InputStream is ;
 	private void setUserView() {
-		//´´½¨Ò»¸öĞÂÏß³Ì£¬ÓÃÓÚ´ÓÍøÂçÉÏ»ñÈ¡Í¼Æ¬
+		//åˆ›å»ºä¸€ä¸ªæ–°çº¿ç¨‹ï¼Œç”¨äºä»ç½‘ç»œä¸Šè·å–å›¾ç‰‡
 		 new Thread(new Runnable() {
 			 public void run() {
 				 Log.d(LOG_TAG,"new thread ,get user infomation");
@@ -163,7 +163,7 @@ public class MainActivity extends ActivitySupport {
 					handler.sendMessage(message);
 	
 				 }			 
-			 }).start();	//¿ªÆôÏß³Ì	
+			 }).start();	//å¼€å¯çº¿ç¨‹	
 		/*
 		String jid = StringUtil.getJidByName(loginConfig.getUsername(),
 				loginConfig.getXmppServiceName());
@@ -222,11 +222,11 @@ public class MainActivity extends ActivitySupport {
 		userimageView = (ImageView) findViewById(R.id.userimage);
 		usernameView = (TextView) findViewById(R.id.username);
 		Log.d(LOG_TAG, "init1y"+new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date()));
-		//setUserView();//Ô­À´µÄ´úÂë£¬ÕâĞĞ´úÂë»áµ¼ÖÂmainactivity¼ÓÔØÌØ±ğµÄÂı£¬ËùÒÔÎÒÃÇÓÃÁíÍâ¸öÏß³ÌÀ´´¦Àí
+		//setUserView();//åŸæ¥çš„ä»£ç ï¼Œè¿™è¡Œä»£ç ä¼šå¯¼è‡´mainactivityåŠ è½½ç‰¹åˆ«çš„æ…¢ï¼Œæ‰€ä»¥æˆ‘ä»¬ç”¨å¦å¤–ä¸ªçº¿ç¨‹æ¥å¤„ç†
 	
 		 
 		Log.d(LOG_TAG, "init1z"+new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date()));
-		//ÓÃ»§Í·ÏñÄÜ¹»´¦Àí±»µã»÷µÄÊÂ¼ş
+		//ç”¨æˆ·å¤´åƒèƒ½å¤Ÿå¤„ç†è¢«ç‚¹å‡»çš„äº‹ä»¶
 		userimageView.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -237,7 +237,7 @@ public class MainActivity extends ActivitySupport {
 			}
 		});
 		Log.d(LOG_TAG, "init1.5"+new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date()));
-		// ³õÊ¼»¯¹ã²¥
+		// åˆå§‹åŒ–å¹¿æ’­
 		receiver = new ContacterReceiver();
 		Log.d(LOG_TAG, "init2"+new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date()));
 		loadMenuList();
@@ -250,19 +250,19 @@ public class MainActivity extends ActivitySupport {
 					int position, long id) {
 				final Intent intent = new Intent();
 				switch (position) {
-				case 0:// ÎÒµÄÁªÏµÈË
+				case 0:// æˆ‘çš„è”ç³»äºº
 					intent.setClass(context, ContacterMainActivity.class);
 					startActivity(intent);
 					break;
-				case 1:// ÎÒµÄÏûÏ¢
+				case 1:// æˆ‘çš„æ¶ˆæ¯
 					intent.setClass(context, MyNoticeActivity.class);
 					startActivity(intent);
 					break;
-				case 2:// ÆóÒµÍ¨Ñ¶Â¼
+				case 2:// ä¼ä¸šé€šè®¯å½•
 					break;
-				case 3:// ¸öÈËÍ¨Ñ¶Â¼
+				case 3:// ä¸ªäººé€šè®¯å½•
 					break;
-				case 4:// ÎÒµÄÓÊ¼ş
+				case 4:// æˆ‘çš„é‚®ä»¶
 			
 					new Thread(new Runnable() {
 						
@@ -278,11 +278,11 @@ public class MainActivity extends ActivitySupport {
 						}
 					}).start();
 					break;
-				case 5:// ÍøÂçÊÕ²Ø¼Ğ
+				case 5:// ç½‘ç»œæ”¶è—å¤¹
 					break;
-				case 6:// ¸öÈËÎÄ¼ş¼Ğ
+				case 6:// ä¸ªäººæ–‡ä»¶å¤¹
 					break;
-				case 7://¼ÇÊÂ±¾
+				case 7://è®°äº‹æœ¬
 					intent.setClass(context,  NoteBook.class);
 					startActivity(intent);
 					break;
@@ -297,25 +297,25 @@ public class MainActivity extends ActivitySupport {
 
 	/**
 	 * 
-	 * ¼ÓÔØ²Ëµ¥.
+	 * åŠ è½½èœå•.
 	 * 
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-5-16 ÏÂÎç7:15:21
+	 * @update 2012-5-16 ä¸‹åˆ7:15:21
 	 */
 	protected void loadMenuList() {
 		list = new ArrayList<MainPageItem>();
-		list.add(new MainPageItem("ÎÒµÄÁªÏµÈË", R.drawable.mycontacts));//0
-		list.add(new MainPageItem("ÎÒµÄÏûÏ¢", R.drawable.mynotice));//1
-		list.add(new MainPageItem("ÆóÒµÍ¨Ñ¶Â¼", R.drawable.e_contact));//2
-		list.add(new MainPageItem("¸öÈËÍ¨Ñ¶Â¼", R.drawable.p_contact));//3
-		list.add(new MainPageItem("ÓÊ¼ş", R.drawable.email));//4
-		list.add(new MainPageItem("µ¥µãµÇÂ¼", R.drawable.sso));//5
-		list.add(new MainPageItem("¸öÈËÎÄ¼ş¼Ğ", R.drawable.p_folder));//6
-		list.add(new MainPageItem("ÎÒµÄ±Ê¼Ç", R.drawable.mynote));//7
-		list.add(new MainPageItem("ÎÒµÄÇ©µ½", R.drawable.signin));//8
-		list.add(new MainPageItem("ÎÒµÄ¹¤×÷ÈÕ±¨", R.drawable.mydaily));//9
-		list.add(new MainPageItem("ÎÒµÄÈÕ³Ì", R.drawable.mymemo));//10
-		list.add(new MainPageItem("ÉèÖÃ", R.drawable.set));//11
+		list.add(new MainPageItem("æˆ‘çš„è”ç³»äºº", R.drawable.mycontacts));//0
+		list.add(new MainPageItem("æˆ‘çš„æ¶ˆæ¯", R.drawable.mynotice));//1
+		list.add(new MainPageItem("ä¼ä¸šé€šè®¯å½•", R.drawable.e_contact));//2
+		list.add(new MainPageItem("ä¸ªäººé€šè®¯å½•", R.drawable.p_contact));//3
+		list.add(new MainPageItem("é‚®ä»¶", R.drawable.email));//4
+		list.add(new MainPageItem("å•ç‚¹ç™»å½•", R.drawable.sso));//5
+		list.add(new MainPageItem("ä¸ªäººæ–‡ä»¶å¤¹", R.drawable.p_folder));//6
+		list.add(new MainPageItem("æˆ‘çš„ç¬”è®°", R.drawable.mynote));//7
+		list.add(new MainPageItem("æˆ‘çš„ç­¾åˆ°", R.drawable.signin));//8
+		list.add(new MainPageItem("æˆ‘çš„å·¥ä½œæ—¥æŠ¥", R.drawable.mydaily));//9
+		list.add(new MainPageItem("æˆ‘çš„æ—¥ç¨‹", R.drawable.mymemo));//10
+		list.add(new MainPageItem("è®¾ç½®", R.drawable.set));//11
 	}
 
 	@Override
@@ -332,7 +332,7 @@ public class MainActivity extends ActivitySupport {
 			if (Constant.ROSTER_SUBSCRIPTION.equals(action)) {
 				adapter.notifyDataSetChanged();
 			} else if (Constant.NEW_MESSAGE_ACTION.equals(action)) {
-				// Ìí¼ÓĞ¡ÆøÅİ
+				// æ·»åŠ å°æ°”æ³¡
 				adapter.notifyDataSetChanged();
 			} else if (Constant.ACTION_RECONNECT_STATE.equals(action)) {
 				boolean isSuccess = intent.getBooleanExtra(
@@ -366,10 +366,10 @@ public class MainActivity extends ActivitySupport {
 			break;
 		case R.id.menu_contactus:
 			AlertDialog.Builder dialog2 = new AlertDialog.Builder(context);
-			dialog2.setTitle("·şÎñÆ÷ÉèÖÃ")
+			dialog2.setTitle("æœåŠ¡å™¨è®¾ç½®")
 					.setIcon(android.R.drawable.ic_dialog_info)
-						.setMessage("×÷Õß£ºÑ¸À×.Ôø½ğÁú\nemail:470910357@qq.com")
-					.setPositiveButton("È·¶¨",
+						.setMessage("ä½œè€…ï¼šè¿…é›·.æ›¾é‡‘é¾™\nemail:470910357@qq.com")
+					.setPositiveButton("ç¡®å®š",
 							new DialogInterface.OnClickListener() {
 								@Override
 								public void onClick(DialogInterface dialog,
@@ -377,11 +377,11 @@ public class MainActivity extends ActivitySupport {
 								 
 								}
 							})
-					.setNegativeButton("È¡Ïû",
+					.setNegativeButton("å–æ¶ˆ",
 							new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog,
 										int which) {
-									dialog.cancel();// È¡Ïûµ¯³ö¿ò
+									dialog.cancel();// å–æ¶ˆå¼¹å‡ºæ¡†
 								}
 							}).create().show();
 			break;
@@ -397,20 +397,20 @@ public class MainActivity extends ActivitySupport {
 	}
 
 	/**
-	 * ´¦Àí³åÁ¬½Ó·µ»Ø×´Ì¬£¬Á¬½Ó³É¹¦ ¸Ä±äÍ·Ïñ £¬Ê§°Ü
+	 * å¤„ç†å†²è¿æ¥è¿”å›çŠ¶æ€ï¼Œè¿æ¥æˆåŠŸ æ”¹å˜å¤´åƒ ï¼Œå¤±è´¥
 	 * 
 	 * @param isSuccess
 	 */
 	private void handReConnect(boolean isSuccess) {
-		// ³É¹¦ÁËÁ¬½Ó
+		// æˆåŠŸäº†è¿æ¥
 		if (Constant.RECONNECT_STATE_SUCCESS == isSuccess) {
 			iv_status.setImageDrawable(getResources().getDrawable(
 					R.drawable.status_online));
-			// Toast.makeText(context, "ÍøÂç»Ö¸´,ÓÃ»§ÒÑÉÏÏß!", Toast.LENGTH_LONG).show();
-		} else if (Constant.RECONNECT_STATE_FAIL == isSuccess) {// Ê§°Ü
+			// Toast.makeText(context, "ç½‘ç»œæ¢å¤,ç”¨æˆ·å·²ä¸Šçº¿!", Toast.LENGTH_LONG).show();
+		} else if (Constant.RECONNECT_STATE_FAIL == isSuccess) {// å¤±è´¥
 			iv_status.setImageDrawable(getResources().getDrawable(
 					R.drawable.status_offline));
-			// Toast.makeText(context, "ÍøÂç¶Ï¿ª,ÓÃ»§ÒÑÀëÏß!", Toast.LENGTH_LONG).show();
+			// Toast.makeText(context, "ç½‘ç»œæ–­å¼€,ç”¨æˆ·å·²ç¦»çº¿!", Toast.LENGTH_LONG).show();
 		}
 
 	}

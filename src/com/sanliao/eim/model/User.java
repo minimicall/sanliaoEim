@@ -6,8 +6,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
- * intent¿ÉÒÔĞ¯´ø´«µİParcelÊı¾İ£¬ĞèÒªÊµÏÖÈı¸ö·½·¨ . 1¡¢describeContents()·µ»Ø0¾Í¿ÉÒÔ.
- * 2¡¢½«ĞèÒªµÄÊı¾İĞ´ÈëParcelÖĞ£¬¿ò¼Üµ÷ÓÃÕâ¸ö·½·¨´«µİÊı¾İ. 3¡¢ÖØĞ´Íâ²¿Àà·´ĞòÁĞ»¯¸ÃÀàÊ±µ÷ÓÃµÄ·½·¨.
+ * intentå¯ä»¥æºå¸¦ä¼ é€’Parcelæ•°æ®ï¼Œéœ€è¦å®ç°ä¸‰ä¸ªæ–¹æ³• . 1ã€describeContents()è¿”å›0å°±å¯ä»¥.
+ * 2ã€å°†éœ€è¦çš„æ•°æ®å†™å…¥Parcelä¸­ï¼Œæ¡†æ¶è°ƒç”¨è¿™ä¸ªæ–¹æ³•ä¼ é€’æ•°æ®. 3ã€é‡å†™å¤–éƒ¨ç±»ååºåˆ—åŒ–è¯¥ç±»æ—¶è°ƒç”¨çš„æ–¹æ³•.
  * 
  * @author wangdan
  * 
@@ -15,7 +15,7 @@ import android.os.Parcelable;
 public class User implements Parcelable {
 
 	/**
-	 * ½«user±£´æÔÚintentÖĞÊ±µÄkey
+	 * å°†userä¿å­˜åœ¨intentä¸­æ—¶çš„key
 	 */
 	public static final String userKey = "lovesong_user";
 
@@ -26,11 +26,11 @@ public class User implements Parcelable {
 	private String from;
 	private String groupName;
 	/**
-	 * ÓÃ»§×´Ì¬¶ÔÓ¦µÄÍ¼Æ¬
+	 * ç”¨æˆ·çŠ¶æ€å¯¹åº”çš„å›¾ç‰‡
 	 */
 	private int imgId;
 	/**
-	 * groupµÄsize
+	 * groupçš„size
 	 */
 	private int size;
 	private boolean available;

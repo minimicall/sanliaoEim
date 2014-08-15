@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 /**
- * ÕıÔÚ±í´ïÊ½ÑéÖ¤¹¤¾ßÀà£¨ÑéÖ¤Éí·İÖ¤¡¢³µÅÆºÅµÈ£©
+ * æ­£åœ¨è¡¨è¾¾å¼éªŒè¯å·¥å…·ç±»ï¼ˆéªŒè¯èº«ä»½è¯ã€è½¦ç‰Œå·ç­‰ï¼‰
  * 
  * @author iStar
  * 
@@ -18,7 +18,7 @@ import android.widget.TextView;
 public class ValidateUtil {
 
 	/**
-	 * ÑéÖ¤strÊÇ·ñÎªÕıÈ·µÄÉí·İÖ¤¸ñÊ½
+	 * éªŒè¯stræ˜¯å¦ä¸ºæ­£ç¡®çš„èº«ä»½è¯æ ¼å¼
 	 * 
 	 * @param str
 	 * @return
@@ -28,12 +28,12 @@ public class ValidateUtil {
 		String licenc = view.getText().toString();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		/*
-		 * { 11:"±±¾©",12:"Ìì½ò",13:"ºÓ±±",14:"É½Î÷",15:"ÄÚÃÉ¹Å",
-		 * 21:"ÁÉÄş",22:"¼ªÁÖ",23:"ºÚÁú½­",31:"ÉÏº£",32:"½­ËÕ",
-		 * 33:"Õã½­",34:"°²»Õ",35:"¸£½¨",36:"½­Î÷",37:"É½¶«",41:"ºÓÄÏ",
-		 * 42:"ºş±±",43:"ºşÄÏ",44:"¹ã¶«",45:"¹ãÎ÷",46:"º£ÄÏ",50:"ÖØÇì",
-		 * 51:"ËÄ´¨",52:"¹óÖİ",53:"ÔÆÄÏ",54:"Î÷²Ø",61:"ÉÂÎ÷",62:"¸ÊËà",
-		 * 63:"Çàº£",64:"ÄşÏÄ",65:"ĞÂ½®",71:"Ì¨Íå",81:"Ïã¸Û",82:"°ÄÃÅ",91:"¹úÍâ" }
+		 * { 11:"åŒ—äº¬",12:"å¤©æ´¥",13:"æ²³åŒ—",14:"å±±è¥¿",15:"å†…è’™å¤",
+		 * 21:"è¾½å®",22:"å‰æ—",23:"é»‘é¾™æ±Ÿ",31:"ä¸Šæµ·",32:"æ±Ÿè‹",
+		 * 33:"æµ™æ±Ÿ",34:"å®‰å¾½",35:"ç¦å»º",36:"æ±Ÿè¥¿",37:"å±±ä¸œ",41:"æ²³å—",
+		 * 42:"æ¹–åŒ—",43:"æ¹–å—",44:"å¹¿ä¸œ",45:"å¹¿è¥¿",46:"æµ·å—",50:"é‡åº†",
+		 * 51:"å››å·",52:"è´µå·",53:"äº‘å—",54:"è¥¿è—",61:"é™•è¥¿",62:"ç”˜è‚ƒ",
+		 * 63:"é’æµ·",64:"å®å¤",65:"æ–°ç–†",71:"å°æ¹¾",81:"é¦™æ¸¯",82:"æ¾³é—¨",91:"å›½å¤–" }
 		 */
 		String provinces = "11,12,13,14,15,21,22,23,31,32,33,34,35,36,37,41,42,43,44,45,46,50,51,52,53,54,61,62,63,64,65,71,81,82,91";
 
@@ -41,18 +41,18 @@ public class ValidateUtil {
 		Matcher matcher = pattern.matcher(licenc);
 		Pattern pattern2 = Pattern.compile("^[1-9]\\d{16}[\\d,x,X]$");
 		Matcher matcher2 = pattern2.matcher(licenc);
-		// ´ÖÂÔÅĞ¶Ï
+		// ç²—ç•¥åˆ¤æ–­
 		if (!matcher.find() && !matcher2.find()) {
-			view.setError("Éí·İÖ¤ºÅ±ØĞëÎª15»ò18Î»Êı×Ö£¨×îºóÒ»Î»¿ÉÒÔÎªX£©");
+			view.setError("èº«ä»½è¯å·å¿…é¡»ä¸º15æˆ–18ä½æ•°å­—ï¼ˆæœ€åä¸€ä½å¯ä»¥ä¸ºXï¼‰");
 			flag = false;
 		} else {
-			// ÅĞ¶Ï³öÉúµØ
+			// åˆ¤æ–­å‡ºç”Ÿåœ°
 			if (provinces.indexOf(licenc.substring(0, 2)) == -1) {
-				view.setError("Éí·İÖ¤ºÅÇ°Á½Î»²»ÕıÈ·£¡");
+				view.setError("èº«ä»½è¯å·å‰ä¸¤ä½ä¸æ­£ç¡®ï¼");
 				flag = false;
 			}
 
-			// ÅĞ¶Ï³öÉúÈÕÆÚ
+			// åˆ¤æ–­å‡ºç”Ÿæ—¥æœŸ
 			if (licenc.length() == 15) {
 				String birth = "19" + licenc.substring(6, 8) + "-"
 						+ licenc.substring(8, 10) + "-"
@@ -60,15 +60,15 @@ public class ValidateUtil {
 				try {
 					Date birthday = sdf.parse(birth);
 					if (!sdf.format(birthday).equals(birth)) {
-						view.setError("³öÉúÈÕÆÚ·Ç·¨£¡");
+						view.setError("å‡ºç”Ÿæ—¥æœŸéæ³•ï¼");
 						flag = false;
 					}
 					if (birthday.after(new Date())) {
-						view.setError("³öÉúÈÕÆÚ²»ÄÜÔÚ½ñÌìÖ®ºó£¡");
+						view.setError("å‡ºç”Ÿæ—¥æœŸä¸èƒ½åœ¨ä»Šå¤©ä¹‹åï¼");
 						flag = false;
 					}
 				} catch (ParseException e) {
-					view.setError("³öÉúÈÕÆÚ·Ç·¨£¡");
+					view.setError("å‡ºç”Ÿæ—¥æœŸéæ³•ï¼");
 					flag = false;
 				}
 			} else if (licenc.length() == 18) {
@@ -78,19 +78,19 @@ public class ValidateUtil {
 				try {
 					Date birthday = sdf.parse(birth);
 					if (!sdf.format(birthday).equals(birth)) {
-						view.setError("³öÉúÈÕÆÚ·Ç·¨£¡");
+						view.setError("å‡ºç”Ÿæ—¥æœŸéæ³•ï¼");
 						flag = false;
 					}
 					if (birthday.after(new Date())) {
-						view.setError("³öÉúÈÕÆÚ²»ÄÜÔÚ½ñÌìÖ®ºó£¡");
+						view.setError("å‡ºç”Ÿæ—¥æœŸä¸èƒ½åœ¨ä»Šå¤©ä¹‹åï¼");
 						flag = false;
 					}
 				} catch (ParseException e) {
-					view.setError("³öÉúÈÕÆÚ·Ç·¨£¡");
+					view.setError("å‡ºç”Ÿæ—¥æœŸéæ³•ï¼");
 					flag = false;
 				}
 			} else {
-				view.setError("Éí·İÖ¤ºÅÎ»Êı²»ÕıÈ·£¬ÇëÈ·ÈÏ£¡");
+				view.setError("èº«ä»½è¯å·ä½æ•°ä¸æ­£ç¡®ï¼Œè¯·ç¡®è®¤ï¼");
 				flag = false;
 			}
 		}
@@ -101,7 +101,7 @@ public class ValidateUtil {
 	}
 
 	/**
-	 * ²»Îª¿ÕÊ±£¬ÑéÖ¤strÊÇ·ñÎªÕıÈ·µÄÉí·İÖ¤¸ñÊ½
+	 * ä¸ä¸ºç©ºæ—¶ï¼ŒéªŒè¯stræ˜¯å¦ä¸ºæ­£ç¡®çš„èº«ä»½è¯æ ¼å¼
 	 * 
 	 * @param str
 	 * @return
@@ -112,12 +112,12 @@ public class ValidateUtil {
 		if (!licenc.equals("")) {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			/*
-			 * { 11:"±±¾©",12:"Ìì½ò",13:"ºÓ±±",14:"É½Î÷",15:"ÄÚÃÉ¹Å",
-			 * 21:"ÁÉÄş",22:"¼ªÁÖ",23:"ºÚÁú½­",31:"ÉÏº£",32:"½­ËÕ",
-			 * 33:"Õã½­",34:"°²»Õ",35:"¸£½¨",36:"½­Î÷",37:"É½¶«",41:"ºÓÄÏ",
-			 * 42:"ºş±±",43:"ºşÄÏ",44:"¹ã¶«",45:"¹ãÎ÷",46:"º£ÄÏ",50:"ÖØÇì",
-			 * 51:"ËÄ´¨",52:"¹óÖİ",53:"ÔÆÄÏ",54:"Î÷²Ø",61:"ÉÂÎ÷",62:"¸ÊËà",
-			 * 63:"Çàº£",64:"ÄşÏÄ",65:"ĞÂ½®",71:"Ì¨Íå",81:"Ïã¸Û",82:"°ÄÃÅ",91:"¹úÍâ" }
+			 * { 11:"åŒ—äº¬",12:"å¤©æ´¥",13:"æ²³åŒ—",14:"å±±è¥¿",15:"å†…è’™å¤",
+			 * 21:"è¾½å®",22:"å‰æ—",23:"é»‘é¾™æ±Ÿ",31:"ä¸Šæµ·",32:"æ±Ÿè‹",
+			 * 33:"æµ™æ±Ÿ",34:"å®‰å¾½",35:"ç¦å»º",36:"æ±Ÿè¥¿",37:"å±±ä¸œ",41:"æ²³å—",
+			 * 42:"æ¹–åŒ—",43:"æ¹–å—",44:"å¹¿ä¸œ",45:"å¹¿è¥¿",46:"æµ·å—",50:"é‡åº†",
+			 * 51:"å››å·",52:"è´µå·",53:"äº‘å—",54:"è¥¿è—",61:"é™•è¥¿",62:"ç”˜è‚ƒ",
+			 * 63:"é’æµ·",64:"å®å¤",65:"æ–°ç–†",71:"å°æ¹¾",81:"é¦™æ¸¯",82:"æ¾³é—¨",91:"å›½å¤–" }
 			 */
 			String provinces = "11,12,13,14,15,21,22,23,31,32,33,34,35,36,37,41,42,43,44,45,46,50,51,52,53,54,61,62,63,64,65,71,81,82,91";
 
@@ -125,18 +125,18 @@ public class ValidateUtil {
 			Matcher matcher = pattern.matcher(licenc);
 			Pattern pattern2 = Pattern.compile("^[1-9]\\d{16}[\\d,x,X]$");
 			Matcher matcher2 = pattern2.matcher(licenc);
-			// ´ÖÂÔÅĞ¶Ï
+			// ç²—ç•¥åˆ¤æ–­
 			if (!matcher.find() && !matcher2.find()) {
-				view.setError("Éí·İÖ¤ºÅ±ØĞëÎª15»ò18Î»Êı×Ö£¨×îºóÒ»Î»¿ÉÒÔÎªX£©");
+				view.setError("èº«ä»½è¯å·å¿…é¡»ä¸º15æˆ–18ä½æ•°å­—ï¼ˆæœ€åä¸€ä½å¯ä»¥ä¸ºXï¼‰");
 				flag = false;
 			} else {
-				// ÅĞ¶Ï³öÉúµØ
+				// åˆ¤æ–­å‡ºç”Ÿåœ°
 				if (provinces.indexOf(licenc.substring(0, 2)) == -1) {
-					view.setError("Éí·İÖ¤ºÅÇ°Á½Î»²»ÕıÈ·£¡");
+					view.setError("èº«ä»½è¯å·å‰ä¸¤ä½ä¸æ­£ç¡®ï¼");
 					flag = false;
 				}
 
-				// ÅĞ¶Ï³öÉúÈÕÆÚ
+				// åˆ¤æ–­å‡ºç”Ÿæ—¥æœŸ
 				if (licenc.length() == 15) {
 					String birth = "19" + licenc.substring(6, 8) + "-"
 							+ licenc.substring(8, 10) + "-"
@@ -144,15 +144,15 @@ public class ValidateUtil {
 					try {
 						Date birthday = sdf.parse(birth);
 						if (!sdf.format(birthday).equals(birth)) {
-							view.setError("³öÉúÈÕÆÚ·Ç·¨£¡");
+							view.setError("å‡ºç”Ÿæ—¥æœŸéæ³•ï¼");
 							flag = false;
 						}
 						if (birthday.after(new Date())) {
-							view.setError("³öÉúÈÕÆÚ²»ÄÜÔÚ½ñÌìÖ®ºó£¡");
+							view.setError("å‡ºç”Ÿæ—¥æœŸä¸èƒ½åœ¨ä»Šå¤©ä¹‹åï¼");
 							flag = false;
 						}
 					} catch (ParseException e) {
-						view.setError("³öÉúÈÕÆÚ·Ç·¨£¡");
+						view.setError("å‡ºç”Ÿæ—¥æœŸéæ³•ï¼");
 						flag = false;
 					}
 				} else if (licenc.length() == 18) {
@@ -162,19 +162,19 @@ public class ValidateUtil {
 					try {
 						Date birthday = sdf.parse(birth);
 						if (!sdf.format(birthday).equals(birth)) {
-							view.setError("³öÉúÈÕÆÚ·Ç·¨£¡");
+							view.setError("å‡ºç”Ÿæ—¥æœŸéæ³•ï¼");
 							flag = false;
 						}
 						if (birthday.after(new Date())) {
-							view.setError("³öÉúÈÕÆÚ²»ÄÜÔÚ½ñÌìÖ®ºó£¡");
+							view.setError("å‡ºç”Ÿæ—¥æœŸä¸èƒ½åœ¨ä»Šå¤©ä¹‹åï¼");
 							flag = false;
 						}
 					} catch (ParseException e) {
-						view.setError("³öÉúÈÕÆÚ·Ç·¨£¡");
+						view.setError("å‡ºç”Ÿæ—¥æœŸéæ³•ï¼");
 						flag = false;
 					}
 				} else {
-					view.setError("Éí·İÖ¤ºÅÎ»Êı²»ÕıÈ·£¬ÇëÈ·ÈÏ£¡");
+					view.setError("èº«ä»½è¯å·ä½æ•°ä¸æ­£ç¡®ï¼Œè¯·ç¡®è®¤ï¼");
 					flag = false;
 				}
 			}
@@ -186,7 +186,7 @@ public class ValidateUtil {
 	}
 
 	/**
-	 * ÑéÖ¤strÊÇ·ñÎªÕıÈ·µÄÉí·İÖ¤¸ñÊ½
+	 * éªŒè¯stræ˜¯å¦ä¸ºæ­£ç¡®çš„èº«ä»½è¯æ ¼å¼
 	 * 
 	 * @param str
 	 * @return
@@ -195,12 +195,12 @@ public class ValidateUtil {
 		boolean flag = true;
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		/*
-		 * { 11:"±±¾©",12:"Ìì½ò",13:"ºÓ±±",14:"É½Î÷",15:"ÄÚÃÉ¹Å",
-		 * 21:"ÁÉÄş",22:"¼ªÁÖ",23:"ºÚÁú½­",31:"ÉÏº£",32:"½­ËÕ",
-		 * 33:"Õã½­",34:"°²»Õ",35:"¸£½¨",36:"½­Î÷",37:"É½¶«",41:"ºÓÄÏ",
-		 * 42:"ºş±±",43:"ºşÄÏ",44:"¹ã¶«",45:"¹ãÎ÷",46:"º£ÄÏ",50:"ÖØÇì",
-		 * 51:"ËÄ´¨",52:"¹óÖİ",53:"ÔÆÄÏ",54:"Î÷²Ø",61:"ÉÂÎ÷",62:"¸ÊËà",
-		 * 63:"Çàº£",64:"ÄşÏÄ",65:"ĞÂ½®",71:"Ì¨Íå",81:"Ïã¸Û",82:"°ÄÃÅ",91:"¹úÍâ" }
+		 * { 11:"åŒ—äº¬",12:"å¤©æ´¥",13:"æ²³åŒ—",14:"å±±è¥¿",15:"å†…è’™å¤",
+		 * 21:"è¾½å®",22:"å‰æ—",23:"é»‘é¾™æ±Ÿ",31:"ä¸Šæµ·",32:"æ±Ÿè‹",
+		 * 33:"æµ™æ±Ÿ",34:"å®‰å¾½",35:"ç¦å»º",36:"æ±Ÿè¥¿",37:"å±±ä¸œ",41:"æ²³å—",
+		 * 42:"æ¹–åŒ—",43:"æ¹–å—",44:"å¹¿ä¸œ",45:"å¹¿è¥¿",46:"æµ·å—",50:"é‡åº†",
+		 * 51:"å››å·",52:"è´µå·",53:"äº‘å—",54:"è¥¿è—",61:"é™•è¥¿",62:"ç”˜è‚ƒ",
+		 * 63:"é’æµ·",64:"å®å¤",65:"æ–°ç–†",71:"å°æ¹¾",81:"é¦™æ¸¯",82:"æ¾³é—¨",91:"å›½å¤–" }
 		 */
 		String provinces = "11,12,13,14,15,21,22,23,31,32,33,34,35,36,37,41,42,43,44,45,46,50,51,52,53,54,61,62,63,64,65,71,81,82,91";
 
@@ -208,16 +208,16 @@ public class ValidateUtil {
 		Matcher matcher = pattern.matcher(licenc);
 		Pattern pattern2 = Pattern.compile("^[1-9]\\d{16}[\\d,x,X]$");
 		Matcher matcher2 = pattern2.matcher(licenc);
-		// ´ÖÂÔÅĞ¶Ï
+		// ç²—ç•¥åˆ¤æ–­
 		if (!matcher.find() && !matcher2.find()) {
 			flag = false;
 		} else {
-			// ÅĞ¶Ï³öÉúµØ
+			// åˆ¤æ–­å‡ºç”Ÿåœ°
 			if (provinces.indexOf(licenc.substring(0, 2)) == -1) {
 				flag = false;
 			}
 
-			// ÅĞ¶Ï³öÉúÈÕÆÚ
+			// åˆ¤æ–­å‡ºç”Ÿæ—¥æœŸ
 			if (licenc.length() == 15) {
 				String birth = "19" + licenc.substring(6, 8) + "-"
 						+ licenc.substring(8, 10) + "-"
@@ -257,7 +257,7 @@ public class ValidateUtil {
 	}
 
 	/**
-	 * ÑéÖ¤strÊÇ·ñÎªÕıÈ·µÄ³µÅÆºÅ
+	 * éªŒè¯stræ˜¯å¦ä¸ºæ­£ç¡®çš„è½¦ç‰Œå·
 	 * 
 	 * @param str
 	 * @return
@@ -268,15 +268,15 @@ public class ValidateUtil {
 			return false;
 		}
 		String str = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-		String[] str1 = { "¾©", "½ò", "¼½", "½ú", "ÃÉ", "ÁÉ", "¼ª", "ºÚ", "»¦", "ËÕ",
-				"Õã", "Íî", "Ãö", "¸Ó", "Â³", "Ô¥", "¶õ", "Ïæ", "ÔÁ", "¹ğ", "Çí", "Óå",
-				"´¨", "¹ó", "ÔÆ", "²Ø", "ÉÂ", "¸Ê", "Çà", "Äş", "ĞÂ", "Å©", "Ì¨", "ÖĞ",
-				"Îä", "WJ", "º¥", "Ğç", "ÓÏ", "Éê", "Î´", "Îç", "ËÈ", "³½", "Ã®", "Òú",
-				"³ó", "×Ó", "¿û", "ÈÉ", "ĞÁ", "¸ı", "¼º", "Îì", "¶¡", "±û", "ÒÒ", "¼×",
-				"ºÓ±±", "É½Î÷", "±±¾©", "±±", "ÄÏ", "À¼", "Éò", "¼Ã", "³É", "¹ã", "º£", "¿Õ",
-				"¾ü", "¾©V", "Ê¹" };
+		String[] str1 = { "äº¬", "æ´¥", "å†€", "æ™‹", "è’™", "è¾½", "å‰", "é»‘", "æ²ª", "è‹",
+				"æµ™", "çš–", "é—½", "èµ£", "é²", "è±«", "é„‚", "æ¹˜", "ç²¤", "æ¡‚", "ç¼", "æ¸",
+				"å·", "è´µ", "äº‘", "è—", "é™•", "ç”˜", "é’", "å®", "æ–°", "å†œ", "å°", "ä¸­",
+				"æ­¦", "WJ", "äº¥", "æˆŒ", "é…‰", "ç”³", "æœª", "åˆ", "å·³", "è¾°", "å¯", "å¯…",
+				"ä¸‘", "å­", "è‘µ", "å£¬", "è¾›", "åºš", "å·±", "æˆŠ", "ä¸", "ä¸™", "ä¹™", "ç”²",
+				"æ²³åŒ—", "å±±è¥¿", "åŒ—äº¬", "åŒ—", "å—", "å…°", "æ²ˆ", "æµ", "æˆ", "å¹¿", "æµ·", "ç©º",
+				"å†›", "äº¬V", "ä½¿" };
 
-		if (no.equals("ĞÂ³µ")) {
+		if (no.equals("æ–°è½¦")) {
 			return true;
 		}
 
@@ -314,7 +314,7 @@ public class ValidateUtil {
 
 	public static boolean isEmpty(TextView w, String displayStr) {
 		if (StringUtil.empty(w.getText().toString().trim())) {
-			w.setError(displayStr + "²»ÄÜÎª¿Õ£¡");
+			w.setError(displayStr + "ä¸èƒ½ä¸ºç©ºï¼");
 			w.setFocusable(true);
 			w.requestFocus();
 			return true;
@@ -324,7 +324,7 @@ public class ValidateUtil {
 
 	public static boolean isNum(TextView w, String displayStr) {
 		if (!StringUtil.num(w.getText().toString().trim())) {
-			w.setError(displayStr + "±ØĞëÎªÕûÊıÇÒ´óÓÚ0£¡");
+			w.setError(displayStr + "å¿…é¡»ä¸ºæ•´æ•°ä¸”å¤§äº0ï¼");
 			w.setFocusable(true);
 			w.requestFocus();
 			return true;
@@ -341,7 +341,7 @@ public class ValidateUtil {
 
 	public static boolean isDouble(TextView w, String displayStr) {
 		if (!StringUtil.decimal(w.getText().toString().trim())) {
-			w.setError(displayStr + "±ØĞëÎªÊı×ÖÇÒ´óÓÚ0£¡");
+			w.setError(displayStr + "å¿…é¡»ä¸ºæ•°å­—ä¸”å¤§äº0ï¼");
 			w.setFocusable(true);
 			w.requestFocus();
 			return true;
@@ -349,7 +349,7 @@ public class ValidateUtil {
 		return false;
 	}
 
-	// ¿ÉÒÔ¿Õ,·Ç¿ÕÊ±±ØĞëÕıÈ·
+	// å¯ä»¥ç©º,éç©ºæ—¶å¿…é¡»æ­£ç¡®
 	public static boolean maybeAccountNumberEmpty(TextView w) {
 		if (!StringUtil.empty(w.getText().toString().trim())) {
 			return ValidateUtil.isAccountNumber(w);
@@ -357,7 +357,7 @@ public class ValidateUtil {
 		return true;
 	}
 
-	// ¿ÉÒÔ¿Õ,·Ç¿ÕÊ±±ØĞëÕıÈ·
+	// å¯ä»¥ç©º,éç©ºæ—¶å¿…é¡»æ­£ç¡®
 	public static boolean maybeMobileEmpty(TextView w) {
 		if (!StringUtil.empty(w.getText().toString().trim())) {
 			return ValidateUtil.isMobileNumber(w);
@@ -367,7 +367,7 @@ public class ValidateUtil {
 
 	public static boolean isArea(TextView w) {
 		if (!RegexUtil.isArea(w.getText().toString().trim())) {
-			w.setError("Ãæ»ıÓĞ·Ç·¨×Ö·û£¡");
+			w.setError("é¢ç§¯æœ‰éæ³•å­—ç¬¦ï¼");
 			w.setFocusable(true);
 			return false;
 		}
@@ -376,17 +376,17 @@ public class ValidateUtil {
 
 	public static boolean isMobileNumber(TextView w) {
 		if (!RegexUtil.isMobileNumber(w.getText().toString().trim())) {
-			w.setError("ÊÖ»úºÅÂëÎª11Î»Êı×Ö£¡");
+			w.setError("æ‰‹æœºå·ç ä¸º11ä½æ•°å­—ï¼");
 			w.setFocusable(true);
 			return false;
 		}
 		return true;
 	}
 
-	/** ÒøĞĞÕÊºÅÎª16-21Î»µÄÊı×Ö */
+	/** é“¶è¡Œå¸å·ä¸º16-21ä½çš„æ•°å­— */
 	public static boolean isAccountNumber(TextView w) {
 		if (!RegexUtil.isAccountNumber(w.getText().toString().trim())) {
-			w.setError("ÒøĞĞÕÊºÅ±ØĞëÎª16-21Î»µÄÊı×Ö£¡");
+			w.setError("é“¶è¡Œå¸å·å¿…é¡»ä¸º16-21ä½çš„æ•°å­—ï¼");
 			w.setFocusable(true);
 			return false;
 		}

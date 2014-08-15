@@ -20,7 +20,7 @@ import com.sanliao.eim.util.StringUtil;
 public class ContacterManager {
 
 	/**
-	 * ±£´æ×ÅËùÓĞµÄÁªÏµÈËĞÅÏ¢
+	 * ä¿å­˜ç€æ‰€æœ‰çš„è”ç³»äººä¿¡æ¯
 	 */
 	public static Map<String, User> contacters = null;
 
@@ -37,7 +37,7 @@ public class ContacterManager {
 	}
 
 	/**
-	 * »ñµÃËùÓĞµÄÁªÏµÈËÁĞ±í
+	 * è·å¾—æ‰€æœ‰çš„è”ç³»äººåˆ—è¡¨
 	 * 
 	 * @return
 	 */
@@ -54,14 +54,14 @@ public class ContacterManager {
 	}
 
 	/**
-	 * »ñµÃËùÓĞÎ´·Ö×éµÄÁªÏµÈËÁĞ±í
+	 * è·å¾—æ‰€æœ‰æœªåˆ†ç»„çš„è”ç³»äººåˆ—è¡¨
 	 * 
 	 * @return
 	 */
 	public static List<User> getNoGroupUserList(Roster roster) {
 		List<User> userList = new ArrayList<User>();
 
-		// ·şÎñÆ÷µÄÓÃ»§ĞÅÏ¢¸Ä±äºó£¬²»»áÍ¨Öªµ½unfiledEntries
+		// æœåŠ¡å™¨çš„ç”¨æˆ·ä¿¡æ¯æ”¹å˜åï¼Œä¸ä¼šé€šçŸ¥åˆ°unfiledEntries
 		for (RosterEntry entry : roster.getUnfiledEntries()) {
 			userList.add(contacters.get(entry.getUser()).clone());
 		}
@@ -70,7 +70,7 @@ public class ContacterManager {
 	}
 
 	/**
-	 * »ñµÃËùÓĞ·Ö×éÁªÏµÈË
+	 * è·å¾—æ‰€æœ‰åˆ†ç»„è”ç³»äºº
 	 * 
 	 * @return
 	 */
@@ -93,7 +93,7 @@ public class ContacterManager {
 	}
 
 	/**
-	 * ¸ù¾İRosterEntry´´½¨Ò»¸öUser
+	 * æ ¹æ®RosterEntryåˆ›å»ºä¸€ä¸ªUser
 	 * 
 	 * @param entry
 	 * @return
@@ -117,7 +117,7 @@ public class ContacterManager {
 	}
 
 	/**
-	 * ĞŞ¸ÄÕâ¸öºÃÓÑµÄêÇ³Æ
+	 * ä¿®æ”¹è¿™ä¸ªå¥½å‹çš„æ˜µç§°
 	 * 
 	 * @param user
 	 * @param nickname
@@ -130,7 +130,7 @@ public class ContacterManager {
 	}
 
 	/**
-	 * °ÑÒ»¸öºÃÓÑÌí¼Óµ½Ò»¸ö×éÖĞ
+	 * æŠŠä¸€ä¸ªå¥½å‹æ·»åŠ åˆ°ä¸€ä¸ªç»„ä¸­
 	 * 
 	 * @param user
 	 * @param groupName
@@ -139,11 +139,11 @@ public class ContacterManager {
 			final XMPPConnection connection) {
 		if (groupName == null || user == null)
 			return;
-		// ½«Ò»¸örosterEntryÌí¼Óµ½groupÖĞÊÇPacketCollector£¬»á×èÈûÏß³Ì
+		// å°†ä¸€ä¸ªrosterEntryæ·»åŠ åˆ°groupä¸­æ˜¯PacketCollectorï¼Œä¼šé˜»å¡çº¿ç¨‹
 		new Thread() {
 			public void run() {
 				RosterGroup group = connection.getRoster().getGroup(groupName);
-				// Õâ¸ö×éÒÑ¾­´æÔÚ¾ÍÌí¼Óµ½Õâ¸ö×é£¬²»´æÔÚ´´½¨Ò»¸ö×é
+				// è¿™ä¸ªç»„å·²ç»å­˜åœ¨å°±æ·»åŠ åˆ°è¿™ä¸ªç»„ï¼Œä¸å­˜åœ¨åˆ›å»ºä¸€ä¸ªç»„
 				RosterEntry entry = connection.getRoster().getEntry(
 						user.getJID());
 				try {
@@ -164,7 +164,7 @@ public class ContacterManager {
 	}
 
 	/**
-	 * °ÑÒ»¸öºÃÓÑ´Ó×éÖĞÉ¾³ı
+	 * æŠŠä¸€ä¸ªå¥½å‹ä»ç»„ä¸­åˆ é™¤
 	 * 
 	 * @param user
 	 * @param groupName
@@ -226,13 +226,13 @@ public class ContacterManager {
 
 	/**
 	 * 
-	 * ¸ù¾İjid»ñµÃÓÃ»§êÇ³Æ
+	 * æ ¹æ®jidè·å¾—ç”¨æˆ·æ˜µç§°
 	 * 
 	 * @param Jid
 	 * @param connection
 	 * @return
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-6-28 ÉÏÎç10:49:14
+	 * @update 2012-6-28 ä¸Šåˆ10:49:14
 	 */
 	public static User getNickname(String Jid, XMPPConnection connection) {
 		Roster roster = connection.getRoster();
@@ -247,13 +247,13 @@ public class ContacterManager {
 	}
 
 	/**
-	 * Ìí¼Ó·Ö×é .
+	 * æ·»åŠ åˆ†ç»„ .
 	 * 
 	 * @param user
 	 * @param groupName
 	 * @param connection
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-6-28 ÏÂÎç3:30:32
+	 * @update 2012-6-28 ä¸‹åˆ3:30:32
 	 */
 	public static void addGroup(final String groupName,
 			final XMPPConnection connection) {
@@ -261,7 +261,7 @@ public class ContacterManager {
 			return;
 		}
 
-		// ½«Ò»¸örosterEntryÌí¼Óµ½groupÖĞÊÇPacketCollector£¬»á×èÈûÏß³Ì
+		// å°†ä¸€ä¸ªrosterEntryæ·»åŠ åˆ°groupä¸­æ˜¯PacketCollectorï¼Œä¼šé˜»å¡çº¿ç¨‹
 		new Thread() {
 			public void run() {
 
@@ -279,7 +279,7 @@ public class ContacterManager {
 	}
 
 	/**
-	 * »ñµÃËùÓĞ×éÃû
+	 * è·å¾—æ‰€æœ‰ç»„å
 	 * 
 	 * @return
 	 */
@@ -294,12 +294,12 @@ public class ContacterManager {
 
 	/**
 	 * 
-	 * ´Ó»¨Ãû²áÖĞÉ¾³ıÓÃ»§.
+	 * ä»èŠ±åå†Œä¸­åˆ é™¤ç”¨æˆ·.
 	 * 
 	 * @param Jid
 	 * @author xunlei.zengjinlong 470910357@qq.com
 	 * @throws XMPPException
-	 * @update 2012-7-3 ÏÂÎç2:42:54
+	 * @update 2012-7-3 ä¸‹åˆ2:42:54
 	 */
 	public static void deleteUser(String userJid) throws XMPPException {
 
@@ -312,7 +312,7 @@ public class ContacterManager {
 	}
 
 	/**
-	 * ¸ù¾İÓÃ»§jidµÃµ½ÓÃ»§
+	 * æ ¹æ®ç”¨æˆ·jidå¾—åˆ°ç”¨æˆ·
 	 * 
 	 * @param userJid
 	 * @param nickname

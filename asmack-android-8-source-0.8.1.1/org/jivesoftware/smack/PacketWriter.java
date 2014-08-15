@@ -20,6 +20,7 @@
 
 package org.jivesoftware.smack;
 
+import org.apache.log4j.Logger;
 import org.jivesoftware.smack.packet.Packet;
 
 import java.io.IOException;
@@ -45,7 +46,7 @@ class PacketWriter {
     private XMPPConnection connection;
     private final BlockingQueue<Packet> queue;
     private boolean done;
-
+    private static final Logger logger=Logger.getLogger(PacketWriter.class);
     /**
      * Timestamp when the last stanza was sent to the server. This information is used
      * by the keep alive process to only send heartbeats when the connection has been idle.
@@ -86,11 +87,12 @@ class PacketWriter {
      * @param packet the packet to send.
      */
     public void sendPacket(Packet packet) {
+    	// logger.debug(packet.toXML().toString());
         if (!done) {
             // Invoke interceptors for the new packet that is about to be sent. Interceptors
             // may modify the content of the packet.
             connection.firePacketInterceptors(packet);
-
+           
             try {
                 queue.put(packet);
             }
@@ -145,13 +147,16 @@ class PacketWriter {
      * packets will be written to the server.
      */
     public void shutdown() {
+    	logger.debug("");
         done = true;
         synchronized (queue) {
             queue.notifyAll();
         }
         // Interrupt the keep alive thread if one was created
         if (keepAliveThread != null)
+        	logger.debug("inerrupt KeepAliveThread");
                 keepAliveThread.interrupt();
+        	
     }
 
     /**
@@ -168,6 +173,7 @@ class PacketWriter {
      * @return the next packet for writing.
      */
     private Packet nextPacket() {
+    	logger.debug("");
         Packet packet = null;
         // Wait until there's a packet or we're done.
         while (!done && (packet = queue.poll()) == null) {
@@ -263,6 +269,7 @@ class PacketWriter {
         stream.append(" xmlns=\"jabber:client\"");
         stream.append(" xmlns:stream=\"http://etherx.jabber.org/streams\"");
         stream.append(" version=\"1.0\">");
+       // logger.debug(stream.toString());
         writer.write(stream.toString());
         writer.flush();
     }
@@ -288,6 +295,7 @@ class PacketWriter {
             try {
                 // Sleep a minimum of 15 seconds plus delay before sending first heartbeat. This will give time to
                 // properly finish TLS negotiation and then start sending heartbeats.
+            	logger.debug("KeepAliveTask sleep");
                 Thread.sleep(15000 + delay);
             }
             catch (InterruptedException ie) {

@@ -35,7 +35,7 @@ import com.sanliao.eim.view.NoticeAdapter;
 
 /**
  * 
- * ÎÒµÄÏûÏ¢.
+ * æˆ‘çš„æ¶ˆæ¯.
  * 
  * @author xunlei.zengjinlong 470910357@qq.com
  */
@@ -43,8 +43,8 @@ public class MyNoticeActivity extends ActivitySupport {
 	private ImageView titleBack;
 	private ListView noticeList = null;
 	private NoticeAdapter noticeAdapter = null;
-	private List<Notice> inviteNotices = new ArrayList<Notice>();//Í¨Öª¶ÓÁĞ
-	private ContacterReceiver receiver = null;//¹ã²¥½ÓÊÕÕß
+	private List<Notice> inviteNotices = new ArrayList<Notice>();//é€šçŸ¥é˜Ÿåˆ—
+	private ContacterReceiver receiver = null;//å¹¿æ’­æ¥æ”¶è€…
 	private NoticeManager noticeManager;
 
 	@Override
@@ -56,19 +56,19 @@ public class MyNoticeActivity extends ActivitySupport {
 
 	@Override
 	protected void onPause() {
-		// Ğ¶ÔØ¹ã²¥½ÓÊÕÆ÷
+		// å¸è½½å¹¿æ’­æ¥æ”¶å™¨
 		unregisterReceiver(receiver);
 		super.onPause();
 	}
 
 	@Override
 	protected void onResume() {
-		// ×¢²á¹ã²¥½ÓÊÕÆ÷
+		// æ³¨å†Œå¹¿æ’­æ¥æ”¶å™¨
 		IntentFilter filter = new IntentFilter();
-		// ºÃÓÑÇëÇó
+		// å¥½å‹è¯·æ±‚
 		filter.addAction(Constant.ROSTER_SUBSCRIPTION);
 		filter.addAction(Constant.ACTION_SYS_MSG);
-		registerReceiver(receiver, filter);//×¢²á¹ã²¥½ÓÊÕ
+		registerReceiver(receiver, filter);//æ³¨å†Œå¹¿æ’­æ¥æ”¶
 		super.onResume();
 	}
 
@@ -89,13 +89,13 @@ public class MyNoticeActivity extends ActivitySupport {
 		noticeList.setOnItemClickListener(inviteListClick);
 	}
 
-	private class ContacterReceiver extends BroadcastReceiver {//¼Ì³Ğ¹ã²¥½ÓÊÕ
+	private class ContacterReceiver extends BroadcastReceiver {//ç»§æ‰¿å¹¿æ’­æ¥æ”¶
 
 		@Override
 		public void onReceive(Context context, Intent intent) {
 			Notice notice = (Notice) intent.getSerializableExtra("notice");
 			// String action = intent.getAction();
-			inviteNotices.add(notice);//½«Í¨Öª¼ÓÈëµ½¶ÓÁĞÖĞ
+			inviteNotices.add(notice);//å°†é€šçŸ¥åŠ å…¥åˆ°é˜Ÿåˆ—ä¸­
 			refresh();
 		}
 	}
@@ -107,11 +107,11 @@ public class MyNoticeActivity extends ActivitySupport {
 				long arg3) {
 			final Notice notice = (Notice) view.findViewById(R.id.new_content)
 					.getTag();
-			// ÏûÏ¢ÀàĞÍÅĞ¶Ï
+			// æ¶ˆæ¯ç±»å‹åˆ¤æ–­
 			if (Notice.ADD_FRIEND == notice.getNoticeType()
-					&& notice.getStatus() == Notice.UNREAD) {// Ìí¼ÓºÃÓÑ
+					&& notice.getStatus() == Notice.UNREAD) {// æ·»åŠ å¥½å‹
 				showAddFriendDialag(notice);
-			} else if (Notice.SYS_MSG == notice.getNoticeType()) {// ÏµÍ³Í¨Öª
+			} else if (Notice.SYS_MSG == notice.getNoticeType()) {// ç³»ç»Ÿé€šçŸ¥
 				Intent intent = new Intent(context,
 						SystemNoticeDetailActivity.class);
 				intent.putExtra("notice_id", notice.getId());
@@ -122,7 +122,7 @@ public class MyNoticeActivity extends ActivitySupport {
 	};
 
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		switch (resultCode) { // resultCodeÎª»Ø´«µÄ±ê¼Ç
+		switch (resultCode) { // resultCodeä¸ºå›ä¼ çš„æ ‡è®°
 		case 1:
 			refresh();
 		default:
@@ -131,7 +131,7 @@ public class MyNoticeActivity extends ActivitySupport {
 	}
 
 	/**
-	 * »Ø¸´Ò»¸öpresenceĞÅÏ¢¸øÓÃ»§
+	 * å›å¤ä¸€ä¸ªpresenceä¿¡æ¯ç»™ç”¨æˆ·
 	 * 
 	 * @param type
 	 * @param to
@@ -146,7 +146,7 @@ public class MyNoticeActivity extends ActivitySupport {
 	}
 
 	/**
-	 * É¾³ıÒ»¸öÌõÄ¿
+	 * åˆ é™¤ä¸€ä¸ªæ¡ç›®
 	 * 
 	 * @param subFrom
 	 */
@@ -190,22 +190,22 @@ public class MyNoticeActivity extends ActivitySupport {
 
 	/**
 	 * 
-	 * .µ¯³öÌí¼ÓºÃÓÑµÄ¶Ô»°¿ò
+	 * .å¼¹å‡ºæ·»åŠ å¥½å‹çš„å¯¹è¯æ¡†
 	 * 
 	 * @param notice
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-7-3 ÏÂÎç4:50:53
+	 * @update 2012-7-3 ä¸‹åˆ4:50:53
 	 */
 	private void showAddFriendDialag(final Notice notice) {
 		final String subFrom = notice.getFrom();
 		new AlertDialog.Builder(context)
-				.setMessage(subFrom + "ÇëÇóÌí¼ÓÄúÎªºÃÓÑ")
-				.setTitle("ÌáÊ¾")
-				.setPositiveButton("Ìí¼Ó", new DialogInterface.OnClickListener() {
+				.setMessage(subFrom + "è¯·æ±‚æ·»åŠ æ‚¨ä¸ºå¥½å‹")
+				.setTitle("æç¤º")
+				.setPositiveButton("æ·»åŠ ", new DialogInterface.OnClickListener() {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						// ½ÓÊÜÇëÇó
+						// æ¥å—è¯·æ±‚
 						sendSubscribe(Presence.Type.subscribed, subFrom);
 						sendSubscribe(Presence.Type.subscribe, subFrom);
 						// removeInviteNotice(notice.getId());
@@ -214,13 +214,13 @@ public class MyNoticeActivity extends ActivitySupport {
 						noticeManager.updateAddFriendStatus(
 								notice.getId(),
 								Notice.READ,
-								"ÒÑ¾­Í¬Òâ"
+								"å·²ç»åŒæ„"
 										+ StringUtil.getUserNameByJid(notice
-												.getFrom()) + "µÄºÃÓÑÉêÇë");
+												.getFrom()) + "çš„å¥½å‹ç”³è¯·");
 						refresh();
 					}
 				})
-				.setNegativeButton("¾Ü¾ø", new DialogInterface.OnClickListener() {
+				.setNegativeButton("æ‹’ç»", new DialogInterface.OnClickListener() {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
@@ -231,9 +231,9 @@ public class MyNoticeActivity extends ActivitySupport {
 						noticeManager.updateAddFriendStatus(
 								notice.getId(),
 								Notice.READ,
-								"ÒÑ¾­¾Ü¾ø"
+								"å·²ç»æ‹’ç»"
 										+ StringUtil.getUserNameByJid(notice
-												.getFrom()) + "µÄºÃÓÑÉêÇë");
+												.getFrom()) + "çš„å¥½å‹ç”³è¯·");
 						refresh();
 					}
 				}).show();

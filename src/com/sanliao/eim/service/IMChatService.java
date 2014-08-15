@@ -29,7 +29,7 @@ import com.sanliao.eim.util.DateUtil;
 
 /**
  * 
- * ÁÄÌì·şÎñ.
+ * èŠå¤©æœåŠ¡.
  * 
  * @author xunlei.zengjinlong 470910357@qq.com
  */
@@ -39,7 +39,7 @@ public class IMChatService extends Service {
 	private NotificationManager notificationManager;
 
 	@Override
-	public void onCreate() {//µÚÒ»´ÎÀ­Æğ·şÎñµÄÊ±ºò±»µ÷ÓÃ
+	public void onCreate() {//ç¬¬ä¸€æ¬¡æ‹‰èµ·æœåŠ¡çš„æ—¶å€™è¢«è°ƒç”¨
 		Log.d(LOG_TAG,"onCreate");
 		context = this;
 		super.onCreate();
@@ -68,11 +68,11 @@ public class IMChatService extends Service {
 		conn.addPacketListener(pListener, new MessageTypeFilter(
 				Message.Type.chat));
 	}
-//¼àÌı°üµÄµ½À´
+//ç›‘å¬åŒ…çš„åˆ°æ¥
 	PacketListener pListener = new PacketListener() {
 
 		@Override
-		public void processPacket(Packet arg0) {//ÈçºÎ´¦ÀíÀ´µÄÊı¾İ°ü
+		public void processPacket(Packet arg0) {//å¦‚ä½•å¤„ç†æ¥çš„æ•°æ®åŒ…
 			Message message = (Message) arg0;
 			if (message != null && message.getBody() != null
 					&& !message.getBody().equals("null")) {
@@ -80,9 +80,9 @@ public class IMChatService extends Service {
 				// String time = (String)
 				// message.getProperty(IMMessage.KEY_TIME);
 				String time = DateUtil.date2Str(Calendar.getInstance(),
-						Constant.MS_FORMART);//Ê±¼ä
+						Constant.MS_FORMART);//æ—¶é—´
 				msg.setTime(time);
-				msg.setContent(message.getBody());//ÉèÖÃÄÚÈİ
+				msg.setContent(message.getBody());//è®¾ç½®å†…å®¹
 				if (Message.Type.error == message.getType()) {
 					msg.setType(IMMessage.ERROR);
 				} else {
@@ -91,18 +91,18 @@ public class IMChatService extends Service {
 				String from = message.getFrom().split("/")[0];
 				msg.setFromSubJid(from);
 
-				// Éú³ÉÍ¨Öª
+				// ç”Ÿæˆé€šçŸ¥
 				NoticeManager noticeManager = NoticeManager
 						.getInstance(context);
 				Notice notice = new Notice();
-				notice.setTitle("»á»°ĞÅÏ¢");
+				notice.setTitle("ä¼šè¯ä¿¡æ¯");
 				notice.setNoticeType(Notice.CHAT_MSG);
 				notice.setContent(message.getBody());
 				notice.setFrom(from);
 				notice.setStatus(Notice.UNREAD);
 				notice.setNoticeTime(time);
 
-				// ÀúÊ·¼ÇÂ¼
+				// å†å²è®°å½•
 				IMMessage newMessage = new IMMessage();
 				newMessage.setMsgType(0);
 				newMessage.setFromSubJid(from);
@@ -132,45 +132,45 @@ public class IMChatService extends Service {
 
 	/**
 	 * 
-	 * ·¢³öNotificationµ½ÏÂÀ­Í¨ÖªÖĞ
+	 * å‘å‡ºNotificationåˆ°ä¸‹æ‹‰é€šçŸ¥ä¸­
 	 * 
 	 * @param iconId
-	 *            Í¼±ê
+	 *            å›¾æ ‡
 	 * @param contentTitle
-	 *            ±êÌâ
+	 *            æ ‡é¢˜
 	 * @param contentText
-	 *            ÄãÄÚÈİ
+	 *            ä½ å†…å®¹
 	 * @param activity
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-5-14 ÏÂÎç12:01:55
+	 * @update 2012-5-14 ä¸‹åˆ12:01:55
 	 */
 	private void setNotiType(int iconId, String contentTitle,
 			String contentText, Class activity, String from) {
 
 		/*
-		 * ´´½¨ĞÂµÄIntent£¬×÷Îªµã»÷NotificationÁôÑÔÌõÊ±£¬ »áÔËĞĞµÄActivity
+		 * åˆ›å»ºæ–°çš„Intentï¼Œä½œä¸ºç‚¹å‡»Notificationç•™è¨€æ¡æ—¶ï¼Œ ä¼šè¿è¡Œçš„Activity
 		 */
 		Intent notifyIntent = new Intent(this, activity);
 		notifyIntent.putExtra("to", from);
 		// notifyIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-		/* ´´½¨PendingIntent×÷ÎªÉèÖÃµİÑÓÔËĞĞµÄActivity */
+		/* åˆ›å»ºPendingIntentä½œä¸ºè®¾ç½®é€’å»¶è¿è¡Œçš„Activity */
 		PendingIntent appIntent = PendingIntent.getActivity(this, 0,
 				notifyIntent, 0);
 
-		/* ´´½¨Notication£¬²¢ÉèÖÃÏà¹Ø²ÎÊı */
+		/* åˆ›å»ºNoticationï¼Œå¹¶è®¾ç½®ç›¸å…³å‚æ•° */
 		Notification myNoti = new Notification();
-		// µã»÷×Ô¶¯ÏûÊ§
+		// ç‚¹å‡»è‡ªåŠ¨æ¶ˆå¤±
 		myNoti.flags = Notification.FLAG_AUTO_CANCEL;
-		/* ÉèÖÃstatusbarÏÔÊ¾µÄicon */
+		/* è®¾ç½®statusbaræ˜¾ç¤ºçš„icon */
 		myNoti.icon = iconId;
-		/* ÉèÖÃstatusbarÏÔÊ¾µÄÎÄ×ÖĞÅÏ¢ */
+		/* è®¾ç½®statusbaræ˜¾ç¤ºçš„æ–‡å­—ä¿¡æ¯ */
 		myNoti.tickerText = contentTitle;
-		/* ÉèÖÃnotification·¢ÉúÊ±Í¬Ê±·¢³öÄ¬ÈÏÉùÒô */
+		/* è®¾ç½®notificationå‘ç”Ÿæ—¶åŒæ—¶å‘å‡ºé»˜è®¤å£°éŸ³ */
 		myNoti.defaults = Notification.DEFAULT_SOUND;
-		/* ÉèÖÃNotificationÁôÑÔÌõµÄ²ÎÊı */
+		/* è®¾ç½®Notificationç•™è¨€æ¡çš„å‚æ•° */
 		myNoti.setLatestEventInfo(this, contentTitle, contentText, appIntent);
-		/* ËÍ³öNotification */
+		/* é€å‡ºNotification */
 		notificationManager.notify(0, myNoti);
 	}
 }

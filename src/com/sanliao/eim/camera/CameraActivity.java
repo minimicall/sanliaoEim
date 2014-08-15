@@ -35,7 +35,7 @@ public class CameraActivity extends Activity implements CamOpenOverCallback {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//¿ªÆôÒ»¸öÏß³Ì´ò¿ªÕÕÏà»ú
+		//å¼€å¯ä¸€ä¸ªçº¿ç¨‹æ‰“å¼€ç…§ç›¸æœº
 		Thread openThread = new Thread(){
 			@Override
 			public void run() {
@@ -44,7 +44,7 @@ public class CameraActivity extends Activity implements CamOpenOverCallback {
 			}
 		};
 		openThread.start();
-		//¹ØÁªxml
+		//å…³è”xml
 		setContentView(R.layout.activity_camera);
 
 		initUI();
@@ -87,10 +87,10 @@ public class CameraActivity extends Activity implements CamOpenOverCallback {
 		screen= DisplayUtil.getScreenMetrics(this);
 		params.width = screen.x;
 		params.height = screen.y;
-		previewRate = DisplayUtil.getScreenRate(this); //Ä¬ÈÏÈ«ÆÁµÄ±ÈÀıÔ¤ÀÀ
+		previewRate = DisplayUtil.getScreenRate(this); //é»˜è®¤å…¨å±çš„æ¯”ä¾‹é¢„è§ˆ
 		surfaceView.setLayoutParams(params);
 
-		//ÊÖ¶¯ÉèÖÃÅÄÕÕImageButtonµÄ´óĞ¡Îª120dip¡Á120dip,Ô­Í¼Æ¬´óĞ¡ÊÇ64¡Á64
+		//æ‰‹åŠ¨è®¾ç½®æ‹ç…§ImageButtonçš„å¤§å°ä¸º120dipÃ—120dip,åŸå›¾ç‰‡å¤§å°æ˜¯64Ã—64
 		LayoutParams p2 = shutterBtn.getLayoutParams();
 		p2.width = DisplayUtil.dip2px(this, 80);
 		p2.height = DisplayUtil.dip2px(this, 80);;		
@@ -111,7 +111,7 @@ public class CameraActivity extends Activity implements CamOpenOverCallback {
 			// TODO Auto-generated method stub
 			switch(v.getId()){
 			case R.id.btn_shutter:
-				CameraInterface.getInstance().doTakePicture();//ÅÄÕÕ
+				CameraInterface.getInstance().doTakePicture();//æ‹ç…§
 				
 				
 		 

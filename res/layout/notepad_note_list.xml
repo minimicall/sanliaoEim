@@ -5,6 +5,7 @@
 	android:fadingEdge="none" 
    android:cacheColorHint="#00000000"
    android:background="#FFCC00"
+   android:orientation="vertical"
    
 	>
 

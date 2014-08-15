@@ -5,9 +5,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 
 /**
- * SQLiteÊı¾İ¿âµÄ°ïÖúÀà
+ * SQLiteæ•°æ®åº“çš„å¸®åŠ©ç±»
  * 
- * ¸ÃÀàÊôÓÚÀ©Õ¹Àà,Ö÷Òª³Ğµ£Êı¾İ¿â³õÊ¼»¯ºÍ°æ±¾Éı¼¶Ê¹ÓÃ,ÆäËûºËĞÄÈ«ÓÉºËĞÄ¸¸ÀàÍê³É
+ * è¯¥ç±»å±äºæ‰©å±•ç±»,ä¸»è¦æ‰¿æ‹…æ•°æ®åº“åˆå§‹åŒ–å’Œç‰ˆæœ¬å‡çº§ä½¿ç”¨,å…¶ä»–æ ¸å¿ƒå…¨ç”±æ ¸å¿ƒçˆ¶ç±»å®Œæˆ
  * 
  * @author xunlei.zengjinlong 470910357@qq.com
  * 

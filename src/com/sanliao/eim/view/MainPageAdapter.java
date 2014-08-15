@@ -16,7 +16,7 @@ import com.sanliao.eim.model.Notice;
 
 /**
  * 
- * Ö÷Ò³Ãæ²Ëµ¥²¼¾ÖÆ÷.
+ * ä¸»é¡µé¢èœå•å¸ƒå±€å™¨.
  * 
  * @author xunlei.zengjinlong 470910357@qq.com
  */

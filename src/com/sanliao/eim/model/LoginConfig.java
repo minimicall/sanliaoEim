@@ -4,25 +4,25 @@ import android.util.Log;
 
 /**
  * 
- * µÇÂ¼ÅäÖÃ.
+ * ç™»å½•é…ç½®.
  * 
  * @author xunlei.zengjinlong 470910357@qq.com
  */
 public class LoginConfig {
 	private final static String LOG_TAG="LoginConfig";
-	private String xmppHost;// µØÖ·
-	private Integer xmppPort;// ¶Ë¿Ú
-	private String xmppServiceName;// ·şÎñÆ÷Ãû³Æ
-	private String username;// ÓÃ»§Ãû
-	private String password;// ÃÜÂë
-	private String sessionId;// »á»°id
-	private boolean isRemember;// ÊÇ·ñ¼Ç×¡ÃÜÂë
-	private boolean isAutoLogin;// ÊÇ·ñ×Ô¶¯µÇÂ¼
-	private boolean isNovisible;// ÊÇ·ñÒş²ØµÇÂ¼
-	private boolean isOnline;// ÓÃ»§Á¬½Ó³É¹¦connection
-	private boolean isFirstStart;// ÊÇ·ñÊ×´ÎÆô¶¯
+	private String xmppHost;// åœ°å€
+	private Integer xmppPort;// ç«¯å£
+	private String xmppServiceName;// æœåŠ¡å™¨åç§°
+	private String username;// ç”¨æˆ·å
+	private String password;// å¯†ç 
+	private String sessionId;// ä¼šè¯id
+	private boolean isRemember;// æ˜¯å¦è®°ä½å¯†ç 
+	private boolean isAutoLogin;// æ˜¯å¦è‡ªåŠ¨ç™»å½•
+	private boolean isNovisible;// æ˜¯å¦éšè—ç™»å½•
+	private boolean isOnline;// ç”¨æˆ·è¿æ¥æˆåŠŸconnection
+	private boolean isFirstStart;// æ˜¯å¦é¦–æ¬¡å¯åŠ¨
 	
-	private boolean isRegister;//ÊÇ·ñÎªÓÃ»§×¢²á
+	private boolean isRegister;//æ˜¯å¦ä¸ºç”¨æˆ·æ³¨å†Œ
 
 	public boolean isOnline() {
 		return isOnline;

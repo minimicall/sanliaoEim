@@ -13,7 +13,7 @@ public class SortSQL {
 			DataBaseInfo.NOTE_SORT+") values ('"+sort+"')";
 		db.execSQL(sql);
 		db.close();
-		Toast.makeText(context, "³É¹¦Ìí¼Ó·ÖÀà£¡", Toast.LENGTH_LONG).show();
+		Toast.makeText(context, "æˆåŠŸæ·»åŠ åˆ†ç±»ï¼", Toast.LENGTH_LONG).show();
 	}
 	
 	public static void update(Context context, String newsort, String oldsort){
@@ -24,7 +24,7 @@ public class SortSQL {
 			"' WHERE "+DataBaseInfo.NOTE_SORT+" = '"+oldsort+"'";
 		db.execSQL(sql);
 		db.close();
-		Toast.makeText(context, "ĞŞ¸Ä³É¹¦£¡", Toast.LENGTH_LONG).show();
+		Toast.makeText(context, "ä¿®æ”¹æˆåŠŸï¼", Toast.LENGTH_LONG).show();
 	}
 	
 	public static void delete(Context context, String sort){
@@ -33,7 +33,7 @@ public class SortSQL {
 		String sql = "DELETE FROM "+DataBaseInfo.SORT_TABLE +" WHERE "+DataBaseInfo.NOTE_SORT+" = '"+ sort +"'";
 		db.execSQL(sql);
 		db.close();
-		Toast.makeText(context, "É¾³ı³É¹¦£¡", Toast.LENGTH_LONG).show();
+		Toast.makeText(context, "åˆ é™¤æˆåŠŸï¼", Toast.LENGTH_LONG).show();
 	}
 	
 	public static Cursor select(Context context){

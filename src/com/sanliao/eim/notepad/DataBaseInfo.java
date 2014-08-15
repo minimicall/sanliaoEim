@@ -1,16 +1,16 @@
 package com.sanliao.eim.notepad;
 
 public class DataBaseInfo {
-	//Êı¾İ¿â
-	public static final String DB_NAME="notebook.db";//Êı¾İ¿âÃû×Ö
-	//±í
-	public static final String NOTE_TABLE="note_items";//Êı¾İ±íÃû×Ö
-	public static final String SORT_TABLE="note_sort";//ÅÅĞò±í
-	//¼ÇÊÂ×Ö¶Î
-	public static final String N_TITLE="mtitle";//±êÌâ
-	public static final String N_CONTENT="mcontent";//	ÄÚÈİ
-	public static final String N_TIME="mtime";	//Ê±¼ä
+	//æ•°æ®åº“
+	public static final String DB_NAME="notebook.db";//æ•°æ®åº“åå­—
+	//è¡¨
+	public static final String NOTE_TABLE="note_items";//æ•°æ®è¡¨åå­—
+	public static final String SORT_TABLE="note_sort";//æ’åºè¡¨
+	//è®°äº‹å­—æ®µ
+	public static final String N_TITLE="mtitle";//æ ‡é¢˜
+	public static final String N_CONTENT="mcontent";//	å†…å®¹
+	public static final String N_TIME="mtime";	//æ—¶é—´
 	public static final String N_SORT="msort";	
-	//·ÖÀà×Ö¶Î
+	//åˆ†ç±»å­—æ®µ
 	public static final String NOTE_SORT="msort";
 }

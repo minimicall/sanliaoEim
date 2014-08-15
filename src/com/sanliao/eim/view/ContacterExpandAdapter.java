@@ -66,7 +66,7 @@ public class ContacterExpandAdapter extends BaseExpandableListAdapter {
 		childHolder.mood.setText(user.getStatus() == null ? "" : user
 				.getStatus());
 		childHolder.username.setText(user.getName() + "---"
-				+ (user.isAvailable() ? "ÔÚÏß" : "ÀëÏß"));
+				+ (user.isAvailable() ? "åœ¨çº¿" : "ç¦»çº¿"));
 		if (user.isAvailable()) {
 			childHolder.username.setTextColor(Color.BLACK);
 			childHolder.mood.setTextColor(Color.BLACK);
@@ -115,7 +115,7 @@ public class ContacterExpandAdapter extends BaseExpandableListAdapter {
 			groupHolder = (GroupHolder) convertView.getTag();
 		}
 
-		// shimiso ÐÞ¸Ä
+		// shimiso ä¿®æ”¹
 		groupHolder.groupname.setText(groups.get(groupPosition).getName());
 		StringBuffer buffer = new StringBuffer();
 		buffer.append("[");

@@ -26,7 +26,7 @@ import com.sanliao.eim.util.StringUtil;
 
 /**
  * 
- * ÓÃ»§×ÊÁÏ²é¿´.
+ * ç”¨æˆ·èµ„æ–™æŸ¥çœ‹.
  * 
  * @author xunlei.zengjinlong 470910357@qq.com
  */
@@ -41,15 +41,15 @@ public class ChatHistoryActivity extends ActivitySupport {
 	private String to;
 	private int pageSize = 10;
 	private int currentPage = 1;
-	private int pageCount;// ×ÜÒ³Êı
-	private int recordCount;// ¼ÇÂ¼×ÜÊı
-	private ImageView imageViewLeft;// ÉÏÒ»Ò³
-	private ImageView imageViewRight;// ÉÏÒ»Ò³
-	private TextView editTextPage;// µ±Ç°Ò³
+	private int pageCount;// æ€»é¡µæ•°
+	private int recordCount;// è®°å½•æ€»æ•°
+	private ImageView imageViewLeft;// ä¸Šä¸€é¡µ
+	private ImageView imageViewRight;// ä¸Šä¸€é¡µ
+	private TextView editTextPage;// å½“å‰é¡µ
 	private Button delBtn;
-	private TextView textViewPage;// ×ÜÒ³Êı
-	private User user;// ÁÄÌìÈË
-	private User me;// ÁÄÌìÈË×Ô¼º
+	private TextView textViewPage;// æ€»é¡µæ•°
+	private User user;// èŠå¤©äºº
+	private User me;// èŠå¤©äººè‡ªå·±
 	private TextView ivTitleName;
 
 	@Override
@@ -72,7 +72,7 @@ public class ChatHistoryActivity extends ActivitySupport {
 				finish();
 			}
 		});
-		// Í·²¿±êÌâ
+		// å¤´éƒ¨æ ‡é¢˜
 		ivTitleName = (TextView) findViewById(R.id.ivTitleName);
 		user = ContacterManager.getByUserJid(to, XmppConnectionManager
 				.getInstance().getConnection());
@@ -84,7 +84,7 @@ public class ChatHistoryActivity extends ActivitySupport {
 		}
 
 		ivTitleName.setText(data);
-		// ·ÖÒ³
+		// åˆ†é¡µ
 		recordCount = MessageManager.getInstance(context)
 				.getChatCountWithSb(to);
 		pageCount = (recordCount + pageSize - 1) / pageSize;
@@ -92,15 +92,15 @@ public class ChatHistoryActivity extends ActivitySupport {
 		imageViewRight = (ImageView) findViewById(R.id.imageViewRight);
 		editTextPage = (TextView) findViewById(R.id.editTextPage);
 		editTextPage.setText(currentPage + "");
-		// ÏÂÒ»Ò³
+		// ä¸‹ä¸€é¡µ
 		imageViewRight.setOnClickListener(nextClick);
-		// ÉÏÒ»Ò³
+		// ä¸Šä¸€é¡µ
 		imageViewLeft.setOnClickListener(preClick);
-		// ×ÜÒ³Êı
+		// æ€»é¡µæ•°
 		textViewPage = (TextView) findViewById(R.id.textViewPage);
 		textViewPage.setText("" + pageCount);
 
-		// É¾³ı
+		// åˆ é™¤
 		delBtn = (Button) findViewById(R.id.buttonDelete);
 		delBtn.setOnClickListener(delClick);
 
@@ -174,7 +174,7 @@ public class ChatHistoryActivity extends ActivitySupport {
 				}
 
 			} else {
-				holder.name.setText("ÎÒ");
+				holder.name.setText("æˆ‘");
 			}
 
 			holder.time.setText(message.getTime().substring(0, 19));

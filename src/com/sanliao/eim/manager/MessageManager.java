@@ -17,7 +17,7 @@ import com.sanliao.eim.util.StringUtil;
 
 /**
  * 
- * ÏûÏ¢ÀúÊ·¼ÇÂ¼£¬
+ * æ¶ˆæ¯å†å²è®°å½•ï¼Œ
  * 
  * @author xunlei.zengjinlong 470910357@qq.com
  */
@@ -43,11 +43,11 @@ public class MessageManager {
 
 	/**
 	 * 
-	 * ±£´æÏûÏ¢.
+	 * ä¿å­˜æ¶ˆæ¯.
 	 * 
 	 * @param msg
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-5-16 ÏÂÎç3:23:15
+	 * @update 2012-5-16 ä¸‹åˆ3:23:15
 	 */
 	public long saveIMMessage(IMMessage msg) {
 		SQLiteTemplate st = SQLiteTemplate.getInstance(manager, false);
@@ -66,11 +66,11 @@ public class MessageManager {
 
 	/**
 	 * 
-	 * ¸üĞÂ×´Ì¬.
+	 * æ›´æ–°çŠ¶æ€.
 	 * 
 	 * @param status
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-5-16 ÏÂÎç3:22:44
+	 * @update 2012-5-16 ä¸‹åˆ3:22:44
 	 */
 	public void updateStatus(String id, Integer status) {
 		SQLiteTemplate st = SQLiteTemplate.getInstance(manager, false);
@@ -81,15 +81,15 @@ public class MessageManager {
 
 	/**
 	 * 
-	 * ²éÕÒÓëÄ³ÈËµÄÁÄÌì¼ÇÂ¼ÁÄÌì¼ÇÂ¼
+	 * æŸ¥æ‰¾ä¸æŸäººçš„èŠå¤©è®°å½•èŠå¤©è®°å½•
 	 * 
 	 * @param pageNum
-	 *            µÚ¼¸Ò³
+	 *            ç¬¬å‡ é¡µ
 	 * @param pageSize
-	 *            Òª²éµÄ¼ÇÂ¼ÌõÊı
+	 *            è¦æŸ¥çš„è®°å½•æ¡æ•°
 	 * @return
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-7-2 ÉÏÎç9:31:04
+	 * @update 2012-7-2 ä¸Šåˆ9:31:04
 	 */
 	public List<IMMessage> getMessageListByFrom(String fromUser, int pageNum,
 			int pageSize) {
@@ -122,11 +122,11 @@ public class MessageManager {
 
 	/**
 	 * 
-	 * ²éÕÒÓëÄ³ÈËµÄÁÄÌì¼ÇÂ¼×ÜÊı
+	 * æŸ¥æ‰¾ä¸æŸäººçš„èŠå¤©è®°å½•æ€»æ•°
 	 * 
 	 * @return
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-7-2 ÉÏÎç9:31:04
+	 * @update 2012-7-2 ä¸Šåˆ9:31:04
 	 */
 	public int getChatCountWithSb(String fromUser) {
 		if (StringUtil.empty(fromUser)) {
@@ -141,7 +141,7 @@ public class MessageManager {
 	}
 
 	/**
-	 * É¾³ıÓëÄ³ÈËµÄÁÄÌì¼ÇÂ¼ author xunlei.zengjinlong 470910357@qq.com
+	 * åˆ é™¤ä¸æŸäººçš„èŠå¤©è®°å½• author xunlei.zengjinlong 470910357@qq.com
 	 * 
 	 * @param fromUser
 	 */
@@ -156,11 +156,11 @@ public class MessageManager {
 
 	/**
 	 * 
-	 * »ñÈ¡×î½üÁÄÌìÈËÁÄÌì×îºóÒ»ÌõÏûÏ¢ºÍÎ´¶ÁÏûÏ¢×ÜÊı
+	 * è·å–æœ€è¿‘èŠå¤©äººèŠå¤©æœ€åä¸€æ¡æ¶ˆæ¯å’Œæœªè¯»æ¶ˆæ¯æ€»æ•°
 	 * 
 	 * @return
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-5-16 ÏÂÎç3:22:53
+	 * @update 2012-5-16 ä¸‹åˆ3:22:53
 	 */
 	public List<ChartHisBean> getRecentContactsWithLastMsg() {
 		SQLiteTemplate st = SQLiteTemplate.getInstance(manager, false);

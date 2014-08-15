@@ -765,10 +765,13 @@ public abstract class Connection {
                         e.printStackTrace();
                     }
                 }
+                
                 if (debuggerClass == null) {
                     try {
-                        debuggerClass =
-                                Class.forName("de.measite.smack.AndroidDebugger");
+                    	   debuggerClass =
+                                   Class.forName("org.jivesoftware.smack.debugger.ConsoleDebugger");
+                      //  debuggerClass =
+                               // Class.forName("de.measite.smack.AndroidDebugger");
                     }
                     catch (Exception ex) {
                         try {

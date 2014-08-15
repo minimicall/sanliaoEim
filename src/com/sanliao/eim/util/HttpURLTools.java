@@ -31,7 +31,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.params.CoreConnectionPNames;
 
 /**
- * java.net.URL¹¤¾ßÀà
+ * java.net.URLå·¥å…·ç±»
  * 
  * @author xunlei.zengjinlong 470910357@qq.com
  */
@@ -39,12 +39,12 @@ public class HttpURLTools {
 
 	/**
 	 * 
-	 * Ê¹ÓÃHTTPµÄPOST·½·¨Ìá½»xmlÊı¾İ.
+	 * ä½¿ç”¨HTTPçš„POSTæ–¹æ³•æäº¤xmlæ•°æ®.
 	 * 
 	 * @param xml
-	 *            Ìá½»µÄxmlÊı¾İ
+	 *            æäº¤çš„xmlæ•°æ®
 	 * @param urlPath
-	 *            ÇëÇóÂ·¾¶
+	 *            è¯·æ±‚è·¯å¾„
 	 * @return
 	 * @author xunlei.zengjinlong 470910357@qq.com
 	 * @update Feb 7, 2012 7:04:15 PM
@@ -55,10 +55,10 @@ public class HttpURLTools {
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			byte[] buff = xml.getBytes("UTF-8");
 			conn.setConnectTimeout(10 * 1000);
-			conn.setDoOutput(true); // ÔÊĞíÊä³ö
-			conn.setUseCaches(false); // ²»ÔÊĞí»º´æ
+			conn.setDoOutput(true); // å…è®¸è¾“å‡º
+			conn.setUseCaches(false); // ä¸å…è®¸ç¼“å­˜
 			conn.setRequestMethod("POST");
-			conn.setRequestProperty("Connection", "Keep-Alive");// Î¬³Ö³¤Á¬½Ó
+			conn.setRequestProperty("Connection", "Keep-Alive");// ç»´æŒé•¿è¿æ¥
 			conn.setRequestProperty("Charset", "UTF-8");
 			conn.setRequestProperty("Content-Length",
 					String.valueOf(buff.length));
@@ -79,15 +79,15 @@ public class HttpURLTools {
 	}
 
 	/**
-	 * Ê¹ÓÃHTTPµÄPOST·½·¨Ìá½»µÄ±íµ¥.
+	 * ä½¿ç”¨HTTPçš„POSTæ–¹æ³•æäº¤çš„è¡¨å•.
 	 * 
 	 * @param urlPath
-	 *            ÇëÇóÂ·¾¶
+	 *            è¯·æ±‚è·¯å¾„
 	 * @param params
-	 *            ÇëÇó²ÎÊı
+	 *            è¯·æ±‚å‚æ•°
 	 * @param encoding
-	 *            ÇëÇó²ÎÊı±àÂë
-	 * @return ·µ»ØInputStream
+	 *            è¯·æ±‚å‚æ•°ç¼–ç 
+	 * @return è¿”å›InputStream
 	 * @throws Exception
 	 * @author xunlei.zengjinlong 470910357@qq.com
 	 * @update May 19, 2011 12:33:44 AM
@@ -106,10 +106,10 @@ public class HttpURLTools {
 			URL url = new URL(urlPath);
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setConnectTimeout(6 * 1000);
-			conn.setDoOutput(true);// ·¢ËÍpostÇëÇó±ØĞëÉèÖÃÔÊĞíÊä³ö
-			conn.setUseCaches(false);// ²»ÊÊÓÃCache
+			conn.setDoOutput(true);// å‘é€postè¯·æ±‚å¿…é¡»è®¾ç½®å…è®¸è¾“å‡º
+			conn.setUseCaches(false);// ä¸é€‚ç”¨Cache
 			conn.setRequestMethod("POST");
-			conn.setRequestProperty("Connection", "Keep-Alive");// Î¬³Ö³¤Á¬½Ó
+			conn.setRequestProperty("Connection", "Keep-Alive");// ç»´æŒé•¿è¿æ¥
 			conn.setRequestProperty("Charset", "UTF-8");
 			conn.setRequestProperty("Content-Length",
 					String.valueOf(data.length));
@@ -132,12 +132,12 @@ public class HttpURLTools {
 
 	/**
 	 * 
-	 * Ê¹ÓÃHTTPµÄPOST·½·¨µ¥¸öÉÏ´«ÎÄ¼ş.
+	 * ä½¿ç”¨HTTPçš„POSTæ–¹æ³•å•ä¸ªä¸Šä¼ æ–‡ä»¶.
 	 * 
 	 * @param filePath
-	 *            ÎÄ¼şÂ·¾¶
+	 *            æ–‡ä»¶è·¯å¾„
 	 * @param urlPath
-	 *            ÇëÇóÂ·¾¶
+	 *            è¯·æ±‚è·¯å¾„
 	 * @author xunlei.zengjinlong 470910357@qq.com
 	 * @update Feb 7, 2012 6:13:29 PM
 	 */
@@ -173,21 +173,21 @@ public class HttpURLTools {
 
 	/**
 	 * 
-	 * Ê¹ÓÃHttpClient·¢ËÍÒ»¸öget·½Ê½µÄ³¬Á´½ÓÇëÇó.
+	 * ä½¿ç”¨HttpClientå‘é€ä¸€ä¸ªgetæ–¹å¼çš„è¶…é“¾æ¥è¯·æ±‚.
 	 * 
 	 * @param urlpath
 	 * @return
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-6-29 ÉÏÎç11:58:14
+	 * @update 2012-6-29 ä¸Šåˆ11:58:14
 	 */
 	public static HttpResponse sendHttpGet(String urlpath) {
 		HttpClient httpclient = new DefaultHttpClient();
 		try {
 			HttpGet httpget = new HttpGet(urlpath);
 			httpclient.getParams().setParameter(
-					CoreConnectionPNames.CONNECTION_TIMEOUT, 20000); // ÉèÖÃÇëÇó³¬Ê±Ê±¼ä
+					CoreConnectionPNames.CONNECTION_TIMEOUT, 20000); // è®¾ç½®è¯·æ±‚è¶…æ—¶æ—¶é—´
 			httpclient.getParams().setParameter(
-					CoreConnectionPNames.SO_TIMEOUT, 20000); // ¶ÁÈ¡³¬Ê±
+					CoreConnectionPNames.SO_TIMEOUT, 20000); // è¯»å–è¶…æ—¶
 			HttpResponse response = httpclient.execute(httpget);
 			return response;
 		} catch (Exception e) {
@@ -198,18 +198,18 @@ public class HttpURLTools {
 
 	/**
 	 * 
-	 * Ê¹ÓÃHttpClient·¢ËÍÒ»¸öpost·½Ê½µÄÇëÇó.
+	 * ä½¿ç”¨HttpClientå‘é€ä¸€ä¸ªpostæ–¹å¼çš„è¯·æ±‚.
 	 * 
 	 * @param url
 	 * @param params
 	 * @return
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-6-29 ÉÏÎç11:58:30
+	 * @update 2012-6-29 ä¸Šåˆ11:58:30
 	 */
 	public static HttpResponse sendHttpPost(String url,
 			Map<String, String> params) {
 		try {
-			List<NameValuePair> param = new ArrayList<NameValuePair>(); // ²ÎÊı
+			List<NameValuePair> param = new ArrayList<NameValuePair>(); // å‚æ•°
 			if (params != null) {
 				Iterator<Entry<String, String>> iterator = params.entrySet()
 						.iterator();
@@ -225,9 +225,9 @@ public class HttpURLTools {
 			request.setEntity(entity);
 			HttpClient client = new DefaultHttpClient();
 			client.getParams().setParameter(
-					CoreConnectionPNames.CONNECTION_TIMEOUT, 20000); // ÉèÖÃÇëÇó³¬Ê±Ê±¼ä
+					CoreConnectionPNames.CONNECTION_TIMEOUT, 20000); // è®¾ç½®è¯·æ±‚è¶…æ—¶æ—¶é—´
 			client.getParams().setParameter(CoreConnectionPNames.SO_TIMEOUT,
-					20000); // ¶ÁÈ¡³¬Ê±
+					20000); // è¯»å–è¶…æ—¶
 			HttpResponse response = client.execute(request);
 			if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
 				return response;
@@ -240,7 +240,7 @@ public class HttpURLTools {
 
 	/**
 	 * 
-	 * »ñÈ¡·µ»ØĞÅÏ¢.
+	 * è·å–è¿”å›ä¿¡æ¯.
 	 * 
 	 * @param conn
 	 * @author xunlei.zengjinlong 470910357@qq.com

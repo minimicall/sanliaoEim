@@ -8,7 +8,7 @@ import com.sanliao.eim.util.DateUtil;
 
 /**
  * 
- * ÏûÏ¢ÊµÌå.
+ * æ¶ˆæ¯å®ä½“.
  * 
  * @author xunlei.zengjinlong 470910357@qq.com
  */
@@ -17,21 +17,21 @@ public class Notice implements Serializable, Comparable<Notice> {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public static final int ADD_FRIEND = 1;// ºÃÓÑÇëÇó
-	public static final int SYS_MSG = 2; // ÏµÍ³ÏûÏ¢
-	public static final int CHAT_MSG = 3;// ÁÄÌìÏûÏ¢
+	public static final int ADD_FRIEND = 1;// å¥½å‹è¯·æ±‚
+	public static final int SYS_MSG = 2; // ç³»ç»Ÿæ¶ˆæ¯
+	public static final int CHAT_MSG = 3;// èŠå¤©æ¶ˆæ¯
 	public static final int READ = 0;
 	public static final int UNREAD = 1;
 	public static final int All = 2;
 
-	private String id; // Ö÷¼ü
-	private String title; // ±êÌâ
-	private String content; // ÄÚÈİ
-	private Integer status; // ×´Ì¬ 0ÒÑ¶Á 1Î´¶Á
-	private String from; // Í¨ÖªÀ´Ô´
-	private String to; // Í¨ÖªÈ¥Ïë
-	private String noticeTime; // Í¨ÖªÊ±¼ä
-	private Integer noticeType; // ÏûÏ¢ÀàĞÍ 1.ºÃÓÑÇëÇó 2.ÏµÍ³ÏûÏ¢
+	private String id; // ä¸»é”®
+	private String title; // æ ‡é¢˜
+	private String content; // å†…å®¹
+	private Integer status; // çŠ¶æ€ 0å·²è¯» 1æœªè¯»
+	private String from; // é€šçŸ¥æ¥æº
+	private String to; // é€šçŸ¥å»æƒ³
+	private String noticeTime; // é€šçŸ¥æ—¶é—´
+	private Integer noticeType; // æ¶ˆæ¯ç±»å‹ 1.å¥½å‹è¯·æ±‚ 2.ç³»ç»Ÿæ¶ˆæ¯
 
 	public Integer getNoticeType() {
 		return noticeType;

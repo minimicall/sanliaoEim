@@ -37,7 +37,7 @@ public class CamParaUtil {
 			i++;
 		}
 		if(i == list.size()){
-			i = 0;//Èç¹ûÃ»ÕÒµ½£¬¾ÍÑ¡×îĞ¡µÄsize
+			i = 0;//å¦‚æœæ²¡æ‰¾åˆ°ï¼Œå°±é€‰æœ€å°çš„size
 		}
 		return list.get(i);
 	}
@@ -53,7 +53,7 @@ public class CamParaUtil {
 			i++;
 		}
 		if(i == list.size()){
-			i = 0;//Èç¹ûÃ»ÕÒµ½£¬¾ÍÑ¡×îĞ¡µÄsize
+			i = 0;//å¦‚æœæ²¡æ‰¾åˆ°ï¼Œå°±é€‰æœ€å°çš„size
 		}
 		return list.get(i);
 	}
@@ -85,7 +85,7 @@ public class CamParaUtil {
 
 	}
 
-	/**´òÓ¡Ö§³ÖµÄpreviewSizes
+	/**æ‰“å°æ”¯æŒçš„previewSizes
 	 * @param params
 	 */
 	public  void printSupportPreviewSize(Camera.Parameters params){
@@ -97,7 +97,7 @@ public class CamParaUtil {
 	
 	}
 
-	/**´òÓ¡Ö§³ÖµÄpictureSizes
+	/**æ‰“å°æ”¯æŒçš„pictureSizes
 	 * @param params
 	 */
 	public  void printSupportPictureSize(Camera.Parameters params){
@@ -108,7 +108,7 @@ public class CamParaUtil {
 					+" height = " + size.height);
 		}
 	}
-	/**´òÓ¡Ö§³ÖµÄ¾Û½¹Ä£Ê½
+	/**æ‰“å°æ”¯æŒçš„èšç„¦æ¨¡å¼
 	 * @param params
 	 */
 	public void printSupportFocusMode(Camera.Parameters params){

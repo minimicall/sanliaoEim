@@ -15,7 +15,7 @@ import com.sanliao.eim.util.StringUtil;
 
 /**
  * 
- * Í¨Öª£¬ÏûÏ¢¹ÜÀí.
+ * é€šçŸ¥ï¼Œæ¶ˆæ¯ç®¡ç†.
  * 
  * @author xunlei.zengjinlong 470910357@qq.com
  */
@@ -41,11 +41,11 @@ public class NoticeManager {
 
 	/**
 	 * 
-	 * ±£´æÏûÏ¢.
+	 * ä¿å­˜æ¶ˆæ¯.
 	 * 
 	 * @param notice
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2014-7-16 ÏÂÎç3:23:15
+	 * @update 2014-7-16 ä¸‹åˆ3:23:15
 	 */
 	public long saveNotice(Notice notice) {
 		SQLiteTemplate st = SQLiteTemplate.getInstance(manager, false);
@@ -72,11 +72,11 @@ public class NoticeManager {
 
 	/**
 	 * 
-	 * »ñÈ¡ËùÓĞÎ´¶ÁÏûÏ¢.
+	 * è·å–æ‰€æœ‰æœªè¯»æ¶ˆæ¯.
 	 * 
 	 * @return
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2014-7-16 ÏÂÎç3:22:53
+	 * @update 2014-7-16 ä¸‹åˆ3:22:53
 	 */
 	public List<Notice> getUnReadNoticeList() {
 		SQLiteTemplate st = SQLiteTemplate.getInstance(manager, false);
@@ -105,11 +105,11 @@ public class NoticeManager {
 
 	/**
 	 * 
-	 * ¸üĞÂ×´Ì¬.
+	 * æ›´æ–°çŠ¶æ€.
 	 * 
 	 * @param status
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2014-7-16 ÏÂÎç3:22:44
+	 * @update 2014-7-16 ä¸‹åˆ3:22:44
 	 */
 	public void updateStatus(String id, Integer status) {
 		SQLiteTemplate st = SQLiteTemplate.getInstance(manager, false);
@@ -120,11 +120,11 @@ public class NoticeManager {
 
 	/**
 	 * 
-	 * ¸üĞÂÌí¼ÓºÃÓÑ×´Ì¬.
+	 * æ›´æ–°æ·»åŠ å¥½å‹çŠ¶æ€.
 	 * 
 	 * @param status
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2014-7-16 ÏÂÎç3:22:44
+	 * @update 2014-7-16 ä¸‹åˆ3:22:44
 	 */
 	public void updateAddFriendStatus(String id, Integer status, String content) {
 		SQLiteTemplate st = SQLiteTemplate.getInstance(manager, false);
@@ -136,11 +136,11 @@ public class NoticeManager {
 
 	/**
 	 * 
-	 * »ñÈ¡Î´¶ÁÏûÏ¢µÄÌõÊı.
+	 * è·å–æœªè¯»æ¶ˆæ¯çš„æ¡æ•°.
 	 * 
 	 * @return
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2014-7-16 ÏÂÎç6:22:03
+	 * @update 2014-7-16 ä¸‹åˆ6:22:03
 	 */
 	public Integer getUnReadNoticeCount() {
 		SQLiteTemplate st = SQLiteTemplate.getInstance(manager, false);
@@ -150,11 +150,11 @@ public class NoticeManager {
 
 	/**
 	 * 
-	 * ¸ü¾ßÖ÷¼ü»ñÈ¡ÏûÏ¢.
+	 * æ›´å…·ä¸»é”®è·å–æ¶ˆæ¯.
 	 * 
 	 * @param id
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2014-7-16 ÏÂÎç5:35:33
+	 * @update 2014-7-16 ä¸‹åˆ5:35:33
 	 */
 	public Notice getNoticeById(String id) {
 		SQLiteTemplate st = SQLiteTemplate.getInstance(manager, false);
@@ -182,11 +182,11 @@ public class NoticeManager {
 
 	/**
 	 * 
-	 * »ñÈ¡ËùÓĞÎ´¶ÁÁÄÏûÏ¢.(·ÖÀà)1 ºÃÓÑÌí¼Ó 2ÏµÍ³ ÏûÏ¢ 3 ÁÄÌì
+	 * è·å–æ‰€æœ‰æœªè¯»èŠæ¶ˆæ¯.(åˆ†ç±»)1 å¥½å‹æ·»åŠ  2ç³»ç»Ÿ æ¶ˆæ¯ 3 èŠå¤©
 	 * 
 	 * @return
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2014-7-16 ÏÂÎç3:22:53
+	 * @update 2014-7-16 ä¸‹åˆ3:22:53
 	 */
 	public List<Notice> getUnReadNoticeListByType(int type) {
 
@@ -220,11 +220,11 @@ public class NoticeManager {
 
 	/**
 	 * 
-	 * »ñÈ¡Î´¶ÁÏûÏ¢µÄÌõÊı£¨·ÖÀà£©.1 ºÃÓÑÌí¼Ó 2ÏµÍ³ ÏûÏ¢ 3 ÁÄÌì
+	 * è·å–æœªè¯»æ¶ˆæ¯çš„æ¡æ•°ï¼ˆåˆ†ç±»ï¼‰.1 å¥½å‹æ·»åŠ  2ç³»ç»Ÿ æ¶ˆæ¯ 3 èŠå¤©
 	 * 
 	 * @return
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2014-7-16 ÏÂÎç6:22:03
+	 * @update 2014-7-16 ä¸‹åˆ6:22:03
 	 */
 	public Integer getUnReadNoticeCountByType(int type) {
 		SQLiteTemplate st = SQLiteTemplate.getInstance(manager, false);
@@ -235,11 +235,11 @@ public class NoticeManager {
 
 	/**
 	 * 
-	 * »ñÈ¡À´×ÔÄ³ÈËÎ´¶ÁÏûÏ¢µÄÌõÊı£¨·ÖÀà£©.1 ºÃÓÑÌí¼Ó 2ÏµÍ³ ÏûÏ¢ 3 ÁÄÌì
+	 * è·å–æ¥è‡ªæŸäººæœªè¯»æ¶ˆæ¯çš„æ¡æ•°ï¼ˆåˆ†ç±»ï¼‰.1 å¥½å‹æ·»åŠ  2ç³»ç»Ÿ æ¶ˆæ¯ 3 èŠå¤©
 	 * 
 	 * @return
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-7-5 ÏÂÎç1:59:53
+	 * @update 2012-7-5 ä¸‹åˆ1:59:53
 	 */
 	public Integer getUnReadNoticeCountByTypeAndFrom(int type, String from) {
 		SQLiteTemplate st = SQLiteTemplate.getInstance(manager, false);
@@ -251,11 +251,11 @@ public class NoticeManager {
 
 	/**
 	 * 
-	 * ¸üĞÂÄ³ÈËËùÓĞÍ¨Öª×´Ì¬.
+	 * æ›´æ–°æŸäººæ‰€æœ‰é€šçŸ¥çŠ¶æ€.
 	 * 
 	 * @param status
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2014-7-16 ÏÂÎç3:22:44
+	 * @update 2014-7-16 ä¸‹åˆ3:22:44
 	 */
 	public void updateStatusByFrom(String xfrom, Integer status) {
 		SQLiteTemplate st = SQLiteTemplate.getInstance(manager, false);
@@ -267,15 +267,15 @@ public class NoticeManager {
 
 	/**
 	 * 
-	 * ·ÖÒ³»ñÈ¡ËùÓĞÁÄÏûÏ¢.(·ÖÀà)1 ºÃÓÑÌí¼Ó 2ÏµÍ³ ÏûÏ¢ 3 ÁÄÌì ½µĞòÅÅÁĞ
+	 * åˆ†é¡µè·å–æ‰€æœ‰èŠæ¶ˆæ¯.(åˆ†ç±»)1 å¥½å‹æ·»åŠ  2ç³»ç»Ÿ æ¶ˆæ¯ 3 èŠå¤© é™åºæ’åˆ—
 	 * 
 	 * @param isRead
-	 *            0 ÒÑ¶Á 1 Î´¶Á 2 È«²¿
+	 *            0 å·²è¯» 1 æœªè¯» 2 å…¨éƒ¨
 	 * @param type
-	 *            2ÏµÍ³£¬ 3ÁÄÌì£¬1 ºÃÓÑÌí¼Ó
+	 *            2ç³»ç»Ÿï¼Œ 3èŠå¤©ï¼Œ1 å¥½å‹æ·»åŠ 
 	 * @return
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-7-6 ÏÂÎç3:22:53
+	 * @update 2012-7-6 ä¸‹åˆ3:22:53
 	 */
 	public List<Notice> getNoticeListByTypeAndPage(int type, int isRead,
 			int pageNum, int pageSize) {
@@ -318,13 +318,13 @@ public class NoticeManager {
 
 	/**
 	 * 
-	 * ·ÖÒ³»ñÈ¡ËùÓĞÁÄÏûÏ¢.(·ÖÀà)1 ºÃÓÑÌí¼Ó 2ÏµÍ³ ÏûÏ¢ 3 ÁÄÌì ½µĞòÅÅÁĞ
+	 * åˆ†é¡µè·å–æ‰€æœ‰èŠæ¶ˆæ¯.(åˆ†ç±»)1 å¥½å‹æ·»åŠ  2ç³»ç»Ÿ æ¶ˆæ¯ 3 èŠå¤© é™åºæ’åˆ—
 	 * 
 	 * @param isRead
-	 *            0 ÒÑ¶Á 1 Î´¶Á 2 È«²¿
+	 *            0 å·²è¯» 1 æœªè¯» 2 å…¨éƒ¨
 	 * @return
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-7-6 ÏÂÎç3:22:53
+	 * @update 2012-7-6 ä¸‹åˆ3:22:53
 	 */
 	public List<Notice> getNoticeListByTypeAndPage(int isRead) {
 
@@ -362,9 +362,9 @@ public class NoticeManager {
 	}
 
 	/**
-	 * ¸ù¾İidÉ¾³ı¼ÇÂ¼
+	 * æ ¹æ®idåˆ é™¤è®°å½•
 	 * 
-	 * @author JuanÇ¿
+	 * @author Juanå¼º
 	 * @param noticeId
 	 */
 	public void delById(String noticeId) {
@@ -374,9 +374,9 @@ public class NoticeManager {
 
 	/**
 	 * 
-	 * É¾³ıÈ«²¿¼ÇÂ¼
+	 * åˆ é™¤å…¨éƒ¨è®°å½•
 	 * 
-	 * @update 2013-4-15 ÏÂÎç6:33:19
+	 * @update 2013-4-15 ä¸‹åˆ6:33:19
 	 */
 	public void delAll() {
 		SQLiteTemplate st = SQLiteTemplate.getInstance(manager, false);
@@ -384,7 +384,7 @@ public class NoticeManager {
 	}
 
 	/**
-	 * É¾³ıÓëÄ³ÈËµÄÍ¨Öª author xunlei.zengjinlong 470910357@qq.com
+	 * åˆ é™¤ä¸æŸäººçš„é€šçŸ¥ author xunlei.zengjinlong 470910357@qq.com
 	 * 
 	 * @param fromUser
 	 */

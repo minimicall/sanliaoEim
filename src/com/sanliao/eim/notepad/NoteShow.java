@@ -32,13 +32,13 @@ public class NoteShow extends Activity{
 	    	Cursor c=NoteSQL.selectOne(this,nid);
 	    	c.moveToFirst();   
 	    	while (!c.isAfterLast()) { 
-	    		setTitle(c.getString(0)+"-ËùÊô·ÖÀà:"+c.getString(2));
+	    		setTitle(c.getString(0)+"-æ‰€å±åˆ†ç±»:"+c.getString(2));
 	    		show.setText(c.getString(1));
 	    		c.moveToNext();   
 	    	}
 	    }else{
 	    	setTitle(getResources().getString(R.string.app_name));
-    		show.setText("»¶Ó­Ê¹ÓÃ Android ¼ÇÊÂ±¾");
+    		show.setText("æ¬¢è¿ä½¿ç”¨ Android è®°äº‹æœ¬");
 	    }
 	 }
 	
@@ -46,15 +46,15 @@ public class NoteShow extends Activity{
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 		setIconEnable(menu, true);
-		menu.add(0, mEdit, Menu.NONE, "  ĞŞ¸Ä").setIcon(R.drawable.notepad_edit);
-		//menu.add(0, mChange, Menu.NONE, "×ª»»ÆÁÄ»").setIcon(R.drawable.refresh);
-		menu.add(0, mClose, Menu.NONE, "  ¹Ø±Õ").setIcon(R.drawable.notepad_close);
+		menu.add(0, mEdit, Menu.NONE, "  ä¿®æ”¹").setIcon(R.drawable.notepad_edit);
+		//menu.add(0, mChange, Menu.NONE, "è½¬æ¢å±å¹•").setIcon(R.drawable.refresh);
+		menu.add(0, mClose, Menu.NONE, "  å…³é—­").setIcon(R.drawable.notepad_close);
 		return true;
 	} 
 
-	///ÏÂÃæÕâ¸ö·½·¨ÊÇÎªÁËÊ¹µÃ²Ëµ¥ÄÜ¹»¼ÓÔØÍ¼±ê£¬²»ÕâÃ´×ö¼ÓÔØ²»ÁËÍ¼±ê¡£²»¹ı£¬µ½ÏÖÔÚÎ»ÖÃ£¬»¹ÊÇÃ»ÄÜÊµÏÖ
-	//²Ëµ¥ºáÅÅÁĞ
-	 //enableÎªtrueÊ±£¬²Ëµ¥Ìí¼ÓÍ¼±êÓĞĞ§£¬enableÎªfalseÊ±ÎŞĞ§¡£4.0ÏµÍ³Ä¬ÈÏÎŞĞ§  
+	///ä¸‹é¢è¿™ä¸ªæ–¹æ³•æ˜¯ä¸ºäº†ä½¿å¾—èœå•èƒ½å¤ŸåŠ è½½å›¾æ ‡ï¼Œä¸è¿™ä¹ˆåšåŠ è½½ä¸äº†å›¾æ ‡ã€‚ä¸è¿‡ï¼Œåˆ°ç°åœ¨ä½ç½®ï¼Œè¿˜æ˜¯æ²¡èƒ½å®ç°
+	//èœå•æ¨ªæ’åˆ—
+	 //enableä¸ºtrueæ—¶ï¼Œèœå•æ·»åŠ å›¾æ ‡æœ‰æ•ˆï¼Œenableä¸ºfalseæ—¶æ— æ•ˆã€‚4.0ç³»ç»Ÿé»˜è®¤æ— æ•ˆ  
     private void setIconEnable(Menu menu, boolean enable)  
     {  
         try   
@@ -63,7 +63,7 @@ public class NoteShow extends Activity{
             Method m = clazz.getDeclaredMethod("setOptionalIconsVisible", boolean.class);  
             m.setAccessible(true);  
               
-            //MenuBuilderÊµÏÖMenu½Ó¿Ú£¬´´½¨²Ëµ¥Ê±£¬´«½øÀ´µÄmenuÆäÊµ¾ÍÊÇMenuBuilder¶ÔÏó(javaµÄ¶àÌ¬ÌØÕ÷)  
+            //MenuBuilderå®ç°Menuæ¥å£ï¼Œåˆ›å»ºèœå•æ—¶ï¼Œä¼ è¿›æ¥çš„menuå…¶å®å°±æ˜¯MenuBuilderå¯¹è±¡(javaçš„å¤šæ€ç‰¹å¾)  
             m.invoke(menu, enable);  
               
         } catch (Exception e)   

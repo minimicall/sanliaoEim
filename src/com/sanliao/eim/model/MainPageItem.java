@@ -2,7 +2,7 @@ package com.sanliao.eim.model;
 
 /**
  * 
- * 主页面菜单项.
+ * 涓婚〉闈㈣彍鍗曢」.
  * 
  * @author xunlei.zengjinlong 470910357@qq.com
  */

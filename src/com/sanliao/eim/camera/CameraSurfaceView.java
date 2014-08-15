@@ -19,7 +19,7 @@ public class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Call
 		// TODO Auto-generated constructor stub
 		mContext = context;
 		mSurfaceHolder = getHolder();
-		mSurfaceHolder.setFormat(PixelFormat.TRANSPARENT);//translucent°ëÍ¸Ã÷ transparentÍ¸Ã÷
+		mSurfaceHolder.setFormat(PixelFormat.TRANSPARENT);//translucentåŠé€æ˜ transparenté€æ˜
 		mSurfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
 		mSurfaceHolder.addCallback(this);
 	}

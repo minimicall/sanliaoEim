@@ -15,7 +15,7 @@ public class FileUtil {
 	private static   String storagePath = "";
 	private static final String DST_FOLDER_NAME = "sanliao";
 
-	/**³õÊ¼»¯±£´æÂ·¾¶
+	/**åˆå§‹åŒ–ä¿å­˜è·¯å¾„
 	 * @return
 	 */
 	private static String initPath(){
@@ -29,7 +29,7 @@ public class FileUtil {
 		return storagePath;
 	}
 
-	/**±£´æBitmapµ½sdcard
+	/**ä¿å­˜Bitmapåˆ°sdcard
 	 * @param b
 	 */
 	public static void saveBitmap(Bitmap b,String name){
@@ -45,10 +45,10 @@ public class FileUtil {
 			b.compress(Bitmap.CompressFormat.JPEG, 100, bos);
 			bos.flush();
 			bos.close();
-			Log.i(TAG, "saveBitmap³É¹¦");
+			Log.i(TAG, "saveBitmapæˆåŠŸ");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			Log.i(TAG, "saveBitmap:Ê§°Ü");
+			Log.i(TAG, "saveBitmap:å¤±è´¥");
 			e.printStackTrace();
 		}
 

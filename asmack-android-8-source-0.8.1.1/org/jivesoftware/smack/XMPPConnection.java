@@ -33,6 +33,9 @@ import javax.net.ssl.SSLSocket;
 import org.apache.harmony.javax.security.auth.callback.Callback;
 import org.apache.harmony.javax.security.auth.callback.CallbackHandler;
 import org.apache.harmony.javax.security.auth.callback.PasswordCallback;
+
+import android.util.Log;
+
 import java.io.*;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
@@ -51,7 +54,7 @@ import java.util.Collection;
  * @author Matt Tucker
  */
 public class XMPPConnection extends Connection {
-
+	private final static String LOG_TAG="XMPPConnection";
     /**
      * The socket which is used for this connection.
      */
@@ -119,6 +122,7 @@ public class XMPPConnection extends Connection {
         config.setCompressionEnabled(false);
         config.setSASLAuthenticationEnabled(true);
         config.setDebuggerEnabled(DEBUG_ENABLED);
+        
         config.setCallbackHandler(callbackHandler);
     }
 
@@ -995,6 +999,7 @@ public class XMPPConnection extends Connection {
      */
     public void connect() throws XMPPException {
         // Stablishes the connection, readers and writers
+    	Log.d(LOG_TAG, "connect()");
         connectUsingConfiguration(config);
         // Automatically makes the login if the user was previouslly connected successfully
         // to the server and the connection was terminated abruptly

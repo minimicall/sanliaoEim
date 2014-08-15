@@ -27,11 +27,11 @@ public class UserManager {
 
 	/**
 	 * 
-	 * 获取用户的vcard信息 .
+	 * 鑾峰彇鐢ㄦ埛鐨剉card淇℃伅 .
 	 * 
 	 * @return
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2013-4-16 下午1:32:03
+	 * @update 2013-4-16 涓嬪崍1:32:03
 	 */
 	public VCard getUserVCard(String jid) {
 		XMPPConnection xmppConn = XmppConnectionManager.getInstance()
@@ -47,12 +47,12 @@ public class UserManager {
 
 	/**
 	 * 
-	 * 保存用户的vcard信息. 注：修改vcard时，头像会丢失，此处为asmack.jar的bug，目前还无法修复
+	 * 淇濆瓨鐢ㄦ埛鐨剉card淇℃伅. 娉細淇敼vcard鏃讹紝澶村儚浼氫涪澶憋紝姝ゅ涓篴smack.jar鐨刡ug锛岀洰鍓嶈繕鏃犳硶淇
 	 * 
 	 * @param vCard
 	 * @return
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2013-4-16 下午2:39:37
+	 * @update 2013-4-16 涓嬪崍2:39:37
 	 */
 	public VCard saveUserVCard(VCard vCard) {
 		XMPPConnection xmppConn = XmppConnectionManager.getInstance()
@@ -68,20 +68,20 @@ public class UserManager {
 
 	/**
 	 * 
-	 * 获取用户头像信息 .
+	 * 鑾峰彇鐢ㄦ埛澶村儚淇℃伅 .
 	 * 
 	 * @param connection
 	 * @param jid
 	 * @return
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2013-4-16 下午1:31:52
+	 * @update 2013-4-16 涓嬪崍1:31:52
 	 */
 	public InputStream getUserImage(String jid) {
 		XMPPConnection connection = XmppConnectionManager.getInstance()
 				.getConnection();
 		InputStream ic = null;
 		try {
-			System.out.println("获取用户头像信息: " + jid);
+			System.out.println("鑾峰彇鐢ㄦ埛澶村儚淇℃伅: " + jid);
 			VCard vcard = new VCard();
 			vcard.load(connection, jid);
 

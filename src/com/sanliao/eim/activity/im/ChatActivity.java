@@ -40,7 +40,7 @@ public class ChatActivity extends AChatActivity {
 	private int recordCount;
 	private View listHead;
 	private Button listHeadButton;
-	private User user;// ÁÄÌìÈË
+	private User user;// èŠå¤©äºº
 	private TextView tvChatTitle;
 	private String to_name;
 	private ImageView iv_status;
@@ -61,7 +61,7 @@ public class ChatActivity extends AChatActivity {
 			}
 		});
 		// iv_status=findViewById(R.id.)
-		// ÓëË­ÁÄÌì
+		// ä¸è°èŠå¤©
 		tvChatTitle = (TextView) findViewById(R.id.to_chat_name);
 		user = ContacterManager.getByUserJid(to, XmppConnectionManager
 				.getInstance().getConnection());
@@ -88,7 +88,7 @@ public class ChatActivity extends AChatActivity {
 		adapter = new MessageListAdapter(ChatActivity.this, getMessages(),
 				listView);
 
-		// Í·
+		// å¤´
 
 		LayoutInflater mynflater = LayoutInflater.from(context);
 		listHead = mynflater.inflate(R.layout.chatlistheader, null);
@@ -105,7 +105,7 @@ public class ChatActivity extends AChatActivity {
 			public void onClick(View v) {
 				String message = messageInput.getText().toString();
 				if ("".equals(message)) {
-					Toast.makeText(ChatActivity.this, "²»ÄÜÎª¿Õ",
+					Toast.makeText(ChatActivity.this, "ä¸èƒ½ä¸ºç©º",
 							Toast.LENGTH_SHORT).show();
 				} else {
 
@@ -113,7 +113,7 @@ public class ChatActivity extends AChatActivity {
 						sendMessage(message);
 						messageInput.setText("");
 					} catch (Exception e) {
-						showToast("ĞÅÏ¢·¢ËÍÊ§°Ü");
+						showToast("ä¿¡æ¯å‘é€å¤±è´¥");
 						messageInput.setText(message);
 					}
 					closeInput();
@@ -207,7 +207,7 @@ public class ChatActivity extends AChatActivity {
 				}
 
 			} else {
-				useridView.setText("ÎÒ");
+				useridView.setText("æˆ‘");
 			}
 			dateView.setText(message.getTime());
 			msgView.setText(message.getContent());
@@ -246,7 +246,7 @@ public class ChatActivity extends AChatActivity {
 	}
 
 	/**
-	 * µã»÷½øÈëÁÄÌì¼ÇÂ¼
+	 * ç‚¹å‡»è¿›å…¥èŠå¤©è®°å½•
 	 */
 	private OnClickListener chatHistoryCk = new OnClickListener() {
 

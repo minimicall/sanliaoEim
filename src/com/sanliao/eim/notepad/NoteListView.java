@@ -22,7 +22,7 @@ public class NoteListView extends LinearLayout {
 				LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
 		
 		mTime = new TextView(context);
-		mTime.setText("ËùÊô·ÖÀà£º"+diaryInfo.msort+"       "+diaryInfo.mtime);
+		mTime.setText("æ‰€å±žåˆ†ç±»ï¼š"+diaryInfo.msort+"       "+diaryInfo.mtime);
 		mTime.setTextSize(12);
 		mTime.setGravity(Gravity.RIGHT);
 		addView(mTime, new LinearLayout.LayoutParams(

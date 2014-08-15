@@ -21,7 +21,7 @@ import com.sanliao.eim.util.StringUtil;
 
 /**
  * 
- * ÁªÏµÈËÁĞ±í.
+ * è”ç³»äººåˆ—è¡¨.
  * 
  * @author xunlei.zengjinlong 470910357@qq.com
  */
@@ -29,7 +29,7 @@ public abstract class AContacterActivity extends ActivitySupport {
 	private static final String TAG = "AContacterActivity";
 
 	private ContacterReceiver receiver = null;
-	protected int noticeNum = 0;// Í¨ÖªÊıÁ¿£¬Î´¶ÁÏûÏ¢ÊıÁ¿
+	protected int noticeNum = 0;// é€šçŸ¥æ•°é‡ï¼Œæœªè¯»æ¶ˆæ¯æ•°é‡
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +56,7 @@ public abstract class AContacterActivity extends ActivitySupport {
 		filter.addAction(Constant.ROSTER_PRESENCE_CHANGED);
 		filter.addAction(Constant.ROSTER_UPDATED);
 		filter.addAction(Constant.ROSTER_SUBSCRIPTION);
-		// ºÃÓÑÇëÇó
+		// å¥½å‹è¯·æ±‚
 		filter.addAction(Constant.NEW_MESSAGE_ACTION);
 		filter.addAction(Constant.ACTION_SYS_MSG);
 
@@ -107,49 +107,49 @@ public abstract class AContacterActivity extends ActivitySupport {
 	}
 
 	/**
-	 * rosterÌí¼ÓÁËÒ»¸ösubcriber
+	 * rosteræ·»åŠ äº†ä¸€ä¸ªsubcriber
 	 * 
 	 * @param user
 	 */
 	protected abstract void addUserReceive(User user);
 
 	/**
-	 * rosterÉ¾³ıÁËÒ»¸ösubscriber
+	 * rosteråˆ é™¤äº†ä¸€ä¸ªsubscriber
 	 * 
 	 * @param user
 	 */
 	protected abstract void deleteUserReceive(User user);
 
 	/**
-	 * rosterÖĞµÄÒ»¸ösubscriberµÄ×´Ì¬ĞÅÏ¢ĞÅÏ¢·¢ÉúÁË¸Ä±ä
+	 * rosterä¸­çš„ä¸€ä¸ªsubscriberçš„çŠ¶æ€ä¿¡æ¯ä¿¡æ¯å‘ç”Ÿäº†æ”¹å˜
 	 * 
 	 * @param user
 	 */
 	protected abstract void changePresenceReceive(User user);
 
 	/**
-	 * rosterÖĞµÄÒ»¸ösubscriberĞÅÏ¢¸üĞÂÁË
+	 * rosterä¸­çš„ä¸€ä¸ªsubscriberä¿¡æ¯æ›´æ–°äº†
 	 * 
 	 * @param user
 	 */
 	protected abstract void updateUserReceive(User user);
 
 	/**
-	 * ÊÕµ½Ò»¸öºÃÓÑÌí¼ÓÇëÇó
+	 * æ”¶åˆ°ä¸€ä¸ªå¥½å‹æ·»åŠ è¯·æ±‚
 	 * 
 	 * @param subFrom
 	 */
 	protected abstract void subscripUserReceive(String subFrom);
 
 	/**
-	 * ÓĞĞÂÏûÏ¢½øÀ´
+	 * æœ‰æ–°æ¶ˆæ¯è¿›æ¥
 	 * 
 	 * @param user
 	 */
 	protected abstract void msgReceive(Notice notice);
 
 	/**
-	 * »Ø¸´Ò»¸öpresenceĞÅÏ¢¸øÓÃ»§
+	 * å›å¤ä¸€ä¸ªpresenceä¿¡æ¯ç»™ç”¨æˆ·
 	 * 
 	 * @param type
 	 * @param to
@@ -162,7 +162,7 @@ public abstract class AContacterActivity extends ActivitySupport {
 	}
 
 	/**
-	 * ĞŞ¸ÄÕâ¸öºÃÓÑµÄêÇ³Æ
+	 * ä¿®æ”¹è¿™ä¸ªå¥½å‹çš„æ˜µç§°
 	 * 
 	 * @param user
 	 * @param nickname
@@ -177,7 +177,7 @@ public abstract class AContacterActivity extends ActivitySupport {
 	}
 
 	/**
-	 * °ÑÒ»¸öºÃÓÑÌí¼Óµ½Ò»¸ö×éÖĞ ÏÈÒÆ³ıµ±Ç°·Ö×é£¬È»ºóÌí¼Óµ½ĞÂ·Ö×é
+	 * æŠŠä¸€ä¸ªå¥½å‹æ·»åŠ åˆ°ä¸€ä¸ªç»„ä¸­ å…ˆç§»é™¤å½“å‰åˆ†ç»„ï¼Œç„¶åæ·»åŠ åˆ°æ–°åˆ†ç»„
 	 * 
 	 * @param user
 	 * @param groupName
@@ -195,7 +195,7 @@ public abstract class AContacterActivity extends ActivitySupport {
 	}
 
 	/**
-	 * °ÑÒ»¸öºÃÓÑ´Ó×éÖĞÉ¾³ı
+	 * æŠŠä¸€ä¸ªå¥½å‹ä»ç»„ä¸­åˆ é™¤
 	 * 
 	 * @param user
 	 * @param groupName
@@ -214,14 +214,14 @@ public abstract class AContacterActivity extends ActivitySupport {
 	}
 
 	/**
-	 * Ìí¼ÓÒ»¸öÁªÏµÈË
+	 * æ·»åŠ ä¸€ä¸ªè”ç³»äºº
 	 * 
 	 * @param userJid
-	 *            ÁªÏµÈËJID
+	 *            è”ç³»äººJID
 	 * @param nickname
-	 *            ÁªÏµÈËêÇ³Æ
+	 *            è”ç³»äººæ˜µç§°
 	 * @param groups
-	 *            ÁªÏµÈËÌí¼Óµ½ÄÄĞ©×é
+	 *            è”ç³»äººæ·»åŠ åˆ°å“ªäº›ç»„
 	 * @throws XMPPException
 	 */
 	protected void createSubscriber(String userJid, String nickname,
@@ -231,10 +231,10 @@ public abstract class AContacterActivity extends ActivitySupport {
 	}
 
 	/**
-	 * É¾³ıÒ»¸öÁªÏµÈË
+	 * åˆ é™¤ä¸€ä¸ªè”ç³»äºº
 	 * 
 	 * @param userJid
-	 *            ÁªÏµÈËµÄJID
+	 *            è”ç³»äººçš„JID
 	 * @throws XMPPException
 	 */
 	protected void removeSubscriber(String userJid) throws XMPPException {
@@ -243,7 +243,7 @@ public abstract class AContacterActivity extends ActivitySupport {
 	}
 
 	/**
-	 * ĞŞ¸ÄÒ»¸ö×éµÄ×éÃû
+	 * ä¿®æ”¹ä¸€ä¸ªç»„çš„ç»„å
 	 * 
 	 * @param groupName
 	 */
@@ -254,11 +254,11 @@ public abstract class AContacterActivity extends ActivitySupport {
 
 	/**
 	 * 
-	 * ÕâÌí¼Ó·Ö×é.
+	 * è¿™æ·»åŠ åˆ†ç»„.
 	 * 
 	 * @param newGroupName
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-6-28 ÏÂÎç3:52:41
+	 * @update 2012-6-28 ä¸‹åˆ3:52:41
 	 */
 	protected void addGroup(String newGroupName) {
 		ContacterManager.addGroup(newGroupName, XmppConnectionManager
@@ -267,7 +267,7 @@ public abstract class AContacterActivity extends ActivitySupport {
 	}
 
 	/**
-	 * ´´½¨Ò»¸öÁÄÌì
+	 * åˆ›å»ºä¸€ä¸ªèŠå¤©
 	 * 
 	 * @param user
 	 */
@@ -278,14 +278,14 @@ public abstract class AContacterActivity extends ActivitySupport {
 	}
 
 	/**
-	 * ³åÁ¬½Ó·µ»Ø
+	 * å†²è¿æ¥è¿”å›
 	 * 
 	 * @param isSuccess
 	 */
 	protected abstract void handReConnect(boolean isSuccess);
 
 	/**
-	 * ÅĞ¶ÏÓÃ»§ÃûÊÇ·ñ´æÔÚ
+	 * åˆ¤æ–­ç”¨æˆ·åæ˜¯å¦å­˜åœ¨
 	 * 
 	 * @param userName
 	 * @param groups

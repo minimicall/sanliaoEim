@@ -48,7 +48,7 @@ public class SortList extends ListActivity{
 	   adapter = new ArrayAdapter<String>(this, 
 			   android.R.layout.simple_list_item_1,spinnerlist);
 	    setListAdapter(adapter); 
-	    setTitle("·ÖÀà¹ÜÀí");
+	    setTitle("åˆ†ç±»ç®¡ç†");
 	}
 	
 	private void listUpdate(){
@@ -66,15 +66,15 @@ public class SortList extends ListActivity{
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 		setIconEnable(menu, true);
-		menu.add(0, Snew, Menu.NONE, "  Ìí¼Ó·ÖÀà").setIcon(R.drawable.notepad_add);
-		menu.add(0, Sedit, Menu.NONE, "  ĞŞ¸Ä·ÖÀà").setIcon(R.drawable.notepad_edit);
-		menu.add(0, Sdelete, Menu.NONE, "  É¾³ı·ÖÀà").setIcon(R.drawable.notepad_delete);
-		menu.add(0, SClose, Menu.NONE, "  ¹Ø±Õ").setIcon(R.drawable.notepad_close);
+		menu.add(0, Snew, Menu.NONE, "  æ·»åŠ åˆ†ç±»").setIcon(R.drawable.notepad_add);
+		menu.add(0, Sedit, Menu.NONE, "  ä¿®æ”¹åˆ†ç±»").setIcon(R.drawable.notepad_edit);
+		menu.add(0, Sdelete, Menu.NONE, "  åˆ é™¤åˆ†ç±»").setIcon(R.drawable.notepad_delete);
+		menu.add(0, SClose, Menu.NONE, "  å…³é—­").setIcon(R.drawable.notepad_close);
 		return true;
 	} 
-	///ÏÂÃæÕâ¸ö·½·¨ÊÇÎªÁËÊ¹µÃ²Ëµ¥ÄÜ¹»¼ÓÔØÍ¼±ê£¬²»ÕâÃ´×ö¼ÓÔØ²»ÁËÍ¼±ê¡£²»¹ı£¬µ½ÏÖÔÚÎ»ÖÃ£¬»¹ÊÇÃ»ÄÜÊµÏÖ
-	//²Ëµ¥ºáÅÅÁĞ
-	 //enableÎªtrueÊ±£¬²Ëµ¥Ìí¼ÓÍ¼±êÓĞĞ§£¬enableÎªfalseÊ±ÎŞĞ§¡£4.0ÏµÍ³Ä¬ÈÏÎŞĞ§  
+	///ä¸‹é¢è¿™ä¸ªæ–¹æ³•æ˜¯ä¸ºäº†ä½¿å¾—èœå•èƒ½å¤ŸåŠ è½½å›¾æ ‡ï¼Œä¸è¿™ä¹ˆåšåŠ è½½ä¸äº†å›¾æ ‡ã€‚ä¸è¿‡ï¼Œåˆ°ç°åœ¨ä½ç½®ï¼Œè¿˜æ˜¯æ²¡èƒ½å®ç°
+	//èœå•æ¨ªæ’åˆ—
+	 //enableä¸ºtrueæ—¶ï¼Œèœå•æ·»åŠ å›¾æ ‡æœ‰æ•ˆï¼Œenableä¸ºfalseæ—¶æ— æ•ˆã€‚4.0ç³»ç»Ÿé»˜è®¤æ— æ•ˆ  
     private void setIconEnable(Menu menu, boolean enable)  
     {  
         try   
@@ -83,7 +83,7 @@ public class SortList extends ListActivity{
             Method m = clazz.getDeclaredMethod("setOptionalIconsVisible", boolean.class);  
             m.setAccessible(true);  
               
-            //MenuBuilderÊµÏÖMenu½Ó¿Ú£¬´´½¨²Ëµ¥Ê±£¬´«½øÀ´µÄmenuÆäÊµ¾ÍÊÇMenuBuilder¶ÔÏó(javaµÄ¶àÌ¬ÌØÕ÷)  
+            //MenuBuilderå®ç°Menuæ¥å£ï¼Œåˆ›å»ºèœå•æ—¶ï¼Œä¼ è¿›æ¥çš„menuå…¶å®å°±æ˜¯MenuBuilderå¯¹è±¡(javaçš„å¤šæ€ç‰¹å¾)  
             m.invoke(menu, enable);  
               
         } catch (Exception e)   
@@ -113,7 +113,7 @@ public class SortList extends ListActivity{
 	  		if(i >=0)
 	  			editDialog(i);
 	  		else
-	  			Toast.makeText(SortList.this, "Ã»ÓĞÑ¡ÔñÒªĞŞ¸ÄµÄ·ÖÀà£¡", 
+	  			Toast.makeText(SortList.this, "æ²¡æœ‰é€‰æ‹©è¦ä¿®æ”¹çš„åˆ†ç±»ï¼", 
 						Toast.LENGTH_LONG).show();
 	  		return true;
 	  	}
@@ -122,7 +122,7 @@ public class SortList extends ListActivity{
 	  		if(i >=0)
 	  			delDialog(i);
 	  		else
-	  			Toast.makeText(SortList.this, "Ã»ÓĞÑ¡ÔñÒªÉ¾³ıµÄ·ÖÀà£¡", 
+	  			Toast.makeText(SortList.this, "æ²¡æœ‰é€‰æ‹©è¦åˆ é™¤çš„åˆ†ç±»ï¼", 
 						Toast.LENGTH_LONG).show();
 	  		return true;
 	  	case SClose:
@@ -135,26 +135,26 @@ public class SortList extends ListActivity{
 	
 	private void addDialog(){
 		AlertDialog.Builder alert = new AlertDialog.Builder(this);
-  		alert.setTitle("Ìí¼ÓÒ»¸ö·ÖÀà");
+  		alert.setTitle("æ·»åŠ ä¸€ä¸ªåˆ†ç±»");
   		LinearLayout l = new LinearLayout(this);
   		l.setPadding(5, 4, 5, 4);
   		final EditText input = new EditText(this);
   		l.addView(input, new LinearLayout.LayoutParams(
   				LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
   		alert.setView(l);
-  		alert.setPositiveButton("È·¶¨", new OnClickListener() {			
+  		alert.setPositiveButton("ç¡®å®š", new OnClickListener() {			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				String sort = input.getText().toString();
 				if(sort.trim().length()>0)
 					addSort(input.getText().toString());
 				else
-					Toast.makeText(SortList.this, "·ÖÀà²»ÄÜÎª¿Õ£¡", 
+					Toast.makeText(SortList.this, "åˆ†ç±»ä¸èƒ½ä¸ºç©ºï¼", 
 							Toast.LENGTH_LONG).show();
 				dialog.dismiss();
 			}
 		});
-  		alert.setNegativeButton("È¡Ïû", new OnClickListener() {			
+  		alert.setNegativeButton("å–æ¶ˆ", new OnClickListener() {			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				dialog.dismiss();
@@ -169,7 +169,7 @@ public class SortList extends ListActivity{
 		Cursor c = db.rawQuery("select * from "+DataBaseInfo.SORT_TABLE+" where "+
 				DataBaseInfo.NOTE_SORT+"='"+sort+"'", null);
 		if(c.getCount()>0)
-			Toast.makeText(this, "·ÖÀàÒÑ¾­´æÔÚ£¡", Toast.LENGTH_LONG).show();
+			Toast.makeText(this, "åˆ†ç±»å·²ç»å­˜åœ¨ï¼", Toast.LENGTH_LONG).show();
 		else{
 			SortSQL.insert(this, sort);
 			adapter.add(sort);
@@ -180,17 +180,17 @@ public class SortList extends ListActivity{
 	private void delDialog(int sItem){
 		final String s = spinnerlist.get(sItem).toString();
 		AlertDialog.Builder alert = new AlertDialog.Builder(this);
-		alert.setTitle("ÎÂÜ°ÌáÊ¾")
+		alert.setTitle("æ¸©é¦¨æç¤º")
 		.setIcon(android.R.drawable.ic_delete);
-		alert.setMessage("ÄãÈ·¶¨ÒªÉ¾³ı·ÖÀà£º"+ s);
-		alert.setPositiveButton("È·¶¨", new OnClickListener() {
+		alert.setMessage("ä½ ç¡®å®šè¦åˆ é™¤åˆ†ç±»ï¼š"+ s);
+		alert.setPositiveButton("ç¡®å®š", new OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				SortSQL.delete(SortList.this, s);
 				adapter.remove(s);
 			}
 		});
-		alert.setNegativeButton("È¡Ïû", new OnClickListener() {
+		alert.setNegativeButton("å–æ¶ˆ", new OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				dialog.dismiss();
@@ -202,7 +202,7 @@ public class SortList extends ListActivity{
 	private void editDialog(int Sitem){
 		final String s = spinnerlist.get(Sitem).toString();
 		AlertDialog.Builder alert = new AlertDialog.Builder(this);
-  		alert.setTitle("°Ñ¡°"+s+"¡±ĞŞ¸ÄÎª £º");
+  		alert.setTitle("æŠŠâ€œ"+s+"â€ä¿®æ”¹ä¸º ï¼š");
   		LinearLayout l = new LinearLayout(this);
   		l.setPadding(5, 4, 5, 4);
   		final EditText input = new EditText(this);
@@ -211,7 +211,7 @@ public class SortList extends ListActivity{
   				LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
   		alert.setView(l);
   		
-  		alert.setPositiveButton("È·¶¨", new OnClickListener() {			
+  		alert.setPositiveButton("ç¡®å®š", new OnClickListener() {			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				SortSQL.update(SortList.this, input.getText().toString(), s);
@@ -219,7 +219,7 @@ public class SortList extends ListActivity{
 				dialog.dismiss();
 			}
 		});
-  		alert.setNegativeButton("È¡Ïû", new OnClickListener() {			
+  		alert.setNegativeButton("å–æ¶ˆ", new OnClickListener() {			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				dialog.dismiss();

@@ -19,6 +19,7 @@
  */
 package org.jivesoftware.smack.debugger;
 
+import org.apache.log4j.Logger;
 import org.jivesoftware.smack.ConnectionListener;
 import org.jivesoftware.smack.PacketListener;
 import org.jivesoftware.smack.Connection;
@@ -42,7 +43,7 @@ import java.util.Date;
  * @author Gaston Dombiak
  */
 public class ConsoleDebugger implements SmackDebugger {
-
+	private final static Logger logger=Logger.getLogger(ConsoleDebugger.class);
     public static boolean printInterpreted = false;
     private SimpleDateFormat dateFormatter = new SimpleDateFormat("hh:mm:ss aaa");
 
@@ -57,6 +58,7 @@ public class ConsoleDebugger implements SmackDebugger {
     private WriterListener writerListener;
 
     public ConsoleDebugger(Connection connection, Writer writer, Reader reader) {
+    	logger.debug("ConsoleDebugger");
         this.connection = connection;
         this.writer = writer;
         this.reader = reader;
@@ -68,10 +70,12 @@ public class ConsoleDebugger implements SmackDebugger {
      */
     private void createDebug() {
         // Create a special Reader that wraps the main Reader and logs data to the GUI.
+    	
         ObservableReader debugReader = new ObservableReader(reader);
         readerListener = new ReaderListener() {
             public void read(String str) {
-                System.out.println(
+               // System.out.println
+            	logger.debug(
                         dateFormatter.format(new Date()) + " RCV  (" + connection.hashCode() +
                         "): " +
                         str);
@@ -83,7 +87,8 @@ public class ConsoleDebugger implements SmackDebugger {
         ObservableWriter debugWriter = new ObservableWriter(writer);
         writerListener = new WriterListener() {
             public void write(String str) {
-                System.out.println(
+               // System.out.println(
+            	logger.debug(
                         dateFormatter.format(new Date()) + " SENT (" + connection.hashCode() +
                         "): " +
                         str);
@@ -102,25 +107,29 @@ public class ConsoleDebugger implements SmackDebugger {
         listener = new PacketListener() {
             public void processPacket(Packet packet) {
                 if (printInterpreted) {
-                    System.out.println(
+                    //System.out.println(
+                    	logger.debug( 
                             dateFormatter.format(new Date()) + " RCV PKT (" +
                             connection.hashCode() +
                             "): " +
                             packet.toXML());
+                    
                 }
             }
         };
 
         connListener = new ConnectionListener() {
             public void connectionClosed() {
-                System.out.println(
+            	//System.out.println(
+              logger.debug( 
                         dateFormatter.format(new Date()) + " Connection closed (" +
                         connection.hashCode() +
                         ")");
             }
 
             public void connectionClosedOnError(Exception e) {
-                System.out.println(
+                //System.out.println(
+                		logger.debug( 
                         dateFormatter.format(new Date()) +
                         " Connection closed due to an exception (" +
                         connection.hashCode() +
@@ -128,7 +137,8 @@ public class ConsoleDebugger implements SmackDebugger {
                 e.printStackTrace();
             }
             public void reconnectionFailed(Exception e) {
-                System.out.println(
+               // System.out.println(
+                		logger.debug(
                         dateFormatter.format(new Date()) +
                         " Reconnection failed due to an exception (" +
                         connection.hashCode() +
@@ -136,13 +146,15 @@ public class ConsoleDebugger implements SmackDebugger {
                 e.printStackTrace();
             }
             public void reconnectionSuccessful() {
-                System.out.println(
+            	  // System.out.println(
+        		logger.debug(
                         dateFormatter.format(new Date()) + " Connection reconnected (" +
                         connection.hashCode() +
                         ")");
             }
             public void reconnectingIn(int seconds) {
-                System.out.println(
+            	  // System.out.println(
+        		logger.debug(
                         dateFormatter.format(new Date()) + " Connection (" +
                         connection.hashCode() +
                         ") will reconnect in " + seconds);

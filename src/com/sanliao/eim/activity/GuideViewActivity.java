@@ -17,9 +17,9 @@ import android.widget.ImageView;
 import com.sanliao.eim.R;
 
 /**
- * AndroidÊµÏÖ×óÓÒ»¬¶¯Ö¸ÒıĞ§¹û
+ * Androidå®ç°å·¦å³æ»‘åŠ¨æŒ‡å¼•æ•ˆæœ
  * 
- * @Description: AndroidÊµÏÖ×óÓÒ»¬¶¯Ö¸ÒıĞ§¹û
+ * @Description: Androidå®ç°å·¦å³æ»‘åŠ¨æŒ‡å¼•æ•ˆæœ
  * 
  * @author xunlei.zengjinlong 470910357@qq.com
  * 
@@ -29,16 +29,16 @@ public class GuideViewActivity extends ActivitySupport {
 	private ArrayList<View> pageViews;
 	private ImageView imageView;
 	private ImageView[] imageViews;
-	// °ü¹ü»¬¶¯Í¼Æ¬LinearLayout
+	// åŒ…è£¹æ»‘åŠ¨å›¾ç‰‡LinearLayout
 	private ViewGroup main;
-	// °ü¹üĞ¡Ô²µãµÄLinearLayout
+	// åŒ…è£¹å°åœ†ç‚¹çš„LinearLayout
 	private ViewGroup group;
 
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		// ÉèÖÃÎŞ±êÌâ´°¿Ú
+		// è®¾ç½®æ— æ ‡é¢˜çª—å£
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		getEimApplication().addActivity(this);
 		LayoutInflater inflater = getLayoutInflater();
@@ -66,7 +66,7 @@ public class GuideViewActivity extends ActivitySupport {
 			imageViews[i] = imageView;
 
 			if (i == 0) {
-				// Ä¬ÈÏÑ¡ÖĞµÚÒ»ÕÅÍ¼Æ¬
+				// é»˜è®¤é€‰ä¸­ç¬¬ä¸€å¼ å›¾ç‰‡
 				imageViews[i]
 						.setBackgroundResource(R.drawable.page_indicator_focused);
 			} else {
@@ -82,7 +82,7 @@ public class GuideViewActivity extends ActivitySupport {
 		viewPager.setOnPageChangeListener(new GuidePageChangeListener());
 	}
 
-	// Ö¸ÒıÒ³ÃæÊı¾İÊÊÅäÆ÷
+	// æŒ‡å¼•é¡µé¢æ•°æ®é€‚é…å™¨
 	class GuidePageAdapter extends PagerAdapter {
 
 		@Override
@@ -139,7 +139,7 @@ public class GuideViewActivity extends ActivitySupport {
 		}
 	}
 
-	// Ö¸ÒıÒ³Ãæ¸ü¸ÄÊÂ¼ş¼àÌıÆ÷
+	// æŒ‡å¼•é¡µé¢æ›´æ”¹äº‹ä»¶ç›‘å¬å™¨
 	class GuidePageChangeListener implements OnPageChangeListener {
 
 		@Override

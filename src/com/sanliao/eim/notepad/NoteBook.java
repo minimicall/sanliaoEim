@@ -14,7 +14,7 @@ import android.util.Log;
 
 public class NoteBook extends Activity {
 	private final static String TAG="NoteBook";
-	private SharedPreferences sp;//Ìá¹©¼üÖµ¶Ô´æ´¢·ÃÎÊ
+	private SharedPreferences sp;//æä¾›é”®å€¼å¯¹å­˜å‚¨è®¿é—®
 	private Intent intent;
 	
     @Override
@@ -27,20 +27,20 @@ public class NoteBook extends Activity {
         if(sp.getString("keys", null) !=null && sp.getString("keys", null).equals("privateKey")){
         	Log.d(TAG,"start NoteList activity now.");
         	startActivity(intent);
-        	finish();//Ïú»Ù±¾activity
+        	finish();//é”€æ¯æœ¬activity
         }else{
-        	aboutDialog();//µ¯³ö¶Ô»°¿ò
+        	aboutDialog();//å¼¹å‡ºå¯¹è¯æ¡†
         }
     }
     
     private void aboutDialog(){
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);  
-        builder.setTitle("Android ¼ÇÊÂ±¾");  
-        builder.setMessage("»¶Ó­Ê¹ÓÃ Android¼ÇÊÂ±¾\n°æ±¾£º1.0\n" +
-        		"Ö§³ÖAndroid OS 2.1»òÕßÒÔÉÏ\n×÷Õß£ºÔø½ğÁú\n" +
-        		"Ö÷Ò³:http://blog.csdn.net/minimicall");
+        builder.setTitle("Android è®°äº‹æœ¬");  
+        builder.setMessage("æ¬¢è¿ä½¿ç”¨ Androidè®°äº‹æœ¬\nç‰ˆæœ¬ï¼š1.0\n" +
+        		"æ”¯æŒAndroid OS 2.1æˆ–è€…ä»¥ä¸Š\nä½œè€…ï¼šæ›¾é‡‘é¾™\n" +
+        		"ä¸»é¡µ:http://blog.csdn.net/minimicall");
         builder.setIcon(R.drawable.notepad_icon);
-        builder.setPositiveButton("È·¶¨", new OnClickListener() {
+        builder.setPositiveButton("ç¡®å®š", new OnClickListener() {
         	@Override
         	public void onClick(DialogInterface dialog, int which) {
         		(sp.edit()).putString("keys", "privateKey").commit();
@@ -48,7 +48,7 @@ public class NoteBook extends Activity {
                 finish();
         	}
         });
-        builder.setNegativeButton("È¡Ïû", new OnClickListener() {
+        builder.setNegativeButton("å–æ¶ˆ", new OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				dialog.dismiss();

@@ -12,9 +12,9 @@ import com.sanliao.eim.R;
 
 /**
  * 
- * SQLiteÊý¾Ý¿âÕë¶ÔSD¿¨µÄºËÐÄ°ïÖúÀà
+ * SQLiteæ•°æ®åº“é’ˆå¯¹SDå¡çš„æ ¸å¿ƒå¸®åŠ©ç±»
  * 
- * ¸ÃÀàÖ÷ÒªÓÃÓÚÖ±½ÓÉèÖÃ,´´½¨,Éý¼¶Êý¾Ý¿âÒÔ¼°´ò¿ª,¹Ø±ÕÊý¾Ý¿â×ÊÔ´
+ * è¯¥ç±»ä¸»è¦ç”¨äºŽç›´æŽ¥è®¾ç½®,åˆ›å»º,å‡çº§æ•°æ®åº“ä»¥åŠæ‰“å¼€,å…³é—­æ•°æ®åº“èµ„æº
  * 
  * @author xunlei.zengjinlong 470910357@qq.com
  * 

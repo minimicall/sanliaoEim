@@ -32,7 +32,7 @@ import com.sanliao.eim.util.StringUtil;
 
 /**
  * 
- * ÁªÏµÈË·şÎñ.
+ * è”ç³»äººæœåŠ¡.
  * 
  * @author xunlei.zengjinlong 470910357@qq.com
  */
@@ -40,7 +40,7 @@ public class IMContactService extends Service {
 
 	private Roster roster = null;
 	private Context context;
-	/* ÉùÃ÷¶ÔÏó±äÁ¿ */
+	/* å£°æ˜å¯¹è±¡å˜é‡ */
 	private NotificationManager myNotiManager;
 
 	@Override
@@ -62,13 +62,13 @@ public class IMContactService extends Service {
 	}
 
 	private void init() {
-		/* ³õÊ¼»¯¶ÔÏó */
+		/* åˆå§‹åŒ–å¯¹è±¡ */
 		myNotiManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 		initRoster();
 	}
 
 	/**
-	 * Ìí¼ÓÒ»¸ö¼àÌı£¬¼àÌıºÃÓÑÌí¼ÓÇëÇó¡£
+	 * æ·»åŠ ä¸€ä¸ªç›‘å¬ï¼Œç›‘å¬å¥½å‹æ·»åŠ è¯·æ±‚ã€‚
 	 */
 	private void addSubscriptionListener() {
 		PacketFilter filter = new PacketFilter() {
@@ -88,7 +88,7 @@ public class IMContactService extends Service {
 	}
 
 	/**
-	 * ³õÊ¼»¯»¨Ãû²á ·şÎñÖØÆôÊ±£¬¸üĞÂ»¨Ãû²á
+	 * åˆå§‹åŒ–èŠ±åå†Œ æœåŠ¡é‡å¯æ—¶ï¼Œæ›´æ–°èŠ±åå†Œ
 	 */
 	private void initRoster() {
 		roster = XmppConnectionManager.getInstance().getConnection()
@@ -107,7 +107,7 @@ public class IMContactService extends Service {
 					.getString(Constant.USERNAME, null);
 			if (packet.getFrom().contains(user))
 				return;
-			// Èç¹ûÊÇ×Ô¶¯½ÓÊÕËùÓĞÇëÇó£¬Ôò»Ø¸´Ò»¸öÌí¼ÓĞÅÏ¢
+			// å¦‚æœæ˜¯è‡ªåŠ¨æ¥æ”¶æ‰€æœ‰è¯·æ±‚ï¼Œåˆ™å›å¤ä¸€ä¸ªæ·»åŠ ä¿¡æ¯
 			if (Roster.getDefaultSubscriptionMode().equals(
 					SubscriptionMode.accept_all)) {
 				Presence subscription = new Presence(Presence.Type.subscribe);
@@ -118,10 +118,10 @@ public class IMContactService extends Service {
 				NoticeManager noticeManager = NoticeManager
 						.getInstance(context);
 				Notice notice = new Notice();
-				notice.setTitle("ºÃÓÑÇëÇó");
+				notice.setTitle("å¥½å‹è¯·æ±‚");
 				notice.setNoticeType(Notice.ADD_FRIEND);
 				notice.setContent(StringUtil.getUserNameByJid(packet.getFrom())
-						+ "ÉêÇë¼ÓÄúÎªºÃÓÑ");
+						+ "ç”³è¯·åŠ æ‚¨ä¸ºå¥½å‹");
 				notice.setFrom(packet.getFrom());
 				notice.setTo(packet.getTo());
 				notice.setNoticeTime(DateUtil.date2Str(Calendar.getInstance(),
@@ -134,9 +134,9 @@ public class IMContactService extends Service {
 					notice.setId("" + noticeId);
 					intent.putExtra("notice", notice);
 					sendBroadcast(intent);
-					setNotiType(R.drawable.icon, "ºÃÓÑÇëÇó",
+					setNotiType(R.drawable.icon, "å¥½å‹è¯·æ±‚",
 							StringUtil.getUserNameByJid(packet.getFrom())
-									+ "ÉêÇë¼ÓÄúÎªºÃÓÑ", MyNoticeActivity.class);
+									+ "ç”³è¯·åŠ æ‚¨ä¸ºå¥½å‹", MyNoticeActivity.class);
 				}
 
 			}
@@ -145,46 +145,46 @@ public class IMContactService extends Service {
 
 	/**
 	 * 
-	 * ·¢³öNotificationµÄmethod.
+	 * å‘å‡ºNotificationçš„method.
 	 * 
 	 * @param iconId
-	 *            Í¼±ê
+	 *            å›¾æ ‡
 	 * @param contentTitle
-	 *            ±êÌâ
+	 *            æ ‡é¢˜
 	 * @param contentText
-	 *            ÄãÄÚÈİ
+	 *            ä½ å†…å®¹
 	 * @param activity
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-5-14 ÏÂÎç12:01:55
+	 * @update 2012-5-14 ä¸‹åˆ12:01:55
 	 */
 	private void setNotiType(int iconId, String contentTitle,
 			String contentText, Class activity) {
 		/*
-		 * ´´½¨ĞÂµÄIntent£¬×÷Îªµã»÷NotificationÁôÑÔÌõÊ±£¬ »áÔËĞĞµÄActivity
+		 * åˆ›å»ºæ–°çš„Intentï¼Œä½œä¸ºç‚¹å‡»Notificationç•™è¨€æ¡æ—¶ï¼Œ ä¼šè¿è¡Œçš„Activity
 		 */
 		Intent notifyIntent = new Intent(this, activity);
 		notifyIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		/* ´´½¨PendingIntent×÷ÎªÉèÖÃµİÑÓÔËĞĞµÄActivity */
+		/* åˆ›å»ºPendingIntentä½œä¸ºè®¾ç½®é€’å»¶è¿è¡Œçš„Activity */
 		PendingIntent appIntent = PendingIntent.getActivity(this, 0,
 				notifyIntent, 0);
 
-		/* ´´½¨Notication£¬²¢ÉèÖÃÏà¹Ø²ÎÊı */
+		/* åˆ›å»ºNoticationï¼Œå¹¶è®¾ç½®ç›¸å…³å‚æ•° */
 		Notification myNoti = new Notification();
-		/* ÉèÖÃstatusbarÏÔÊ¾µÄicon */
+		/* è®¾ç½®statusbaræ˜¾ç¤ºçš„icon */
 		myNoti.icon = iconId;
-		/* ÉèÖÃstatusbarÏÔÊ¾µÄÎÄ×ÖĞÅÏ¢ */
+		/* è®¾ç½®statusbaræ˜¾ç¤ºçš„æ–‡å­—ä¿¡æ¯ */
 		myNoti.tickerText = contentTitle;
-		/* ÉèÖÃnotification·¢ÉúÊ±Í¬Ê±·¢³öÄ¬ÈÏÉùÒô */
+		/* è®¾ç½®notificationå‘ç”Ÿæ—¶åŒæ—¶å‘å‡ºé»˜è®¤å£°éŸ³ */
 		myNoti.defaults = Notification.DEFAULT_SOUND;
-		/* ÉèÖÃNotificationÁôÑÔÌõµÄ²ÎÊı */
+		/* è®¾ç½®Notificationç•™è¨€æ¡çš„å‚æ•° */
 		myNoti.setLatestEventInfo(this, contentTitle, contentText, appIntent);
-		/* ËÍ³öNotification */
+		/* é€å‡ºNotification */
 		myNotiManager.notify(0, myNoti);
 	}
 
 	@Override
 	public void onDestroy() {
-		// ÊÍ·Å×ÊÔ´
+		// é‡Šæ”¾èµ„æº
 		XmppConnectionManager.getInstance().getConnection()
 				.removePacketListener(subscriptionPacketListener);
 		ContacterManager.destroy();
@@ -201,7 +201,7 @@ public class IMContactService extends Service {
 					presence.getFrom().indexOf("/"));
 			RosterEntry entry = roster.getEntry(subscriber);
 			if (ContacterManager.contacters.containsKey(subscriber)) {
-				// ½«×´Ì¬¸Ä±äÖ®Ç°µÄuser¹ã²¥³öÈ¥
+				// å°†çŠ¶æ€æ”¹å˜ä¹‹å‰çš„userå¹¿æ’­å‡ºå»
 				intent.putExtra(User.userKey,
 						ContacterManager.contacters.get(subscriber));
 				ContacterManager.contacters.remove(subscriber);
@@ -216,21 +216,21 @@ public class IMContactService extends Service {
 			for (String address : addresses) {
 				Intent intent = new Intent();
 				intent.setAction(Constant.ROSTER_UPDATED);
-				// »ñµÃ×´Ì¬¸Ä±äµÄentry
+				// è·å¾—çŠ¶æ€æ”¹å˜çš„entry
 				RosterEntry userEntry = roster.getEntry(address);
 				User user = ContacterManager
 						.transEntryToUser(userEntry, roster);
 				if (ContacterManager.contacters.get(address) != null) {
-					// ÕâÀï·¢²¼µÄÊÇ¸üĞÂÇ°µÄuser
+					// è¿™é‡Œå‘å¸ƒçš„æ˜¯æ›´æ–°å‰çš„user
 					intent.putExtra(User.userKey,
 							ContacterManager.contacters.get(address));
-					// ½«·¢Éú¸Ä±äµÄÓÃ»§¸üĞÂµ½userManager
+					// å°†å‘ç”Ÿæ”¹å˜çš„ç”¨æˆ·æ›´æ–°åˆ°userManager
 					ContacterManager.contacters.remove(address);
 					ContacterManager.contacters.put(address, user);
 				}
 				sendBroadcast(intent);
-				// ÓÃ»§¸üĞÂ£¬getEntries»á¸üĞÂ
-				// roster.getUnfiledEntriesÖĞµÄentry²»»á¸üĞÂ
+				// ç”¨æˆ·æ›´æ–°ï¼ŒgetEntriesä¼šæ›´æ–°
+				// roster.getUnfiledEntriesä¸­çš„entryä¸ä¼šæ›´æ–°
 			}
 		}
 

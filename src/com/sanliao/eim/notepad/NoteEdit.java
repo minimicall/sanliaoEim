@@ -26,9 +26,9 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.LinearLayout.LayoutParams;
 
-public class NoteEdit extends Activity{//±à¼­¼ÇÊÂ±¾
-	private EditText title,content;//±êÌâ£¬ÄÚÈİ
-	private Spinner mSort;//ÏÂÀ­ÁĞ±í
+public class NoteEdit extends Activity{//ç¼–è¾‘è®°äº‹æœ¬
+	private EditText title,content;//æ ‡é¢˜ï¼Œå†…å®¹
+	private Spinner mSort;//ä¸‹æ‹‰åˆ—è¡¨
 	private int nid= 0;
 	private ArrayAdapter<String> adapter;
 	private Boolean isEdit;
@@ -66,12 +66,12 @@ public class NoteEdit extends Activity{//±à¼­¼ÇÊÂ±¾
 	    mSort.setAdapter(adapter);
 	    
 	    mSort.setSelected(true);
-	    mSort.setPrompt("Ñ¡ÔñÄãµÄ·ÖÀà");
+	    mSort.setPrompt("é€‰æ‹©ä½ çš„åˆ†ç±»");
 	    if(isEdit){
-	    	setTitle("ĞŞ¸Ä¼ÇÊÂ");
+	    	setTitle("ä¿®æ”¹è®°äº‹");
 	    	getContent(nid);
 	    }else
-	    	setTitle("Ğ´Ò»Æª¼ÇÊÂ");
+	    	setTitle("å†™ä¸€ç¯‡è®°äº‹");
 	    btn.setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -90,7 +90,7 @@ public class NoteEdit extends Activity{//±à¼­¼ÇÊÂ±¾
 	
 	private void saveNote()
 	{
-		//±£´æµ½Êı¾İ¿âÖĞ
+		//ä¿å­˜åˆ°æ•°æ®åº“ä¸­
 		String t = title.getText().toString();
 		String c = content.getText().toString();
 		String s= mSort.getSelectedItem().toString();
@@ -105,26 +105,26 @@ public class NoteEdit extends Activity{//±à¼­¼ÇÊÂ±¾
 	}
 	private void addDialog(){
 		AlertDialog.Builder alert = new AlertDialog.Builder(this);
-  		alert.setTitle("Ìí¼ÓÒ»¸ö·ÖÀà");
+  		alert.setTitle("æ·»åŠ ä¸€ä¸ªåˆ†ç±»");
   		LinearLayout l = new LinearLayout(this);
   		l.setPadding(5, 4, 5, 4);
   		final EditText input = new EditText(this);
   		l.addView(input, new LinearLayout.LayoutParams(
   				LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
   		alert.setView(l);
-  		alert.setPositiveButton("È·¶¨", new OnClickListener() {			
+  		alert.setPositiveButton("ç¡®å®š", new OnClickListener() {			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				String sort = input.getText().toString();
 				if(sort.trim().length()>0)
 					addSort(input.getText().toString());
 				else
-					Toast.makeText(NoteEdit.this, "·ÖÀà²»ÄÜÎª¿Õ£¡", 
+					Toast.makeText(NoteEdit.this, "åˆ†ç±»ä¸èƒ½ä¸ºç©ºï¼", 
 							Toast.LENGTH_LONG).show();
 				dialog.dismiss();
 			}
 		});
-  		alert.setNegativeButton("È¡Ïû", new OnClickListener() {			
+  		alert.setNegativeButton("å–æ¶ˆ", new OnClickListener() {			
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				dialog.dismiss();
@@ -139,7 +139,7 @@ public class NoteEdit extends Activity{//±à¼­¼ÇÊÂ±¾
 		Cursor c = db.rawQuery("select * from "+DataBaseInfo.SORT_TABLE+" where "+
 				DataBaseInfo.NOTE_SORT+"='"+sort+"'", null);
 		if(c.getCount()>0)
-			Toast.makeText(this, "·ÖÀàÒÑ¾­´æÔÚ£¡", Toast.LENGTH_LONG).show();
+			Toast.makeText(this, "åˆ†ç±»å·²ç»å­˜åœ¨ï¼", Toast.LENGTH_LONG).show();
 		else{
 			SortSQL.insert(this, sort);
 			adapter.add(sort);
@@ -177,15 +177,15 @@ public class NoteEdit extends Activity{//±à¼­¼ÇÊÂ±¾
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 		setIconEnable(menu, true);
-		menu.add(0, Nsave, Menu.NONE, "  ±£´æ").setIcon(R.drawable.notepad_save);
-		menu.add(0, Nlist, Menu.NONE, "  ×ªµ½ÁĞ±í").setIcon(R.drawable.notepad_redo);
-		menu.add(0, mClose, Menu.NONE, "  ¹Ø±Õ").setIcon(R.drawable.notepad_close);
+		menu.add(0, Nsave, Menu.NONE, "  ä¿å­˜").setIcon(R.drawable.notepad_save);
+		menu.add(0, Nlist, Menu.NONE, "  è½¬åˆ°åˆ—è¡¨").setIcon(R.drawable.notepad_redo);
+		menu.add(0, mClose, Menu.NONE, "  å…³é—­").setIcon(R.drawable.notepad_close);
 		return true;
 	} 
 
-	///ÏÂÃæÕâ¸ö·½·¨ÊÇÎªÁËÊ¹µÃ²Ëµ¥ÄÜ¹»¼ÓÔØÍ¼±ê£¬²»ÕâÃ´×ö¼ÓÔØ²»ÁËÍ¼±ê¡£²»¹ı£¬µ½ÏÖÔÚÎ»ÖÃ£¬»¹ÊÇÃ»ÄÜÊµÏÖ
-	//²Ëµ¥ºáÅÅÁĞ
-	 //enableÎªtrueÊ±£¬²Ëµ¥Ìí¼ÓÍ¼±êÓĞĞ§£¬enableÎªfalseÊ±ÎŞĞ§¡£4.0ÏµÍ³Ä¬ÈÏÎŞĞ§  
+	///ä¸‹é¢è¿™ä¸ªæ–¹æ³•æ˜¯ä¸ºäº†ä½¿å¾—èœå•èƒ½å¤ŸåŠ è½½å›¾æ ‡ï¼Œä¸è¿™ä¹ˆåšåŠ è½½ä¸äº†å›¾æ ‡ã€‚ä¸è¿‡ï¼Œåˆ°ç°åœ¨ä½ç½®ï¼Œè¿˜æ˜¯æ²¡èƒ½å®ç°
+	//èœå•æ¨ªæ’åˆ—
+	 //enableä¸ºtrueæ—¶ï¼Œèœå•æ·»åŠ å›¾æ ‡æœ‰æ•ˆï¼Œenableä¸ºfalseæ—¶æ— æ•ˆã€‚4.0ç³»ç»Ÿé»˜è®¤æ— æ•ˆ  
     private void setIconEnable(Menu menu, boolean enable)  
     {  
         try   
@@ -194,7 +194,7 @@ public class NoteEdit extends Activity{//±à¼­¼ÇÊÂ±¾
             Method m = clazz.getDeclaredMethod("setOptionalIconsVisible", boolean.class);  
             m.setAccessible(true);  
               
-            //MenuBuilderÊµÏÖMenu½Ó¿Ú£¬´´½¨²Ëµ¥Ê±£¬´«½øÀ´µÄmenuÆäÊµ¾ÍÊÇMenuBuilder¶ÔÏó(javaµÄ¶àÌ¬ÌØÕ÷)  
+            //MenuBuilderå®ç°Menuæ¥å£ï¼Œåˆ›å»ºèœå•æ—¶ï¼Œä¼ è¿›æ¥çš„menuå…¶å®å°±æ˜¯MenuBuilderå¯¹è±¡(javaçš„å¤šæ€ç‰¹å¾)  
             m.invoke(menu, enable);  
               
         } catch (Exception e)   
@@ -218,7 +218,7 @@ public class NoteEdit extends Activity{//±à¼­¼ÇÊÂ±¾
 		  		startActivity(i);
 		  		finish();
 			}else
-				Toast.makeText(NoteEdit.this, "ÎÂÜ°ÌáÊ¾£º\n±êÌâ»òÄÚÈİ²»ÄÜÎª¿Õ£¡", 
+				Toast.makeText(NoteEdit.this, "æ¸©é¦¨æç¤ºï¼š\næ ‡é¢˜æˆ–å†…å®¹ä¸èƒ½ä¸ºç©ºï¼", 
 						Toast.LENGTH_LONG).show();
 	  		return true;
 	  	}

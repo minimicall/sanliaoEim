@@ -5,7 +5,7 @@ import android.graphics.Matrix;
 
 public class ImageUtil {
 	/**
-	 * Ðý×ªBitmap
+	 * æ—‹è½¬Bitmap
 	 * @param b
 	 * @param rotateDegree
 	 * @return

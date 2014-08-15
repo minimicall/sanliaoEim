@@ -16,11 +16,11 @@ public class IMMessage implements Parcelable, Comparable<IMMessage> {
 	private String content;
 	private String time;
 	/**
-	 * ´æÔÚ±¾µØ£¬±íÊ¾ÓëË­ÁÄÌì
+	 * å­˜åœ¨æœ¬åœ°ï¼Œè¡¨ç¤ºä¸è°èŠå¤©
 	 */
 	private String fromSubJid;
 	/**
-	 * 0:½ÓÊÜ 1£º·¢ËÍ
+	 * 0:æ¥å— 1ï¼šå‘é€
 	 */
 	private int msgType = 0;
 
@@ -103,7 +103,7 @@ public class IMMessage implements Parcelable, Comparable<IMMessage> {
 	};
 
 	/**
-	 * ĞÂÏûÏ¢µÄ¹¹Ôì·½·¨.
+	 * æ–°æ¶ˆæ¯çš„æ„é€ æ–¹æ³•.
 	 * 
 	 * @param content
 	 * @param time
@@ -118,7 +118,7 @@ public class IMMessage implements Parcelable, Comparable<IMMessage> {
 	}
 
 	/**
-	 * shimiso °´Ê±¼ä½µĞòÅÅÁĞ
+	 * shimiso æŒ‰æ—¶é—´é™åºæ’åˆ—
 	 */
 	@Override
 	public int compareTo(IMMessage oth) {

@@ -6,181 +6,181 @@ import android.content.SharedPreferences;
 import com.sanliao.eim.model.LoginConfig;
 
 /**
- * Activity°ïÖúÖ§³ÖÀà½Ó¿Ú.
+ * Activityå¸®åŠ©æ”¯æŒç±»æ¥å£.
  * 
  * @author xunlei.zengjinlong 470910357@qq.com
  */
 public interface IActivitySupport {
 	/**
 	 * 
-	 * »ñÈ¡EimApplication.
+	 * è·å–EimApplication.
 	 * 
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-7-6 ÉÏÎç9:05:51
+	 * @update 2012-7-6 ä¸Šåˆ9:05:51
 	 */
 	public abstract EimApplication getEimApplication();
 
 	/**
 	 * 
-	 * ÖÕÖ¹·şÎñ.
+	 * ç»ˆæ­¢æœåŠ¡.
 	 * 
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-7-6 ÉÏÎç9:05:51
+	 * @update 2012-7-6 ä¸Šåˆ9:05:51
 	 */
 	public abstract void stopService();
 
 	/**
 	 * 
-	 * ¿ªÆô·şÎñ.
+	 * å¼€å¯æœåŠ¡.
 	 * 
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-7-6 ÉÏÎç9:05:44
+	 * @update 2012-7-6 ä¸Šåˆ9:05:44
 	 */
 	public abstract void startService();
 
 	/**
 	 * 
-	 * Ğ£ÑéÍøÂç-Èç¹ûÃ»ÓĞÍøÂç¾Íµ¯³öÉèÖÃ,²¢·µ»Øtrue.
+	 * æ ¡éªŒç½‘ç»œ-å¦‚æœæ²¡æœ‰ç½‘ç»œå°±å¼¹å‡ºè®¾ç½®,å¹¶è¿”å›true.
 	 * 
 	 * @return
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-7-6 ÉÏÎç9:03:56
+	 * @update 2012-7-6 ä¸Šåˆ9:03:56
 	 */
 	public abstract boolean validateInternet();
 
 	/**
 	 * 
-	 * Ğ£ÑéÍøÂç-Èç¹ûÃ»ÓĞÍøÂç¾Í·µ»Øtrue.
+	 * æ ¡éªŒç½‘ç»œ-å¦‚æœæ²¡æœ‰ç½‘ç»œå°±è¿”å›true.
 	 * 
 	 * @return
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-7-6 ÉÏÎç9:05:15
+	 * @update 2012-7-6 ä¸Šåˆ9:05:15
 	 */
 	public abstract boolean hasInternetConnected();
 
 	/**
 	 * 
-	 * ÍË³öÓ¦ÓÃ.
+	 * é€€å‡ºåº”ç”¨.
 	 * 
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-7-6 ÉÏÎç9:06:42
+	 * @update 2012-7-6 ä¸Šåˆ9:06:42
 	 */
 	public abstract void isExit();
 
 	/**
 	 * 
-	 * ÅĞ¶ÏGPSÊÇ·ñÒÑ¾­¿ªÆô.
+	 * åˆ¤æ–­GPSæ˜¯å¦å·²ç»å¼€å¯.
 	 * 
 	 * @return
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-7-6 ÉÏÎç9:04:07
+	 * @update 2012-7-6 ä¸Šåˆ9:04:07
 	 */
 	public abstract boolean hasLocationGPS();
 
 	/**
 	 * 
-	 * ÅĞ¶Ï»ùÕ¾ÊÇ·ñÒÑ¾­¿ªÆô.
+	 * åˆ¤æ–­åŸºç«™æ˜¯å¦å·²ç»å¼€å¯.
 	 * 
 	 * @return
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-7-6 ÉÏÎç9:07:34
+	 * @update 2012-7-6 ä¸Šåˆ9:07:34
 	 */
 	public abstract boolean hasLocationNetWork();
 
 	/**
 	 * 
-	 * ¼ì²éÄÚ´æ¿¨.
+	 * æ£€æŸ¥å†…å­˜å¡.
 	 * 
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-7-6 ÉÏÎç9:07:51
+	 * @update 2012-7-6 ä¸Šåˆ9:07:51
 	 */
 	public abstract void checkMemoryCard();
 
 	/**
 	 * 
-	 * ÏÔÊ¾toast.
+	 * æ˜¾ç¤ºtoast.
 	 * 
 	 * @param text
-	 *            ÄÚÈİ
+	 *            å†…å®¹
 	 * @param longint
-	 *            ÄÚÈİÏÔÊ¾¶à³¤Ê±¼ä
+	 *            å†…å®¹æ˜¾ç¤ºå¤šé•¿æ—¶é—´
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-7-6 ÉÏÎç9:12:02
+	 * @update 2012-7-6 ä¸Šåˆ9:12:02
 	 */
 	public abstract void showToast(String text, int longint);
 
 	/**
 	 * 
-	 * ¶ÌÊ±¼äÏÔÊ¾toast.
+	 * çŸ­æ—¶é—´æ˜¾ç¤ºtoast.
 	 * 
 	 * @param text
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-7-6 ÉÏÎç9:12:46
+	 * @update 2012-7-6 ä¸Šåˆ9:12:46
 	 */
 	public abstract void showToast(String text);
 
 	/**
 	 * 
-	 * »ñÈ¡½ø¶ÈÌõ.
+	 * è·å–è¿›åº¦æ¡.
 	 * 
 	 * @return
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-7-6 ÉÏÎç9:14:38
+	 * @update 2012-7-6 ä¸Šåˆ9:14:38
 	 */
 	public abstract ProgressDialog getProgressDialog();
 
 	/**
 	 * 
-	 * ·µ»Øµ±Ç°ActivityÉÏÏÂÎÄ.
+	 * è¿”å›å½“å‰Activityä¸Šä¸‹æ–‡.
 	 * 
 	 * @return
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-7-6 ÉÏÎç9:19:54
+	 * @update 2012-7-6 ä¸Šåˆ9:19:54
 	 */
 	public abstract Context getContext();
 
 	/**
 	 * 
-	 * »ñÈ¡µ±Ç°µÇÂ¼ÓÃ»§µÄSharedPreferencesÅäÖÃ.
+	 * è·å–å½“å‰ç™»å½•ç”¨æˆ·çš„SharedPreferencesé…ç½®.
 	 * 
 	 * @return
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-7-6 ÉÏÎç9:23:02
+	 * @update 2012-7-6 ä¸Šåˆ9:23:02
 	 */
 	public SharedPreferences getLoginUserSharedPre();
 
 	/**
 	 * 
-	 * ±£´æÓÃ»§ÅäÖÃ.
+	 * ä¿å­˜ç”¨æˆ·é…ç½®.
 	 * 
 	 * @param loginConfig
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-7-6 ÉÏÎç9:58:31
+	 * @update 2012-7-6 ä¸Šåˆ9:58:31
 	 */
 	public void saveLoginConfig(LoginConfig loginConfig);
 
 	/**
 	 * 
-	 * »ñÈ¡ÓÃ»§ÅäÖÃ.
+	 * è·å–ç”¨æˆ·é…ç½®.
 	 * 
 	 * @param loginConfig
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-7-6 ÉÏÎç9:59:49
+	 * @update 2012-7-6 ä¸Šåˆ9:59:49
 	 */
 	public LoginConfig getLoginConfig();
 
 	/**
 	 * 
-	 * ÓÃ»§ÊÇ·ñÔÚÏß£¨µ±Ç°ÍøÂçÊÇ·ñÖØÁ¬³É¹¦£©
+	 * ç”¨æˆ·æ˜¯å¦åœ¨çº¿ï¼ˆå½“å‰ç½‘ç»œæ˜¯å¦é‡è¿æˆåŠŸï¼‰
 	 * 
 	 * @param loginConfig
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-7-6 ÉÏÎç9:59:49
+	 * @update 2012-7-6 ä¸Šåˆ9:59:49
 	 */
 	public boolean getUserOnlineState();
 
 	/**
-	 * ÉèÖÃÓÃ»§ÔÚÏß×´Ì¬ true ÔÚÏß false ²»ÔÚÏß
+	 * è®¾ç½®ç”¨æˆ·åœ¨çº¿çŠ¶æ€ true åœ¨çº¿ false ä¸åœ¨çº¿
 	 * 
 	 * @param isOnline
 	 */
@@ -188,17 +188,17 @@ public interface IActivitySupport {
 
 	/**
 	 * 
-	 * ·¢³öNotificationµÄmethod.
+	 * å‘å‡ºNotificationçš„method.
 	 * 
 	 * @param iconId
-	 *            Í¼±ê
+	 *            å›¾æ ‡
 	 * @param contentTitle
-	 *            ±êÌâ
+	 *            æ ‡é¢˜
 	 * @param contentText
-	 *            ÄãÄÚÈİ
+	 *            ä½ å†…å®¹
 	 * @param activity
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-5-14 ÏÂÎç12:01:55
+	 * @update 2012-5-14 ä¸‹åˆ12:01:55
 	 */
 	public void setNotiType(int iconId, String contentTitle,
 			String contentText, Class activity, String from);

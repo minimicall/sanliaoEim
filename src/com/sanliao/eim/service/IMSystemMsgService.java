@@ -30,19 +30,19 @@ import com.sanliao.eim.util.DateUtil;
 
 /**
  * 
- * ÏµÍ³ÏûÏ¢·şÎñ.
+ * ç³»ç»Ÿæ¶ˆæ¯æœåŠ¡.
  * 
  * @author xunlei.zengjinlong 470910357@qq.com
  */
 public class IMSystemMsgService extends Service {
 	private Context context;
 	PacketCollector myCollector = null;
-	/* ÉùÃ÷¶ÔÏó±äÁ¿ */
+	/* å£°æ˜å¯¹è±¡å˜é‡ */
 	private NotificationManager myNotiManager;
 
-	SoundPool sp; // ÉùÃ÷SoundPoolµÄÒıÓÃ
-	HashMap<Integer, Integer> hm; // ÉùÃ÷Ò»¸öHashMapÀ´´æ·ÅÉùÒôÎÄ¼ş
-	int currStreamId;// µ±Ç°Õı²¥·ÅµÄstreamId
+	SoundPool sp; // å£°æ˜SoundPoolçš„å¼•ç”¨
+	HashMap<Integer, Integer> hm; // å£°æ˜ä¸€ä¸ªHashMapæ¥å­˜æ”¾å£°éŸ³æ–‡ä»¶
+	int currStreamId;// å½“å‰æ­£æ’­æ”¾çš„streamId
 
 	@Override
 	public void onCreate() {
@@ -76,7 +76,7 @@ public class IMSystemMsgService extends Service {
 				Message.Type.normal));
 	}
 
-	// À´ÏûÏ¢¼àÌı
+	// æ¥æ¶ˆæ¯ç›‘å¬
 	PacketListener pListener = new PacketListener() {
 
 		@Override
@@ -88,9 +88,9 @@ public class IMSystemMsgService extends Service {
 				NoticeManager noticeManager = NoticeManager
 						.getInstance(context);
 				Notice notice = new Notice();
-				// playSound(1, 0); //²¥·ÅÒôĞ§
+				// playSound(1, 0); //æ’­æ”¾éŸ³æ•ˆ
 
-				notice.setTitle("ÏµÍ³ÏûÏ¢");
+				notice.setTitle("ç³»ç»Ÿæ¶ˆæ¯");
 				notice.setNoticeType(Notice.SYS_MSG);
 				notice.setFrom(packetz.getFrom());
 				notice.setContent(message.getBody());
@@ -115,66 +115,66 @@ public class IMSystemMsgService extends Service {
 		}
 	};
 
-	// ³õÊ¼»¯ÉùÒô³ØµÄ·½·¨
+	// åˆå§‹åŒ–å£°éŸ³æ± çš„æ–¹æ³•
 	public void initSoundPool() {
-		sp = new SoundPool(4, AudioManager.STREAM_MUSIC, 0); // ´´½¨SoundPool¶ÔÏó
-		hm = new HashMap<Integer, Integer>(); // ´´½¨HashMap¶ÔÏó
+		sp = new SoundPool(4, AudioManager.STREAM_MUSIC, 0); // åˆ›å»ºSoundPoolå¯¹è±¡
+		hm = new HashMap<Integer, Integer>(); // åˆ›å»ºHashMapå¯¹è±¡
 		// hm.put(1, sp.load(this, R.raw.musictest, 1)); //
-		// ¼ÓÔØÉùÒôÎÄ¼şmusictest²¢ÇÒÉèÖÃÎª1ºÅÉùÒô·ÅÈëhmÖĞ
+		// åŠ è½½å£°éŸ³æ–‡ä»¶musictestå¹¶ä¸”è®¾ç½®ä¸º1å·å£°éŸ³æ”¾å…¥hmä¸­
 	}
 
-	// ²¥·ÅÉùÒôµÄ·½·¨
-	public void playSound(int sound, int loop) { // »ñÈ¡AudioManagerÒıÓÃ
+	// æ’­æ”¾å£°éŸ³çš„æ–¹æ³•
+	public void playSound(int sound, int loop) { // è·å–AudioManagerå¼•ç”¨
 		AudioManager am = (AudioManager) this
 				.getSystemService(Context.AUDIO_SERVICE);
-		// »ñÈ¡µ±Ç°ÒôÁ¿
+		// è·å–å½“å‰éŸ³é‡
 		float streamVolumeCurrent = am
 				.getStreamVolume(AudioManager.STREAM_MUSIC);
-		// »ñÈ¡ÏµÍ³×î´óÒôÁ¿
+		// è·å–ç³»ç»Ÿæœ€å¤§éŸ³é‡
 		float streamVolumeMax = am
 				.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
-		// ¼ÆËãµÃµ½²¥·ÅÒôÁ¿
+		// è®¡ç®—å¾—åˆ°æ’­æ”¾éŸ³é‡
 		float volume = streamVolumeCurrent / streamVolumeMax;
-		// µ÷ÓÃSoundPoolµÄplay·½·¨À´²¥·ÅÉùÒôÎÄ¼ş
+		// è°ƒç”¨SoundPoolçš„playæ–¹æ³•æ¥æ’­æ”¾å£°éŸ³æ–‡ä»¶
 		currStreamId = sp.play(hm.get(sound), volume, volume, 1, loop, 1.0f);
 	}
 
 	/**
 	 * 
-	 * ·¢³öNotificationµÄmethod.
+	 * å‘å‡ºNotificationçš„method.
 	 * 
 	 * @param iconId
-	 *            Í¼±ê
+	 *            å›¾æ ‡
 	 * @param contentTitle
-	 *            ±êÌâ
+	 *            æ ‡é¢˜
 	 * @param contentText
-	 *            ÄãÄÚÈİ
+	 *            ä½ å†…å®¹
 	 * @param activity
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-5-14 ÏÂÎç12:01:55
+	 * @update 2012-5-14 ä¸‹åˆ12:01:55
 	 */
 	private void setNotiType(int iconId, String contentTitle,
 			String contentText, Class activity) {
 		/*
-		 * ´´½¨ĞÂµÄIntent£¬×÷Îªµã»÷NotificationÁôÑÔÌõÊ±£¬ »áÔËĞĞµÄActivity
+		 * åˆ›å»ºæ–°çš„Intentï¼Œä½œä¸ºç‚¹å‡»Notificationç•™è¨€æ¡æ—¶ï¼Œ ä¼šè¿è¡Œçš„Activity
 		 */
 		Intent notifyIntent = new Intent(this, activity);
 		notifyIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		/* ´´½¨PendingIntent×÷ÎªÉèÖÃµİÑÓÔËĞĞµÄActivity */
+		/* åˆ›å»ºPendingIntentä½œä¸ºè®¾ç½®é€’å»¶è¿è¡Œçš„Activity */
 		PendingIntent appIntent = PendingIntent.getActivity(this, 0,
 				notifyIntent, 0);
 
-		/* ´´½¨Notication£¬²¢ÉèÖÃÏà¹Ø²ÎÊı */
+		/* åˆ›å»ºNoticationï¼Œå¹¶è®¾ç½®ç›¸å…³å‚æ•° */
 		Notification myNoti = new Notification();
-		/* ÉèÖÃstatusbarÏÔÊ¾µÄicon */
+		/* è®¾ç½®statusbaræ˜¾ç¤ºçš„icon */
 		myNoti.icon = iconId;
-		/* ÉèÖÃstatusbarÏÔÊ¾µÄÎÄ×ÖĞÅÏ¢ */
+		/* è®¾ç½®statusbaræ˜¾ç¤ºçš„æ–‡å­—ä¿¡æ¯ */
 		myNoti.tickerText = contentTitle;
-		/* ÉèÖÃnotification·¢ÉúÊ±Í¬Ê±·¢³öÄ¬ÈÏÉùÒô */
+		/* è®¾ç½®notificationå‘ç”Ÿæ—¶åŒæ—¶å‘å‡ºé»˜è®¤å£°éŸ³ */
 		myNoti.defaults = Notification.DEFAULT_SOUND;
-		/* ÉèÖÃNotificationÁôÑÔÌõµÄ²ÎÊı */
+		/* è®¾ç½®Notificationç•™è¨€æ¡çš„å‚æ•° */
 		myNoti.setLatestEventInfo(this, contentTitle, contentText, appIntent);
-		/* ËÍ³öNotification */
+		/* é€å‡ºNotification */
 		myNotiManager.notify(0, myNoti);
 	}
 

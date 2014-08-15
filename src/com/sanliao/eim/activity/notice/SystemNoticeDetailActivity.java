@@ -13,7 +13,7 @@ import com.sanliao.eim.model.Notice;
 
 /**
  * 
- * ÏûÏ¢Ã÷Ï¸Ò³
+ * æ¶ˆæ¯æ˜ç»†é¡µ
  * 
  * @author xunlei.zengjinlong 470910357@qq.com
  */
@@ -43,23 +43,23 @@ public class SystemNoticeDetailActivity extends ActivitySupport {
 				finish();
 			}
 		});
-		// »ñÈ¡´«Öµ
+		// è·å–ä¼ å€¼
 		noticeId = getIntent().getStringExtra("notice_id");
 		notice = NoticeManager.getInstance(context).getNoticeById(noticeId);
-		// ĞŞ¸ÄÒÑ¶ÁĞÅÏ¢
+		// ä¿®æ”¹å·²è¯»ä¿¡æ¯
 		NoticeManager.getInstance(context).updateStatus(noticeId, Notice.READ);
 
 		// head
 		ivTitleName = (TextView) findViewById(R.id.ivTitleName);
 		ivTitleName.setText(getResources().getString(R.string.check_sys_msg));
-		// Ğ¡±êÌâ
+		// å°æ ‡é¢˜
 		noticeTile = (TextView) findViewById(R.id.notice_title);
 		noticeTile.setText(notice.getTitle());
-		// ÄÚÈİ
+		// å†…å®¹
 		notice_content = (TextView) findViewById(R.id.notice_content);
 		notice_content.setText(notice.getContent());
 
-		// É¾³ı
+		// åˆ é™¤
 		delBtn = (Button) findViewById(R.id.buttonDelete);
 		delBtn.setOnClickListener(new OnClickListener() {
 			@Override

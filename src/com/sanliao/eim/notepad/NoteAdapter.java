@@ -10,8 +10,8 @@ import android.widget.BaseAdapter;
 
 public class NoteAdapter extends BaseAdapter {
 
-	private Context mContext;//ÉÏÏÂÎÄ
-	private List<NoteInfo> mItems;//ÌõÄ¿
+	private Context mContext;//ä¸Šä¸‹æ–‡
+	private List<NoteInfo> mItems;//æ¡ç›®
 	
 	public NoteAdapter(Context context,List<NoteInfo> mItems) {
 		this.mContext = context;
@@ -19,20 +19,20 @@ public class NoteAdapter extends BaseAdapter {
 	}
 	
 	@Override
-	public int getCount() { //»ñÈ¡ÌõÄ¿ÊıÁ¿
+	public int getCount() { //è·å–æ¡ç›®æ•°é‡
 		return mItems.size(); 
 	}
 	
 	@Override
-	public Object getItem(int position) {//»ñÈ¡µÚi¸öÌõÄ¿
+	public Object getItem(int position) {//è·å–ç¬¬iä¸ªæ¡ç›®
 		return mItems.get(position); 
 	}
 	
 	@Override
-	public long getItemId(int position) {//»ñÈ¡ÌõÄ¿id
+	public long getItemId(int position) {//è·å–æ¡ç›®id
 		return position;
 	}
-//»ñÈ¡ÊÓÍ¼
+//è·å–è§†å›¾
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		NoteListView btv;
@@ -41,7 +41,7 @@ public class NoteAdapter extends BaseAdapter {
 		} else {
 			btv = (NoteListView) convertView;
 			btv.setDiaryTitle(mItems.get(position).mtitle);
-			btv.setDiaryTime("ËùÊô·ÖÀà£º"+mItems.get(position).msort+"       "+mItems.get(position).mtime);
+			btv.setDiaryTime("æ‰€å±åˆ†ç±»ï¼š"+mItems.get(position).msort+"       "+mItems.get(position).mtime);
 		}
 		return btv;
 	}

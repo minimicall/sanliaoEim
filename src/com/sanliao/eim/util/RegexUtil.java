@@ -6,53 +6,53 @@ import java.util.regex.Pattern;
 public class RegexUtil {
 
 	/**
-	 * ³µÅÆºÅÂëPattern
+	 * è½¦ç‰Œå·ç Pattern
 	 */
 	public static final Pattern PLATE_NUMBER_PATTERN = Pattern
 			.compile("^[\u0391-\uFFE5]{1}[a-zA-Z0-9]{6}$");
 
 	/**
-	 * Ö¤¼şºÅÂëPattern
+	 * è¯ä»¶å·ç Pattern
 	 */
 	public static final Pattern ID_CODE_PATTERN = Pattern
 			.compile("^[a-zA-Z0-9]+$");
 
 	/**
-	 * ±àÂëPattern
+	 * ç¼–ç Pattern
 	 */
 	public static final Pattern CODE_PATTERN = Pattern
 			.compile("^[a-zA-Z0-9]+$");
 
 	/**
-	 * ¹Ì¶¨µç»°±àÂëPattern
+	 * å›ºå®šç”µè¯ç¼–ç Pattern
 	 */
 	public static final Pattern PHONE_NUMBER_PATTERN = Pattern
 			.compile("0\\d{2,3}-[0-9]+");
 
 	/**
-	 * ÓÊÕş±àÂëPattern
+	 * é‚®æ”¿ç¼–ç Pattern
 	 */
 	public static final Pattern POST_CODE_PATTERN = Pattern.compile("\\d{6}");
 
 	/**
-	 * Ãæ»ıPattern
+	 * é¢ç§¯Pattern
 	 */
 	public static final Pattern AREA_PATTERN = Pattern.compile("\\d*.?\\d*");
 
 	/**
-	 * ÊÖ»úºÅÂëPattern
+	 * æ‰‹æœºå·ç Pattern
 	 */
 	public static final Pattern MOBILE_NUMBER_PATTERN = Pattern
 			.compile("\\d{11}");
 
 	/**
-	 * ÒøĞĞÕÊºÅPattern
+	 * é“¶è¡Œå¸å·Pattern
 	 */
 	public static final Pattern ACCOUNT_NUMBER_PATTERN = Pattern
 			.compile("\\d{16,21}");
 
 	/**
-	 * ³µÅÆºÅÂëÊÇ·ñÕıÈ·
+	 * è½¦ç‰Œå·ç æ˜¯å¦æ­£ç¡®
 	 * 
 	 * @param s
 	 * @return
@@ -63,7 +63,7 @@ public class RegexUtil {
 	}
 
 	/**
-	 * Ö¤¼şºÅÂëÊÇ·ñÕıÈ·
+	 * è¯ä»¶å·ç æ˜¯å¦æ­£ç¡®
 	 * 
 	 * @param s
 	 * @return
@@ -74,7 +74,7 @@ public class RegexUtil {
 	}
 
 	/**
-	 * ±àÂëÊÇ·ñÕıÈ·
+	 * ç¼–ç æ˜¯å¦æ­£ç¡®
 	 * 
 	 * @param s
 	 * @return
@@ -85,7 +85,7 @@ public class RegexUtil {
 	}
 
 	/**
-	 * ¹Ì»°±àÂëÊÇ·ñÕıÈ·
+	 * å›ºè¯ç¼–ç æ˜¯å¦æ­£ç¡®
 	 * 
 	 * @param s
 	 * @return
@@ -96,7 +96,7 @@ public class RegexUtil {
 	}
 
 	/**
-	 * ÓÊÕş±àÂëÊÇ·ñÕıÈ·
+	 * é‚®æ”¿ç¼–ç æ˜¯å¦æ­£ç¡®
 	 * 
 	 * @param s
 	 * @return
@@ -107,7 +107,7 @@ public class RegexUtil {
 	}
 
 	/**
-	 * Ãæ»ıÊÇ·ñÕıÈ·
+	 * é¢ç§¯æ˜¯å¦æ­£ç¡®
 	 * 
 	 * @param s
 	 * @return
@@ -118,7 +118,7 @@ public class RegexUtil {
 	}
 
 	/**
-	 * ÊÖ»úºÅÂë·ñÕıÈ·
+	 * æ‰‹æœºå·ç å¦æ­£ç¡®
 	 * 
 	 * @param s
 	 * @return
@@ -129,7 +129,7 @@ public class RegexUtil {
 	}
 
 	/**
-	 * ÒøĞĞÕËºÅ·ñÕıÈ·
+	 * é“¶è¡Œè´¦å·å¦æ­£ç¡®
 	 * 
 	 * @param s
 	 * @return

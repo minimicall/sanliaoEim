@@ -4,7 +4,7 @@ import android.test.AndroidTestCase;
 
 /**
  * 
- * Junit²âÊÔÀà.
+ * Junitæµ‹è¯•ç±».
  * 
  * @author xunlei.zengjinlong 470910357@qq.com
  */
@@ -38,7 +38,7 @@ public class ModelTest extends AndroidTestCase {
 		 * 
 		 * 
 		 * // ContentValues contentValues=new ContentValues(); //
-		 * contentValues.put("title", "ÕÅÈı"); // contentValues.put("content",
+		 * contentValues.put("title", "å¼ ä¸‰"); // contentValues.put("content",
 		 * "123"); // st.insert("im_notice", contentValues);
 		 * 
 		 * // long a=st.getCount("select * from person where _id>?", new
@@ -75,15 +75,15 @@ public class ModelTest extends AndroidTestCase {
 		 * 
 		 * // st.deleteById("person", "5");
 		 * 
-		 * // st.deleteByField("person", "name", "ÕÅÈı7");
+		 * // st.deleteByField("person", "name", "å¼ ä¸‰7");
 		 * 
 		 * 
 		 * // ContentValues contentValues=new ContentValues(); //
-		 * contentValues.put("name", "ÀîËÄ"); // contentValues.put("age", "999");
+		 * contentValues.put("name", "æå››"); // contentValues.put("age", "999");
 		 * // st.updateById("person", "8", contentValues);
 		 * 
 		 * // boolean a1=st.isExistsById("person", "7"); // boolean
-		 * a2=st.isExistsByField("person", "name", "ÕÅÈı7"); // boolean
+		 * a2=st.isExistsByField("person", "name", "å¼ ä¸‰7"); // boolean
 		 * a3=st.isExistsBySQL("select * from person where _id=?", new
 		 * String[]{"7"});
 		 * 

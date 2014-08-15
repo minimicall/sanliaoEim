@@ -9,7 +9,7 @@ import com.sanliao.eim.activity.ActivitySupport;
 
 /**
  * 
- * 用户资料查看.
+ * 鐢ㄦ埛璧勬枡鏌ョ湅.
  * 
  * @author xunlei.zengjinlong 470910357@qq.com
  */

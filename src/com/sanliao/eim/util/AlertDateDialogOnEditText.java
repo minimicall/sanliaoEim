@@ -13,7 +13,7 @@ import android.widget.LinearLayout;
 import com.sanliao.eim.R;
 
 /**
- * ÔÚeditTextÉÏµã»÷»ñÈ¡ÈÕÆÚ
+ * åœ¨editTextä¸Šç‚¹å‡»è·å–æ—¥æœŸ
  * 
  * @author Administrator
  * 
@@ -29,7 +29,7 @@ public class AlertDateDialogOnEditText implements OnTouchListener {
 		this.mContext = mContext;
 		this.etDate = etDate;
 		this.title = title;
-		// Ä¬ÈÏÎªµ±Ê±ÈÕÆÚ
+		// é»˜è®¤ä¸ºå½“æ—¶æ—¥æœŸ
 		etDate.setText(TimestampTool.getCurrentDate());
 	}
 

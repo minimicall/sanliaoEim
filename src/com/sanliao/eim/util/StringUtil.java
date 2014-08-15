@@ -2,7 +2,7 @@ package com.sanliao.eim.util;
 
 public class StringUtil {
 	/**
-	 * ´¦Àí¿Õ×Ö·û´®
+	 * å¤„ç†ç©ºå­—ç¬¦ä¸²
 	 * 
 	 * @param str
 	 * @return String
@@ -12,7 +12,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * ´¦Àí¿Õ×Ö·û´®
+	 * å¤„ç†ç©ºå­—ç¬¦ä¸²
 	 * 
 	 * @param str
 	 * @param defaultValue
@@ -20,7 +20,7 @@ public class StringUtil {
 	 */
 	public static String doEmpty(String str, String defaultValue) {
 		if (str == null || str.equalsIgnoreCase("null")
-				|| str.trim().equals("") || str.trim().equals("£­ÇëÑ¡Ôñ£­")) {
+				|| str.trim().equals("") || str.trim().equals("ï¼è¯·é€‰æ‹©ï¼")) {
 			str = defaultValue;
 		} else if (str.startsWith("null")) {
 			str = str.substring(4, str.length());
@@ -29,9 +29,9 @@ public class StringUtil {
 	}
 
 	/**
-	 * ÇëÑ¡Ôñ
+	 * è¯·é€‰æ‹©
 	 */
-	final static String PLEASE_SELECT = "ÇëÑ¡Ôñ...";
+	final static String PLEASE_SELECT = "è¯·é€‰æ‹©...";
 
 	public static boolean notEmpty(Object o) {
 		return o != null && !"".equals(o.toString().trim())
@@ -76,7 +76,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * ¸øJID·µ»ØÓÃ»§Ãû
+	 * ç»™JIDè¿”å›ç”¨æˆ·å
 	 * 
 	 * @param Jid
 	 * @return
@@ -92,10 +92,10 @@ public class StringUtil {
 	}
 
 	/**
-	 * ¸øÓÃ»§Ãû·µ»ØJID
+	 * ç»™ç”¨æˆ·åè¿”å›JID
 	 * 
 	 * @param jidFor
-	 *            ÓòÃû//Èçahic.com.cn
+	 *            åŸŸå//å¦‚ahic.com.cn
 	 * @param userName
 	 * @return
 	 */
@@ -107,7 +107,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * ¸øÓÃ»§Ãû·µ»ØJID,Ê¹ÓÃÄ¬ÈÏÓòÃûahic.com.cn
+	 * ç»™ç”¨æˆ·åè¿”å›JID,ä½¿ç”¨é»˜è®¤åŸŸåahic.com.cn
 	 * 
 	 * @param userName
 	 * @return
@@ -118,7 +118,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * ¸ù¾İ¸ø¶¨µÄÊ±¼ä×Ö·û´®£¬·µ»ØÔÂ ÈÕ Ê± ·Ö Ãë
+	 * æ ¹æ®ç»™å®šçš„æ—¶é—´å­—ç¬¦ä¸²ï¼Œè¿”å›æœˆ æ—¥ æ—¶ åˆ† ç§’
 	 * 
 	 * @param allDate
 	 *            like "yyyy-MM-dd hh:mm:ss SSS"
@@ -129,7 +129,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * ¸ù¾İ¸ø¶¨µÄÊ±¼ä×Ö·û´®£¬·µ»ØÔÂ ÈÕ Ê± ·Ö ÔÂµ½·ÖÖÓ
+	 * æ ¹æ®ç»™å®šçš„æ—¶é—´å­—ç¬¦ä¸²ï¼Œè¿”å›æœˆ æ—¥ æ—¶ åˆ† æœˆåˆ°åˆ†é’Ÿ
 	 * 
 	 * @param allDate
 	 *            like "yyyy-MM-dd hh:mm:ss SSS"

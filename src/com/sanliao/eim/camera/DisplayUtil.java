@@ -8,7 +8,7 @@ import android.util.Log;
 public class DisplayUtil {
 	private static final String TAG = "DisplayUtil";
 	/**
-	 * dip×ªpx
+	 * dipè½¬px
 	 * @param context
 	 * @param dipValue
 	 * @return
@@ -19,7 +19,7 @@ public class DisplayUtil {
 	}     
 	
 	/**
-	 * px×ªdip
+	 * pxè½¬dip
 	 * @param context
 	 * @param pxValue
 	 * @return
@@ -30,7 +30,7 @@ public class DisplayUtil {
 	} 
 	
 	/**
-	 * »ñÈ¡ÆÁÄ»¿í¶ÈºÍ¸ß¶È£¬µ¥Î»Îªpx
+	 * è·å–å±å¹•å®½åº¦å’Œé«˜åº¦ï¼Œå•ä½ä¸ºpx
 	 * @param context
 	 * @return
 	 */
@@ -44,7 +44,7 @@ public class DisplayUtil {
 	}
 	
 	/**
-	 * »ñÈ¡ÆÁÄ»³¤¿í±È
+	 * è·å–å±å¹•é•¿å®½æ¯”
 	 * @param context
 	 * @return
 	 */

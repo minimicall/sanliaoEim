@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
 
 public class NoteSQL {
-	//SQL²Ù×÷
+	//SQLæ“ä½œ
 	public static void insert(Context context, String title, String content, String sort){
 		DataBaseHelper helper = new DataBaseHelper(context, DataBaseInfo.DB_NAME, null, 1);
 		SQLiteDatabase db = helper.getWritableDatabase();
@@ -19,7 +19,7 @@ public class NoteSQL {
 			"values('"+title+"', '" + content + "', '" + mtime+"', '"+ sort +"');";
 		db.execSQL(sql);
 		db.close();
-		Toast.makeText(context, "ÒÑ¾­Ğ´ÈëÒ»ÆªĞÂµÄ¼ÇÊÂ£¡", Toast.LENGTH_LONG).show();
+		Toast.makeText(context, "å·²ç»å†™å…¥ä¸€ç¯‡æ–°çš„è®°äº‹ï¼", Toast.LENGTH_LONG).show();
 	}
 	
 	public static void update(Context context, String title, String content, String sort, int id){
@@ -35,7 +35,7 @@ public class NoteSQL {
 			"' WHERE _id = "+id;
 		db.execSQL(sql);
 		db.close();
-		Toast.makeText(context, "ĞŞ¸Ä³É¹¦£¡", Toast.LENGTH_LONG).show();
+		Toast.makeText(context, "ä¿®æ”¹æˆåŠŸï¼", Toast.LENGTH_LONG).show();
 	}
 	
 	public static void deleteOne(Context context, int id){
@@ -44,7 +44,7 @@ public class NoteSQL {
 		String sql = "DELETE FROM "+DataBaseInfo.NOTE_TABLE +" WHERE _id = "+ id;
 		db.execSQL(sql);
 		db.close();
-		Toast.makeText(context, "É¾³ı³É¹¦£¡", Toast.LENGTH_LONG).show();
+		Toast.makeText(context, "åˆ é™¤æˆåŠŸï¼", Toast.LENGTH_LONG).show();
 	}
 	
 	public static void deleteAll(Context context){
@@ -54,7 +54,7 @@ public class NoteSQL {
 		db.execSQL(sql);
 		db.execSQL("DELETE FROM "+DataBaseInfo.SORT_TABLE);
 		db.close();
-		Toast.makeText(context, "³É¹¦Çå¿ÕËùÓĞ¼ÇÊÂ£¡", Toast.LENGTH_LONG).show();
+		Toast.makeText(context, "æˆåŠŸæ¸…ç©ºæ‰€æœ‰è®°äº‹ï¼", Toast.LENGTH_LONG).show();
 	}
 	
 	public static Cursor selectAll(Context context){

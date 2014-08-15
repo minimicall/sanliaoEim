@@ -6,13 +6,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
-	//Êı¾İ¿â¸¨ÖúÀà
+	//æ•°æ®åº“è¾…åŠ©ç±»
 	public DataBaseHelper(Context context, String name, CursorFactory factory, int version) {
 		super(context, name, factory, version);
 	}
 
 	@Override
-	public void onCreate(SQLiteDatabase db) {//´´½¨Ò»¸ö±í¸ñ
+	public void onCreate(SQLiteDatabase db) {//åˆ›å»ºä¸€ä¸ªè¡¨æ ¼
 		db.execSQL("CREATE TABLE IF NOT EXISTS "+
 					DataBaseInfo.NOTE_TABLE+"(_id INTEGER PRIMARY KEY AUTOINCREMENT,"+
 					DataBaseInfo.N_TITLE+" VARCHAR,"+
@@ -23,7 +23,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 				DataBaseInfo.SORT_TABLE+"(_id INTEGER PRIMARY KEY AUTOINCREMENT,"+
 				DataBaseInfo.NOTE_SORT+" VARCHAR)");	
 	}
-//¸üĞÂ
+//æ›´æ–°
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		db.execSQL("DROP TABLE IF EXISTS "+DataBaseInfo.NOTE_TABLE);

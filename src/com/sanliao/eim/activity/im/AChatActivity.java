@@ -23,7 +23,7 @@ import com.sanliao.eim.util.DateUtil;
 
 /**
  * 
- * ÁÄÌì¶Ô»°.
+ * èŠå¤©å¯¹è¯.
  * 
  * @author xunlei.zengjinlong 470910357@qq.com
  */
@@ -31,7 +31,7 @@ public abstract class AChatActivity extends ActivitySupport {
 
 	private Chat chat = null;
 	private List<IMMessage> message_pool = null;
-	protected String to;// ÁÄÌìÈË
+	protected String to;// èŠå¤©äºº
 	private static int pageSize = 10;
 	private List<Notice> noticeList;
 
@@ -53,16 +53,16 @@ public abstract class AChatActivity extends ActivitySupport {
 
 	@Override
 	protected void onResume() {
-		// µÚÒ»´Î²éÑ¯
+		// ç¬¬ä¸€æ¬¡æŸ¥è¯¢
 		message_pool = MessageManager.getInstance(context)
 				.getMessageListByFrom(to, 1, pageSize);
 		if (null != message_pool && message_pool.size() > 0)
 			Collections.sort(message_pool);
 		IntentFilter filter = new IntentFilter();
-		filter.addAction(Constant.NEW_MESSAGE_ACTION);//×¢²á¼àÌıroster.newmessage¶¯×÷µÄ¹ã²¥
+		filter.addAction(Constant.NEW_MESSAGE_ACTION);//æ³¨å†Œç›‘å¬roster.newmessageåŠ¨ä½œçš„å¹¿æ’­
 		registerReceiver(receiver, filter);
 
-		// ¸üĞÂÄ³ÈËËùÓĞÍ¨Öª
+		// æ›´æ–°æŸäººæ‰€æœ‰é€šçŸ¥
 		NoticeManager.getInstance(context).updateStatusByFrom(to, Notice.READ);
 		super.onResume();
 
@@ -91,15 +91,15 @@ public abstract class AChatActivity extends ActivitySupport {
 	protected List<IMMessage> getMessages() {
 		return message_pool;
 	}
-//·¢ËÍÏûÏ¢
+//å‘é€æ¶ˆæ¯
 	protected void sendMessage(String messageContent) throws Exception {
 
 		String time = DateUtil.date2Str(Calendar.getInstance(),
-				Constant.MS_FORMART);//Ê±¼ä
+				Constant.MS_FORMART);//æ—¶é—´
 		Message message = new Message();
 		message.setProperty(IMMessage.KEY_TIME, time);
 		message.setBody(messageContent);
-		chat.sendMessage(message);//·¢ËÍÏûÏ¢
+		chat.sendMessage(message);//å‘é€æ¶ˆæ¯
 
 		IMMessage newMessage = new IMMessage();
 		newMessage.setMsgType(1);
@@ -107,16 +107,16 @@ public abstract class AChatActivity extends ActivitySupport {
 		newMessage.setContent(messageContent);
 		newMessage.setTime(time);
 		message_pool.add(newMessage);
-		MessageManager.getInstance(context).saveIMMessage(newMessage);//½«ÏûÏ¢±£´æµ½±¾µØ
+		MessageManager.getInstance(context).saveIMMessage(newMessage);//å°†æ¶ˆæ¯ä¿å­˜åˆ°æœ¬åœ°
 		// MChatManager.message_pool.add(newMessage);
 
-		// Ë¢ĞÂÊÓÍ¼
+		// åˆ·æ–°è§†å›¾
 		refreshMessage(message_pool);
 
 	}
 
 	/**
-	 * ÏÂ»¬¼ÓÔØĞÅÏ¢,true ·µ»Ø³É¹¦£¬false Êı¾İÒÑ¾­È«²¿¼ÓÔØ£¬È«²¿²éÍêÁË£¬
+	 * ä¸‹æ»‘åŠ è½½ä¿¡æ¯,true è¿”å›æˆåŠŸï¼Œfalse æ•°æ®å·²ç»å…¨éƒ¨åŠ è½½ï¼Œå…¨éƒ¨æŸ¥å®Œäº†ï¼Œ
 	 * 
 	 * @param message
 	 */
@@ -132,7 +132,7 @@ public abstract class AChatActivity extends ActivitySupport {
 	}
 
 	protected void resh() {
-		// Ë¢ĞÂÊÓÍ¼
+		// åˆ·æ–°è§†å›¾
 		refreshMessage(message_pool);
 	}
 

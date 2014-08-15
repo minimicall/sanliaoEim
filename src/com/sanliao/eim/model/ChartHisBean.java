@@ -2,26 +2,26 @@ package com.sanliao.eim.model;
 
 /**
  * 
- * ×î½üÁªÏµÈËÏÔÊ¾µÄÓëÄ³¸öµÄÁÄÌì¼ÇÂ¼bean£¬°üÀ¨ ÊÕµ½Ä³¸öÈËµÄ×îºóÒ»ÌõĞÅÏ¢µÄÈ«²¿ÄÚÈİ£¬ÊÕµ½Ä³ÈËÎ´¶ÁĞÅÏ¢µÄÊıÁ¿×ÜºÍ
+ * æœ€è¿‘è”ç³»äººæ˜¾ç¤ºçš„ä¸æŸä¸ªçš„èŠå¤©è®°å½•beanï¼ŒåŒ…æ‹¬ æ”¶åˆ°æŸä¸ªäººçš„æœ€åä¸€æ¡ä¿¡æ¯çš„å…¨éƒ¨å†…å®¹ï¼Œæ”¶åˆ°æŸäººæœªè¯»ä¿¡æ¯çš„æ•°é‡æ€»å’Œ
  * 
  * @author xunlei.zengjinlong 470910357@qq.com
  */
 public class ChartHisBean {
-	public static final int ADD_FRIEND = 1;// ºÃÓÑÇëÇó
-	public static final int SYS_MSG = 2; // ÏµÍ³ÏûÏ¢
-	public static final int CHAT_MSG = 3;// ÁÄÌìÏûÏ¢
+	public static final int ADD_FRIEND = 1;// å¥½å‹è¯·æ±‚
+	public static final int SYS_MSG = 2; // ç³»ç»Ÿæ¶ˆæ¯
+	public static final int CHAT_MSG = 3;// èŠå¤©æ¶ˆæ¯
 
 	public static final int READ = 0;
 	public static final int UNREAD = 1;
-	private String id; // Ö÷¼ü
-	private String title; // ±êÌâ
-	private String content; // ×îºóÄÚÈİ
-	private Integer status; // ×îºó×´Ì¬ 0ÒÑ¶Á 1Î´¶Á
-	private String from; // ×îºóÍ¨ÖªÀ´Ô´
-	private String to; // ×îºóÍ¨ÖªÈ¥Ïë
-	private String noticeTime; // ×îºóÍ¨ÖªÊ±¼ä
-	private Integer noticeSum;// ÊÕµ½Î´¶ÁÏûÏ¢×ÜÊı¡¢
-	private Integer noticeType; // ÏûÏ¢ÀàĞÍ 1.ºÃÓÑÇëÇó 2.ÏµÍ³ÏûÏ¢
+	private String id; // ä¸»é”®
+	private String title; // æ ‡é¢˜
+	private String content; // æœ€åå†…å®¹
+	private Integer status; // æœ€åçŠ¶æ€ 0å·²è¯» 1æœªè¯»
+	private String from; // æœ€åé€šçŸ¥æ¥æº
+	private String to; // æœ€åé€šçŸ¥å»æƒ³
+	private String noticeTime; // æœ€åé€šçŸ¥æ—¶é—´
+	private Integer noticeSum;// æ”¶åˆ°æœªè¯»æ¶ˆæ¯æ€»æ•°ã€
+	private Integer noticeType; // æ¶ˆæ¯ç±»å‹ 1.å¥½å‹è¯·æ±‚ 2.ç³»ç»Ÿæ¶ˆæ¯
 
 	public Integer getNoticeSum() {
 		return noticeSum;

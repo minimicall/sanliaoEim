@@ -145,7 +145,7 @@ public class ScrollLayout extends ViewGroup {
 		case MotionEvent.ACTION_MOVE:
 			int deltaX = (int) (mLastMotionX - x);
 			if (Math.abs(deltaX) > sensitivity) {
-				// ×ó»¬¶¯ÎªÕıÊı¡¢ÓÒÎª¸ºÊı
+				// å·¦æ»‘åŠ¨ä¸ºæ­£æ•°ã€å³ä¸ºè´Ÿæ•°
 				if (spring) {
 					scrollBy(deltaX, 0);
 					mLastMotionX = x;

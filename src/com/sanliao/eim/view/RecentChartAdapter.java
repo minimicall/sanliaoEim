@@ -105,11 +105,11 @@ public class RecentChartAdapter extends BaseAdapter {
 	}
 
 	/**
-	 * ÕâÀïÓÃÒ»¾ä»°ÃèÊöÕâ¸ö·½·¨µÄ×÷ÓÃ.
+	 * è¿™é‡Œç”¨ä¸€å¥è¯æè¿°è¿™ä¸ªæ–¹æ³•çš„ä½œç”¨.
 	 * 
 	 * @param contacterOnClick
 	 * @author xunlei.zengjinlong 470910357@qq.com
-	 * @update 2012-6-28 ÏÂÎç1:29:27
+	 * @update 2012-6-28 ä¸‹åˆ1:29:27
 	 */
 	public void setOnClickListener(OnClickListener contacterOnClick) {
 

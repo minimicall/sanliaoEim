@@ -61,12 +61,12 @@ public class NoticeAdapter extends BaseAdapter {
 		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
-		if (notice.getNoticeType() == Notice.ADD_FRIEND) {// Ìí¼ÓºÃÓÑÎ´´¦Àí
-															// ¼ÓÆøÅİ£¬´¦ÀíµÄ¾ÍÏûÊ§ÁËÕûÌå
+		if (notice.getNoticeType() == Notice.ADD_FRIEND) {// æ·»åŠ å¥½å‹æœªå¤„ç†
+															// åŠ æ°”æ³¡ï¼Œå¤„ç†çš„å°±æ¶ˆå¤±äº†æ•´ä½“
 			holder.itemIcon.setBackgroundResource(R.drawable.h001);
 			holder.newContent.setText(notice.getContent());
 
-		} else if (Notice.SYS_MSG == notice.getNoticeType()) {// Èç¹ûÏµÍ³ÏûÏ¢Î´¶Á£¬¼ÓÆøÅİ
+		} else if (Notice.SYS_MSG == notice.getNoticeType()) {// å¦‚æœç³»ç»Ÿæ¶ˆæ¯æœªè¯»ï¼ŒåŠ æ°”æ³¡
 			holder.itemIcon
 					.setBackgroundResource(R.drawable.icon_recent_sysmsg);
 			holder.newContent.setText(notice.getContent());
