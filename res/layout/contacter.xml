@@ -4,6 +4,7 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" 
     android:background="#EEEEFF" >
+
  	 <LinearLayout 
         android:layout_width="wrap_content"
 	    android:layout_height="60dip" 
@@ -51,6 +52,7 @@
 			 
 	 
 	  </LinearLayout>
+
  
 	     <ExpandableListView
 	        android:id="@+id/main_expand_list"

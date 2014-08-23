@@ -65,6 +65,7 @@
 	   						 android:textColor="@color/black"
 	    					android:textSize="10.0dip" />
             </LinearLayout>
+ 
 
             <LinearLayout
                 android:layout_width="fill_parent"

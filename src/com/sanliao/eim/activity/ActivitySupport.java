@@ -303,7 +303,7 @@ public class ActivitySupport extends Activity implements IActivitySupport {
 	 * @param contentTitle
 	 *            标题
 	 * @param contentText
-	 *            你内容
+	 *            内容
 	 * @param activity
 	 * @author xunlei.zengjinlong 470910357@qq.com
 	 * @update 2012-5-14 下午12:01:55

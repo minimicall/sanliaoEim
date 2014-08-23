@@ -42,7 +42,7 @@ public abstract class AChatActivity extends ActivitySupport {
 		if (to == null)
 			return;
 		chat = XmppConnectionManager.getInstance().getConnection()
-				.getChatManager().createChat(to, null);
+				.getChatManager().createChat(to, null);//创建一个聊天对话
 	}
 
 	@Override

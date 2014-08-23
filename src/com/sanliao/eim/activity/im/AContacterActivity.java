@@ -18,6 +18,7 @@ import com.sanliao.eim.manager.XmppConnectionManager;
 import com.sanliao.eim.model.Notice;
 import com.sanliao.eim.model.User;
 import com.sanliao.eim.util.StringUtil;
+import com.sanliao.smarthome.BubleCtrlActivity;
 
 /**
  * 
@@ -272,7 +273,11 @@ public abstract class AContacterActivity extends ActivitySupport {
 	 * @param user
 	 */
 	protected void createChat(User user) {
-		Intent intent = new Intent(context, ChatActivity.class);
+		//Intent intent = new Intent(context, ChatActivity.class);
+		Intent intent =null;
+	
+	    intent = new Intent(context, BubleCtrlActivity.class);
+		
 		intent.putExtra("to", user.getJID());
 		startActivity(intent);
 	}

@@ -83,7 +83,7 @@ public class ContacterMainActivity extends AContacterActivity implements
 	private void init() {
 		try {
 			groupNames = ContacterManager.getGroupNames(XmppConnectionManager
-					.getInstance().getConnection().getRoster());
+					.getInstance().getConnection().getRoster());//获取组名
 			rGroups = ContacterManager.getGroups(XmppConnectionManager
 					.getInstance().getConnection().getRoster());
 		} catch (Exception e) {
@@ -108,6 +108,7 @@ public class ContacterMainActivity extends AContacterActivity implements
 		layout.addView(contacterTab1);
 		layout.addView(contacterTab2);
 		layout.addView(contacterTab3);
+		 
 		layout.setToScreen(1);
 
 		contacterList = (ExpandableListView) findViewById(R.id.main_expand_list);

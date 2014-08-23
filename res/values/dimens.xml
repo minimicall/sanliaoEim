@@ -7,5 +7,12 @@
     <dimen name="bottom_tab_padding_drawable">2.0dip</dimen>
     <dimen name="switch_logo_bottom_padding">30.0sp</dimen>
     
+      <dimen name="corner_radius">8dp</dimen> 
+    <dimen name="corner_radius_zero">0dp</dimen> 
+    <dimen name="tab_space_top">4dp</dimen>
+    <dimen name="tab_space">0dp</dimen>
+    <dimen name="tab_space_plus1">3dp</dimen>
+    <dimen name="tab_space_bottom_line">36sp</dimen>
+    <dimen name="tab_space_unselected_top">6sp</dimen> 
 
 </resources>

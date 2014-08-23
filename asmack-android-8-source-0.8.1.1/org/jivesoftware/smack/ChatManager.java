@@ -27,6 +27,7 @@ import java.util.Set;
 import java.util.WeakHashMap;
 import java.util.concurrent.CopyOnWriteArraySet;
 
+import org.apache.log4j.Logger;
 import org.jivesoftware.smack.filter.AndFilter;
 import org.jivesoftware.smack.filter.FromContainsFilter;
 import org.jivesoftware.smack.filter.PacketFilter;
@@ -47,7 +48,7 @@ import java.util.concurrent.CopyOnWriteArraySet;
  * @author Alexander Wenckus
  */
 public class ChatManager {
-
+	private final static Logger logger = Logger.getLogger(ChatManager.class);
     /**
      * Returns the next unique id. Each id made up of a short alphanumeric
      * prefix along with a unique numeric value.
@@ -55,6 +56,7 @@ public class ChatManager {
      * @return the next id.
      */
     private static synchronized String nextID() {
+    	 
         return prefix + Long.toString(id++);
     }
 
@@ -145,7 +147,7 @@ public class ChatManager {
         do  {
             threadID = nextID();
         } while (threadChats.get(threadID) != null);
-
+        
         return createChat(userJID, threadID, listener);
     }
 
@@ -171,6 +173,7 @@ public class ChatManager {
     }
 
     private Chat createChat(String userJID, String threadID, boolean createdLocally) {
+    	logger.debug("userJid:"+userJID+",threadId:"+threadID+",createdLocallly:"+createdLocally);
         Chat chat = new Chat(this, userJID, threadID);
         threadChats.put(threadID, chat);
         jidChats.put(userJID, chat);

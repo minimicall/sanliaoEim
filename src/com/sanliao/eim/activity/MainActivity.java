@@ -286,6 +286,10 @@ public class MainActivity extends ActivitySupport {
 					intent.setClass(context,  NoteBook.class);
 					startActivity(intent);
 					break;
+				case 8:
+					intent.setClass(context, com.sanliao.smarthome.SMMainActivity.class);
+					startActivity(intent);
+					break;
 				default:			
 					break;
 				}

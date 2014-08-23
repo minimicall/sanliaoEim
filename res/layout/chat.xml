@@ -71,9 +71,10 @@
         <Button
             android:id="@+id/chat_sendbtn"
             android:layout_marginLeft="5dip"
-            android:background="@drawable/main_page_item_bg"
+            android:background="@drawable/button"
             android:layout_width="wrap_content"
             android:layout_height="45dip"
             android:text=" 发送 " />
+        <!-- android:background="@drawable/main_page_item_bg" -->
     </LinearLayout>
 </LinearLayout>

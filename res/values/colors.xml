@@ -31,4 +31,7 @@
 	<item type="color" name="chat_title_bg">@color/title_bg</item>
 	   <color name="chat_history_time_text">#ff999999</color>
 	       <color name="chat_history_msg_text">#ff545454</color>
+	       <color name="tabMedium">#2B2B2B</color>
+	<color name="tabDark">#000000</color>
+	<color name="tabTransparent">#10ffffff</color>
 </resources>

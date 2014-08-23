@@ -71,7 +71,7 @@ public class ChatActivity extends AChatActivity {
 			to_name = user.getName() == null ? user.getJID() : user.getName();
 
 		}
-		tvChatTitle.setText(to_name);
+		tvChatTitle.setText(to_name);//将用户名设置到title
 
 		userInfo = (ImageButton) findViewById(R.id.user_info);
 		userInfo.setOnClickListener(new OnClickListener() {
